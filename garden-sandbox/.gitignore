@@ -1,0 +1,4 @@
+*.hdr
+index.html
+*.jpg
+__pycache__/
