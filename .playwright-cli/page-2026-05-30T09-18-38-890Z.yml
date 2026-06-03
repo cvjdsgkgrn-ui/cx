@@ -1,0 +1,88 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - link [ref=e6] [cursor=pointer]:
+      - /url: //www.douyin.com/jingxuan
+    - generic [ref=e12]:
+      - generic [ref=e14]:
+        - link "精选" [ref=e18] [cursor=pointer]:
+          - /url: https://www.douyin.com/jingxuan?from_nav=1
+          - generic [ref=e21]: 精选
+        - link "推荐" [ref=e25] [cursor=pointer]:
+          - /url: https://www.douyin.com/?recommend=1&from_nav=1
+          - generic [ref=e28]: 推荐
+        - link "搜索" [ref=e32] [cursor=pointer]:
+          - /url: https://www.douyin.com/aisearch?from_nav=1
+          - generic [ref=e35]: 搜索
+        - link "关注" [ref=e39] [cursor=pointer]:
+          - /url: https://www.douyin.com/follow?from_nav=1
+          - generic [ref=e42]: 关注
+        - link "朋友" [ref=e46] [cursor=pointer]:
+          - /url: https://www.douyin.com/friend?from_nav=1
+          - generic [ref=e49]: 朋友
+        - link "我的" [ref=e53] [cursor=pointer]:
+          - /url: https://www.douyin.com/user/self?from_nav=1
+          - generic [ref=e56]: 我的
+        - link "直播" [ref=e61] [cursor=pointer]:
+          - /url: https://live.douyin.com/?from_nav=1
+          - generic [ref=e64]: 直播
+        - link "放映厅" [ref=e68] [cursor=pointer]:
+          - /url: https://www.douyin.com/vs?from_nav=1
+          - generic [ref=e71]: 放映厅
+        - link "短剧" [ref=e75] [cursor=pointer]:
+          - /url: https://www.douyin.com/series?from_nav=1
+          - generic [ref=e78]: 短剧
+        - link "小游戏" [ref=e82] [cursor=pointer]:
+          - /url: https://www.douyin.com/microgame?from_nav=1
+          - generic [ref=e85]: 小游戏
+      - generic [ref=e87]:
+        - img [ref=e90] [cursor=pointer]
+        - img [ref=e94] [cursor=pointer]
+        - img [ref=e98] [cursor=pointer]
+  - generic [ref=e100]:
+    - banner [ref=e104]:
+      - generic [ref=e106]:
+        - generic [ref=e110]:
+          - textbox "搜索你感兴趣的内容" [ref=e112]
+          - button "搜索" [ref=e114] [cursor=pointer]:
+            - img [ref=e115]
+            - generic [ref=e117]: 搜索
+        - generic [ref=e121]:
+          - generic [ref=e123] [cursor=pointer]:
+            - img [ref=e125]:
+              - img [ref=e126]
+            - paragraph [ref=e128]: 充值
+          - link "客户端" [ref=e133] [cursor=pointer]:
+            - /url: ""
+            - generic [ref=e135]:
+              - img [ref=e137]:
+                - img [ref=e138]
+              - paragraph [ref=e141]: 客户端
+          - generic [ref=e143] [cursor=pointer]:
+            - img [ref=e145]:
+              - img [ref=e146]
+            - paragraph [ref=e148]: 壁纸
+          - list [ref=e149]:
+            - generic [ref=e153] [cursor=pointer]:
+              - img [ref=e155]:
+                - img [ref=e156]
+              - paragraph [ref=e159]: 通知
+          - generic [ref=e163] [cursor=pointer]:
+            - img [ref=e165]:
+              - img [ref=e166]
+            - paragraph [ref=e168]: 投稿
+          - button "登录" [ref=e172] [cursor=pointer]:
+            - paragraph [ref=e174]: 登录
+    - generic [ref=e181]:
+      - generic [ref=e182] [cursor=pointer]: 综合
+      - generic [ref=e183] [cursor=pointer]: 视频
+      - generic [ref=e184] [cursor=pointer]: 用户
+      - generic [ref=e185] [cursor=pointer]: 直播
+      - generic [ref=e186] [cursor=pointer]:
+        - img [ref=e187]
+        - generic [ref=e193]: 多列
+      - generic [ref=e194] [cursor=pointer]:
+        - img [ref=e195]
+        - generic [ref=e198]: 单列
+      - generic [ref=e200] [cursor=pointer]:
+        - text: 筛选
+        - img [ref=e201]

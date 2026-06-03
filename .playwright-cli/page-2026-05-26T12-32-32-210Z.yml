@@ -1,0 +1,120 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic:
+      - generic [ref=e6]:
+        - link "新闻" [ref=e7] [cursor=pointer]:
+          - /url: http://news.baidu.com
+        - link "hao123" [ref=e8] [cursor=pointer]:
+          - /url: https://www.hao123.com?src=from_pc
+        - link "地图" [ref=e9] [cursor=pointer]:
+          - /url: http://map.baidu.com
+        - link "贴吧" [ref=e10] [cursor=pointer]:
+          - /url: http://tieba.baidu.com/
+        - link "视频" [ref=e11] [cursor=pointer]:
+          - /url: https://haokan.baidu.com/?sfrom=baidu-top
+        - link "图片" [ref=e12] [cursor=pointer]:
+          - /url: http://image.baidu.com/
+        - link "网盘" [ref=e13] [cursor=pointer]:
+          - /url: https://pan.baidu.com?from=1026962h
+        - link "文库" [ref=e14] [cursor=pointer]:
+          - /url: https://wenku.baidu.com/?fr=bdpcindex
+        - link "文心" [ref=e15] [cursor=pointer]:
+          - /url: https://chat.baidu.com/search?isShowHello=1&pd=csaitab&setype=csaitab&extParamsJson=%7B%22enter_type%22%3A%22home_tab%22%7D
+        - link "搭子DuMate" [ref=e16] [cursor=pointer]:
+          - /url: https://dumate.cn?track=bdsy
+        - link "更多" [ref=e18] [cursor=pointer]:
+          - /url: http://www.baidu.com/more/
+      - generic [ref=e19]:
+        - generic [ref=e20] [cursor=pointer]: 设置
+        - link "登录" [ref=e21] [cursor=pointer]:
+          - /url: https://passport.baidu.com/v2/?login&tpl=mn&u=http%3A%2F%2Fwww.baidu.com%2F&sms=5
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - img [ref=e26]
+        - generic:
+          - link "点击一下，了解更多":
+            - /url: //www.baidu.com/s?wd=%E7%99%BE%E5%BA%A6%E7%83%AD%E6%90%9C&sa=ire_dl_gh_logo_texing&rsv_dl=igh_logo_pcs
+      - generic [ref=e31]:
+        - generic [ref=e34]:
+          - textbox "庾澄庆点赞吐槽《歌手》言论" [active] [ref=e36]
+          - generic [ref=e38]:
+            - generic [ref=e39]:
+              - img [ref=e47] [cursor=pointer]
+              - generic [ref=e50]:
+                - img [ref=e54] [cursor=pointer]
+                - img [ref=e59] [cursor=pointer]
+            - button "百度一下" [ref=e63] [cursor=pointer]
+        - link "复杂问题就找文心助手，深入思考回答更优 " [ref=e67] [cursor=pointer]:
+          - /url: https://chat.baidu.com/search?extParams=%7B%22enter_type%22%3A%22home_operate%22%7D&isShowHello=1
+          - img [ref=e68]
+          - generic [ref=e69]:
+            - generic [ref=e70]: 复杂问题就找文心助手，深入思考回答更优
+            - generic [ref=e71]: 
+      - generic [ref=e74]:
+        - generic [ref=e75]:
+          - link "百度热搜":
+            - /url: https://top.baidu.com/board?platform=pc&sa=pcindex_entry
+            - generic "百度热搜" [ref=e76] [cursor=pointer]: 
+          - generic [ref=e77] [cursor=pointer]:
+            - generic [ref=e78]: 
+            - text: 换一换
+        - list:
+          - listitem [ref=e79]:
+            - link " 中塞铁杆友谊独树一帜" [ref=e80] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E4%B8%AD%E5%A1%9E%E9%93%81%E6%9D%86%E5%8F%8B%E8%B0%8A%E7%8B%AC%E6%A0%91%E4%B8%80%E5%B8%9C&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e81]: 
+              - text: 中塞铁杆友谊独树一帜
+          - listitem [ref=e83]:
+            - link "5 杭州湿度90% “出门感觉被牛舔了”" [ref=e84] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E6%9D%AD%E5%B7%9E%E6%B9%BF%E5%BA%A690%25+%E2%80%9C%E5%87%BA%E9%97%A8%E6%84%9F%E8%A7%89%E8%A2%AB%E7%89%9B%E8%88%94%E4%BA%86%E2%80%9D&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e85]: "5"
+              - text: 杭州湿度90% “出门感觉被牛舔了”
+            - generic [ref=e86]: 新
+          - listitem [ref=e87]:
+            - link "1 新能源车增肥突出 马路都快撑不住了" [ref=e88] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E6%96%B0%E8%83%BD%E6%BA%90%E8%BD%A6%E5%A2%9E%E8%82%A5%E7%AA%81%E5%87%BA+%E9%A9%AC%E8%B7%AF%E9%83%BD%E5%BF%AB%E6%92%91%E4%B8%8D%E4%BD%8F%E4%BA%86&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e89]: "1"
+              - text: 新能源车增肥突出 马路都快撑不住了
+            - generic [ref=e90]: 热
+          - listitem [ref=e91]:
+            - link "6 5起打击整治网络谣言典型案例公布" [ref=e92] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=5%E8%B5%B7%E6%89%93%E5%87%BB%E6%95%B4%E6%B2%BB%E7%BD%91%E7%BB%9C%E8%B0%A3%E8%A8%80%E5%85%B8%E5%9E%8B%E6%A1%88%E4%BE%8B%E5%85%AC%E5%B8%83&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e93]: "6"
+              - text: 5起打击整治网络谣言典型案例公布
+          - listitem [ref=e95]:
+            - link "2 想不想买小米汽车？武契奇：买不起" [ref=e96] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E6%83%B3%E4%B8%8D%E6%83%B3%E4%B9%B0%E5%B0%8F%E7%B1%B3%E6%B1%BD%E8%BD%A6%EF%BC%9F%E6%AD%A6%E5%A5%91%E5%A5%87%EF%BC%9A%E4%B9%B0%E4%B8%8D%E8%B5%B7&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e97]: "2"
+              - text: 想不想买小米汽车？武契奇：买不起
+            - generic [ref=e98]: 热
+          - listitem [ref=e99]:
+            - link "7 二手迈巴赫3年跌80万 车行老板发愁" [ref=e100] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E4%BA%8C%E6%89%8B%E8%BF%88%E5%B7%B4%E8%B5%AB3%E5%B9%B4%E8%B7%8C80%E4%B8%87+%E8%BD%A6%E8%A1%8C%E8%80%81%E6%9D%BF%E5%8F%91%E6%84%81&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e101]: "7"
+              - text: 二手迈巴赫3年跌80万 车行老板发愁
+          - listitem [ref=e103]:
+            - link "3 从三“新”看长三角出口成绩单" [ref=e104] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E4%BB%8E%E4%B8%89%E2%80%9C%E6%96%B0%E2%80%9D%E7%9C%8B%E9%95%BF%E4%B8%89%E8%A7%92%E5%87%BA%E5%8F%A3%E6%88%90%E7%BB%A9%E5%8D%95&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e105]: "3"
+              - text: 从三“新”看长三角出口成绩单
+          - listitem [ref=e107]:
+            - link "8 全网牵挂的“谢会计”已不幸遇难" [ref=e108] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=%E5%85%A8%E7%BD%91%E7%89%B5%E6%8C%82%E7%9A%84%E2%80%9C%E8%B0%A2%E4%BC%9A%E8%AE%A1%E2%80%9D%E5%B7%B2%E4%B8%8D%E5%B9%B8%E9%81%87%E9%9A%BE&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e109]: "8"
+              - text: 全网牵挂的“谢会计”已不幸遇难
+          - listitem [ref=e111]:
+            - link "4 9岁姐姐带7岁弟弟暴雨抢盖1万斤大蒜" [ref=e112] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=9%E5%B2%81%E5%A7%90%E5%A7%90%E5%B8%A67%E5%B2%81%E5%BC%9F%E5%BC%9F%E6%9A%B4%E9%9B%A8%E6%8A%A2%E7%9B%961%E4%B8%87%E6%96%A4%E5%A4%A7%E8%92%9C&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e113]: "4"
+              - text: 9岁姐姐带7岁弟弟暴雨抢盖1万斤大蒜
+          - listitem [ref=e115]:
+            - link "9 2亿国人的甲状腺在闹脾气" [ref=e116] [cursor=pointer]:
+              - /url: https://www.baidu.com/s?wd=2%E4%BA%BF%E5%9B%BD%E4%BA%BA%E7%9A%84%E7%94%B2%E7%8A%B6%E8%85%BA%E5%9C%A8%E9%97%B9%E8%84%BE%E6%B0%94&sa=fyb_n_homepage&rsv_dl=fyb_n_homepage&from=super&cl=3&tn=baidutop10&fr=top1000&rsv_idx=2&hisfilter=1
+              - generic [ref=e117]: "9"
+              - text: 2亿国人的甲状腺在闹脾气
+  - generic [ref=e119]:
+    - generic:
+      - generic:
+        - generic:
+          - img
+    - img [ref=e124] [cursor=pointer]

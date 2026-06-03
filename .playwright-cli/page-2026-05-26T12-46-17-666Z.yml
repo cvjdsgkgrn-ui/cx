@@ -1,0 +1,452 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - list [ref=e6]:
+        - listitem [ref=e7]:
+          - link "首页" [ref=e8] [cursor=pointer]:
+            - /url: //www.bilibili.com
+            - img [ref=e9]
+            - generic [ref=e11]: 首页
+        - listitem [ref=e12]:
+          - link "番剧" [ref=e13] [cursor=pointer]:
+            - /url: //www.bilibili.com/anime/
+        - listitem [ref=e14]:
+          - link "直播" [ref=e15] [cursor=pointer]:
+            - /url: //live.bilibili.com
+        - listitem [ref=e16]:
+          - link "游戏中心" [ref=e17] [cursor=pointer]:
+            - /url: //game.bilibili.com/platform
+        - listitem [ref=e18]:
+          - link "会员购" [ref=e19] [cursor=pointer]:
+            - /url: //show.bilibili.com/platform/home.html?msource=pc_web
+        - listitem [ref=e20]:
+          - link "漫画" [ref=e21] [cursor=pointer]:
+            - /url: //manga.bilibili.com?from=bill_top_mnav
+        - listitem [ref=e22]:
+          - link "赛事" [ref=e23] [cursor=pointer]:
+            - /url: //www.bilibili.com/match/home/
+        - listitem [ref=e24]:
+          - link "下载客户端" [ref=e25] [cursor=pointer]:
+            - /url: //app.bilibili.com
+            - img [ref=e26]
+            - generic [ref=e29]: 下载客户端
+      - generic [ref=e33]:
+        - textbox "IGN中国" [ref=e35]
+        - img [ref=e37] [cursor=pointer]
+      - list [ref=e39]:
+        - listitem [ref=e40] [cursor=pointer]:
+          - listitem [ref=e41]:
+            - generic [ref=e43]: 登录
+        - listitem [ref=e44] [cursor=pointer]:
+          - listitem [ref=e46]:
+            - link [ref=e47]:
+              - /url: //account.bilibili.com/big
+              - img [ref=e48]
+        - listitem [ref=e52] [cursor=pointer]:
+          - img [ref=e54]
+        - listitem [ref=e57] [cursor=pointer]:
+          - img [ref=e59]
+        - listitem [ref=e65] [cursor=pointer]:
+          - img [ref=e67]
+        - listitem [ref=e70] [cursor=pointer]:
+          - img [ref=e72]
+        - listitem [ref=e74] [cursor=pointer]:
+          - img [ref=e76]
+        - listitem [ref=e80] [cursor=pointer]:
+          - listitem [ref=e81]:
+            - img [ref=e84]
+    - generic [ref=e87]:
+      - generic [ref=e90]:
+        - link "B站 b站" [ref=e91] [cursor=pointer]:
+          - /url: //www.bilibili.com
+          - img "B站 b站" [ref=e92]
+        - link "前往庆典" [ref=e93] [cursor=pointer]:
+          - /url: //b23.tv/CEIXkmY
+      - link [ref=e94] [cursor=pointer]:
+        - /url: //b23.tv/CEIXkmY
+    - generic [ref=e95]:
+      - generic [ref=e96]:
+        - link "动态" [ref=e97] [cursor=pointer]:
+          - /url: //t.bilibili.com
+          - img [ref=e99]
+          - generic [ref=e104]: 动态
+        - link "热门" [ref=e105] [cursor=pointer]:
+          - /url: //www.bilibili.com/v/popular/all
+          - img [ref=e107]
+          - generic [ref=e109]: 热门
+      - generic [ref=e110]:
+        - generic [ref=e111]:
+          - link "番剧" [ref=e112] [cursor=pointer]:
+            - /url: //www.bilibili.com/anime/
+          - link "电影" [ref=e113] [cursor=pointer]:
+            - /url: //www.bilibili.com/movie/
+          - link "国创" [ref=e114] [cursor=pointer]:
+            - /url: //www.bilibili.com/guochuang/
+          - link "电视剧" [ref=e115] [cursor=pointer]:
+            - /url: //www.bilibili.com/tv/
+          - link "综艺" [ref=e116] [cursor=pointer]:
+            - /url: //www.bilibili.com/variety/
+          - link "纪录片" [ref=e117] [cursor=pointer]:
+            - /url: //www.bilibili.com/documentary/
+          - link "动画" [ref=e118] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/douga/
+          - link "游戏" [ref=e119] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/game/
+          - link "鬼畜" [ref=e120] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/kichiku/
+          - link "音乐" [ref=e121] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/music/
+          - link "舞蹈" [ref=e122] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/dance/
+          - link "影视" [ref=e123] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/cinephile/
+          - link "娱乐" [ref=e124] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/ent/
+          - link "知识" [ref=e125] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/knowledge/
+          - link "科技数码" [ref=e126] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/tech/
+          - link "资讯" [ref=e127] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/information/
+          - link "美食" [ref=e128] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/food/
+          - generic [ref=e129]:
+            - text: 更多
+            - img [ref=e130]
+        - generic [ref=e133]:
+          - link "专栏" [ref=e134] [cursor=pointer]:
+            - /url: //www.bilibili.com/read/home/
+            - generic [ref=e135]: 专栏
+          - link "直播" [ref=e136] [cursor=pointer]:
+            - /url: //live.bilibili.com
+            - generic [ref=e137]: 直播
+          - link "活动" [ref=e138] [cursor=pointer]:
+            - /url: //www.bilibili.com/blackboard/era/reward-activity-list-page.html#/list
+            - generic [ref=e139]: 活动
+          - link "课堂" [ref=e140] [cursor=pointer]:
+            - /url: //www.bilibili.com/cheese/?csource=common_hp_channelclass_icon
+            - generic [ref=e141]: 课堂
+          - link "社区中心" [ref=e142] [cursor=pointer]:
+            - /url: //www.bilibili.com/blackboard/activity-5zJxM3spoS.html
+            - generic [ref=e143]: 社区中心
+          - link "新歌热榜" [ref=e144] [cursor=pointer]:
+            - /url: //music.bilibili.com/pc/music-center/
+            - generic [ref=e145]: 新歌热榜
+  - main [ref=e146]:
+    - generic [ref=e148]:
+      - generic [ref=e149]:
+        - generic [ref=e156]:
+          - generic [ref=e157]:
+            - link "魅惑爵士上线，经典英式幽默来袭！" [ref=e161] [cursor=pointer]:
+              - /url: https://www.bilibili.com/bangumi/play/ep3910586
+              - img "魅惑爵士上线，经典英式幽默来袭！" [ref=e163]
+            - link "5月30日现场直播，实力开唱！" [ref=e167] [cursor=pointer]:
+              - /url: https://www.bilibili.com/blackboard/era/cMcm2qk5PQGGXGlH.html
+              - img "5月30日现场直播，实力开唱！" [ref=e169]
+            - link "最多可得1W+星石及170连招募" [ref=e173] [cursor=pointer]:
+              - /url: //cm.bilibili.com/cm/api/fees/pc/sync/v2?msg=a%7C4696%2Cb%7Cbilibili%2Cc%7C1%2Cd%7C1%2Ce%7CCAAQABiA4KWB0NPHjxAgACgAMCQ42CRCIDE3Nzk3OTk1NzAwNzNxMTBhODVhMTgyYTEwMXEyNzM4SJjtyKLmM1IG6IuP5beeWgbmsZ%2Foi49iBuS4reWbvWhkcAF4gICAgMAhgAEAiAGrjAWSARoyMDAxOmRhODoxMDBhOjYwMDA6Ojc6NDMxNZoBAKABALIBIGO6B5SgiNN2Zt3ZtbadP3EyyzH4KK4FSOznJAJ7u83cugH%2FBWh0dHBzOi8vZ2FtZS1kYXRhLWFwaS5iaWxpZ2FtZS5jb20vdjIvYXBpL2NsaWNrL3BjX2JpbGk%2FYWNjb3VudF9pZD0zNiZjYW1wYWlnbl9pZD1fX0NBTVBBSUdOSURfXyZ1bml0X2lkPV9fVU5JVElEX18mY3JlYXRpdmVfaWQ9MTE2MTY4MDg4ODU0NjI5MTcxMiZzdXBwbHlfY2FsbGJhY2s9cGJhZXMuOEZ6S3M5OFpvSmxOVzZfZUM2WDlFRGRqV0pycklaQzUtRlFsS3JTZkRMSHBMMTgtQ291dF91cWNiWEVkVU91MTlUQWZOQW1fdjFPcmcwWXlBWFplRnclM0QlM0QmY2FsbGJhY2tfdXJsPWh0dHBzJTNhJTJmJTJmY20uYmlsaWJpbGkuY29tJTJmY29udiUyZmFwaSUyZmNvbnZlcnNpb24lMmZhZCUyZmNiJTJmdjElM2Z0cmFja19pZCUzZHBiYWVzLjhGektzOThab0psTlc2X2VDNlg5RURkaldKcnJJWkM1LUZRbEtyU2ZETEhwTDE4LUNvdXRfdXFjYlhFZFVPdTE5VEFmTkFtX3YxT3JnMFl5QVhaZUZ3JTNEJTNEJm1pZD0wJmlwPTIwMDE6ZGE4OjEwMGE6NjAwMDo6Nzo0MzE1JnJlcXVlc3RfaWQ9MTc3OTc5OTU3MDA3M3ExMGE4NWExODJhMTAxcTI3MzgmdHM9X19UU19fJnVhPU1vemlsbGElMkY1LjArJTI4V2luZG93cytOVCsxMC4wJTNCK1dpbjY0JTNCK3g2NCUyOStBcHBsZVdlYktpdCUyRjUzNy4zNislMjhLSFRNTCUyQytsaWtlK0dlY2tvJTI5K0Nocm9tZSUyRjE0OC4wLjAuMCtTYWZhcmklMkY1MzcuMzYrRWRnJTJGMTQ4LjAuMC4wJmFkX2NoYW5uZWxfaWQ9MyZhZF9mPTg1MjI3NDY4ODBmNzRlYTU5ZDY3YTVlMWVhMmQ2NzZhJmdhbWVfaWQ9MzMwwgEA0gEA2AGMAuABAOgBAPABAIACAogCALgCAMACANACANgCAOoCAPAC2eoq%2BAIAiAMAkgMAqAMAsAMAuAMAwgMAyAOfjQbSA5sBeyIxIjoiMTE2MTY4MDg4ODU0NjI5MTcxMiIsIjIiOiIzNiIsIjMiOiIzNiIsIjYiOiIzNl8wIiwiMTIiOiI0Njk2IiwiMTMiOiI3IiwiMTQiOiIwIiwiMTUiOiIwIiwiMTYiOiI3XzAiLCIxNyI6IjQ2OTQiLCIxOSI6IjgzNDk5IiwiMjUiOiIxMjkwIiwiMjYiOiIxMjkxIn3gAwDoAwDwAwD6AwVvdGhlcoIECW51bGw6bnVsbJgEAKAEAKoEBAgAEASwBADiBIkCNTYueyJwc0lkIjoxMjgyMTIsInYyIjoiS0poY2kySHc2VDhXZmJlT09PVEI1ZWkxQUw4dUlfSVZGOGd1N09CVElkbzhjSDZuLWs1ZThmNVc1VEJGZU4wTklkSXFEUnI1UkU0cjg5aXhUaWNGaVhHb1FWWFhVdDkwUGdYMzlGQVdBUnFEOFA4SVRUUkp2MjZLeHFzbjlpUTN5YXV1WTBObTZIakdsWVBPLWZmRlZzX2ZHS3VBb3pOX01iTl9lMGlGUmpyN0RIX0p6OEl1In07NjMueyJwc0lkIjoxMjgxODMsInYyIjoiQ2lRIn07NzAueyJwc0lkIjoxMTQ3ODAsInYyIjoiQUEiffoEAnt9kAWABJAFgAaQBYEGkAWBCJAFggaQBQSQBYUCkAWOApAFjwaQBZgCkAUZkAWaApAFnQKQBZ8CkAUmkAWmBpAFqwSQBa8EkAWwBJAFsQSQBbIEkAUzkAWzApAFtASQBbcCkAW3CJAFuASQBboGkAU7kAVDkAXDApAFSJAFyAiQBcwCkAXOApAFU5AF0wKQBdYCkAXXApAF2AKQBdoCkAXcApAF3wKQBWKQBeUEkAXtBJAF8AKQBfsCkAX%2FApAFhAGQBYYBkAWGA5AFiAGQBYkBkAWNA5AFkgOQBZMHkAWUA5AFmAOQBZgRkAWbA5AFnAOQBaEHkAWiA5AFpAOQBacDkAWsAZAFsAOQBbEBkAWxA5AFswGQBbQBkAXAA5AFwQOQBcYFkAXIAZAFzQOQBdABkAXQA5AF0wOQBdcDkAXYAZAF3wWQBeUDkAXoAZAF6AOQBeoDkAXrA5AF8QGQBfIDkAX1A5AF9wOQBfgDkAX6A5AF%2BwOQBf8DoAUAyAUG0gUA4AUD%2Cf%7Cclick_sync_3%2Cg%7C1%2Ch%7C2%2Ci%7C%2Cj%7C%2Ck%7C1779799577348%2Cl%7C4694%2Cm%7C1779799577235%2Cn%7C1%2Co%7C0%2Cp%7Cad_card&ts=1779799577348
+              - img "最多可得1W+星石及170连招募" [ref=e175]
+            - link "牛逼！我认为《007初露锋芒》是今年目前最好的3A游戏！" [ref=e179] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1XoVc6FEBF?track_id=
+              - img "牛逼！我认为《007初露锋芒》是今年目前最好的3A游戏！" [ref=e181]
+            - link "“胡霍CP”经典封面 原来是这么来的" [ref=e185] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1e5Li6YEV8?track_id=
+              - img "“胡霍CP”经典封面 原来是这么来的" [ref=e187]
+            - link "看不见、听不到、摸不着！这么离谱的解密盒都能解开？！" [ref=e191] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1r6GL65E31?track_id=
+              - img "看不见、听不到、摸不着！这么离谱的解密盒都能解开？！" [ref=e193]
+            - link "嘀嘀，飞过来了一个医生来救你" [ref=e197] [cursor=pointer]:
+              - /url: https://www.bilibili.com/bangumi/play/ep3972721
+              - img "嘀嘀，飞过来了一个医生来救你" [ref=e199]
+            - link "阿祖下线打卡，再来回魂一波！" [ref=e203] [cursor=pointer]:
+              - /url: https://www.bilibili.com/bangumi/play/ep3457304
+              - img "阿祖下线打卡，再来回魂一波！" [ref=e205]
+            - link "校园巨星计划 重磅来袭！" [ref=e209] [cursor=pointer]:
+              - /url: https://www.bilibili.com/blackboard/era/egg0ZRVXnaJQIiV1.html
+              - img "校园巨星计划 重磅来袭！" [ref=e211]
+            - link "魅惑爵士上线，经典英式幽默来袭！" [ref=e215] [cursor=pointer]:
+              - /url: https://www.bilibili.com/bangumi/play/ep3910586
+              - img "魅惑爵士上线，经典英式幽默来袭！" [ref=e217]
+            - link "5月30日现场直播，实力开唱！" [ref=e221] [cursor=pointer]:
+              - /url: https://www.bilibili.com/blackboard/era/cMcm2qk5PQGGXGlH.html
+              - img "5月30日现场直播，实力开唱！" [ref=e223]
+          - generic:
+            - link "5月30日现场直播，实力开唱！" [ref=e226] [cursor=pointer]:
+              - /url: https://www.bilibili.com/blackboard/era/cMcm2qk5PQGGXGlH.html
+              - generic [ref=e227]: 5月30日现场直播，实力开唱！
+            - list [ref=e229]:
+              - listitem [ref=e230] [cursor=pointer]
+              - listitem [ref=e233] [cursor=pointer]
+              - listitem [ref=e236] [cursor=pointer]
+              - listitem [ref=e239] [cursor=pointer]
+              - listitem [ref=e242] [cursor=pointer]
+              - listitem [ref=e245] [cursor=pointer]
+              - listitem [ref=e248] [cursor=pointer]
+              - listitem [ref=e251] [cursor=pointer]
+              - listitem [ref=e254] [cursor=pointer]
+          - generic [ref=e257]:
+            - button [ref=e258]:
+              - img [ref=e259]
+            - button [ref=e261]:
+              - img [ref=e262]
+        - generic [ref=e267]:
+          - link "挤了一手的小肥啾！ 25.2万 273 03:34" [ref=e268] [cursor=pointer]:
+            - /url: https://www.bilibili.com/video/BV1q2GB6BEzt
+            - generic [ref=e269]:
+              - img "挤了一手的小肥啾！" [ref=e272]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 25.2万
+                    - generic:
+                      - img
+                      - generic: "273"
+                  - generic: 03:34
+          - generic [ref=e274]:
+            - heading "挤了一手的小肥啾！" [level=3] [ref=e275]:
+              - link "挤了一手的小肥啾！" [ref=e276] [cursor=pointer]:
+                - /url: https://www.bilibili.com/video/BV1q2GB6BEzt
+            - link "蒙面鸟哥 · 05-23" [ref=e278] [cursor=pointer]:
+              - /url: //space.bilibili.com/422424246
+              - img [ref=e279]
+              - generic "蒙面鸟哥" [ref=e283]
+              - generic [ref=e284]: · 05-23
+        - generic [ref=e288]:
+          - link "在广东湛江小巷子里吃1块钱1个的烤生蚝，花两百多实现烤生蚝自由！美中不足不是碳烤#湛江美食#湛江生蚝#烤生蚝 59.3万 485 07:32" [ref=e289] [cursor=pointer]:
+            - /url: https://www.bilibili.com/video/BV1h3L863EEj
+            - generic [ref=e290]:
+              - img "在广东湛江小巷子里吃1块钱1个的烤生蚝，花两百多实现烤生蚝自由！美中不足不是碳烤#湛江美食#湛江生蚝#烤生蚝" [ref=e293]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 59.3万
+                    - generic:
+                      - img
+                      - generic: "485"
+                  - generic: 07:32
+          - generic [ref=e295]:
+            - heading "在广东湛江小巷子里吃1块钱1个的烤生蚝，花两百多实现烤生蚝自由！美中不足不是碳烤#湛江美食#湛江生蚝#烤生蚝" [level=3] [ref=e296]:
+              - link "在广东湛江小巷子里吃1块钱1个的烤生蚝，花两百多实现烤生蚝自由！美中不足不是碳烤#湛江美食#湛江生蚝#烤生蚝" [ref=e297] [cursor=pointer]:
+                - /url: https://www.bilibili.com/video/BV1h3L863EEj
+            - link "达哥在上海 · 05-21" [ref=e299] [cursor=pointer]:
+              - /url: //space.bilibili.com/504799975
+              - img [ref=e300]
+              - generic "达哥在上海" [ref=e304]
+              - generic [ref=e305]: · 05-21
+        - generic [ref=e309]:
+          - link "【人森】岛上一直怀疑其是灵异照片的惊疑之声 3.2万 49 01:49" [ref=e310] [cursor=pointer]:
+            - /url: https://www.bilibili.com/video/BV1ScVF6UE6e
+            - generic [ref=e311]:
+              - img "【人森】岛上一直怀疑其是灵异照片的惊疑之声" [ref=e314]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 3.2万
+                    - generic:
+                      - img
+                      - generic: "49"
+                  - generic: 01:49
+          - generic [ref=e316]:
+            - heading "【人森】岛上一直怀疑其是灵异照片的惊疑之声" [level=3] [ref=e317]:
+              - link "【人森】岛上一直怀疑其是灵异照片的惊疑之声" [ref=e318] [cursor=pointer]:
+                - /url: https://www.bilibili.com/video/BV1ScVF6UE6e
+            - link "阿挠挠 · 11小时前" [ref=e320] [cursor=pointer]:
+              - /url: //space.bilibili.com/14500193
+              - img [ref=e321]
+              - generic "阿挠挠" [ref=e325]
+              - generic [ref=e326]: · 11小时前
+        - generic [ref=e330]:
+          - link "很多人说我长得像徐娇，于是我... 28.9万 468 05:54" [ref=e331] [cursor=pointer]:
+            - /url: https://www.bilibili.com/video/BV1KKGv6gEKJ
+            - generic [ref=e332]:
+              - img "很多人说我长得像徐娇，于是我..." [ref=e335]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 28.9万
+                    - generic:
+                      - img
+                      - generic: "468"
+                  - generic: 05:54
+          - generic [ref=e337]:
+            - heading "很多人说我长得像徐娇，于是我..." [level=3] [ref=e338]:
+              - link "很多人说我长得像徐娇，于是我..." [ref=e339] [cursor=pointer]:
+                - /url: https://www.bilibili.com/video/BV1KKGv6gEKJ
+            - link "-阿拉星- · 05-23" [ref=e341] [cursor=pointer]:
+              - /url: //space.bilibili.com/318495
+              - img [ref=e342]
+              - generic "-阿拉星-" [ref=e346]
+              - generic [ref=e347]: · 05-23
+        - generic [ref=e351]:
+          - link "爱丽丝翻唱—《穷鬼气球》 22.8万 145 00:40" [ref=e352] [cursor=pointer]:
+            - /url: https://www.bilibili.com/video/BV1dRGb63EB9
+            - generic [ref=e353]:
+              - img "爱丽丝翻唱—《穷鬼气球》" [ref=e356]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 22.8万
+                    - generic:
+                      - img
+                      - generic: "145"
+                  - generic: 00:40
+          - generic [ref=e358]:
+            - heading "爱丽丝翻唱—《穷鬼气球》" [level=3] [ref=e359]:
+              - link "爱丽丝翻唱—《穷鬼气球》" [ref=e360] [cursor=pointer]:
+                - /url: https://www.bilibili.com/video/BV1dRGb63EB9
+            - link "千年小爱同学 · 05-22" [ref=e362] [cursor=pointer]:
+              - /url: //space.bilibili.com/1547032467
+              - img [ref=e363]
+              - generic "千年小爱同学" [ref=e367]
+              - generic [ref=e368]: · 05-22
+        - generic [ref=e372]:
+          - link "666难道只能使用那一招了吗.... 152.6万 1036 01:03" [ref=e373] [cursor=pointer]:
+            - /url: https://www.bilibili.com/video/BV1zWGt6CExN
+            - generic [ref=e374]:
+              - img "666难道只能使用那一招了吗...." [ref=e377]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 152.6万
+                    - generic:
+                      - img
+                      - generic: "1036"
+                  - generic: 01:03
+          - generic [ref=e379]:
+            - heading "666难道只能使用那一招了吗...." [level=3] [ref=e380]:
+              - link "666难道只能使用那一招了吗...." [ref=e381] [cursor=pointer]:
+                - /url: https://www.bilibili.com/video/BV1zWGt6CExN
+            - link "B毒白鱼 · 05-22" [ref=e383] [cursor=pointer]:
+              - /url: //space.bilibili.com/696248316
+              - img [ref=e384]
+              - generic "B毒白鱼" [ref=e388]
+              - generic [ref=e389]: · 05-22
+        - generic [ref=e393]:
+          - link "【驼】演员自己没灵魂，脸再美，小作文再长，也没用。 [演员郑合惠子] 50.9万 1485 11:17" [ref=e394] [cursor=pointer]:
+            - /url: https://www.bilibili.com/video/BV1j5L46kEta
+            - generic [ref=e395]:
+              - img "【驼】演员自己没灵魂，脸再美，小作文再长，也没用。 [演员郑合惠子]" [ref=e398]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 50.9万
+                    - generic:
+                      - img
+                      - generic: "1485"
+                  - generic: 11:17
+          - generic [ref=e400]:
+            - heading "【驼】演员自己没灵魂，脸再美，小作文再长，也没用。 [演员郑合惠子]" [level=3] [ref=e401]:
+              - link "【驼】演员自己没灵魂，脸再美，小作文再长，也没用。 [演员郑合惠子]" [ref=e402] [cursor=pointer]:
+                - /url: https://www.bilibili.com/video/BV1j5L46kEta
+            - link "麦驼oat · 05-21" [ref=e404] [cursor=pointer]:
+              - /url: //space.bilibili.com/4036386
+              - img [ref=e405]
+              - generic "麦驼oat" [ref=e409]
+              - generic [ref=e410]: · 05-21
+        - generic [ref=e413]:
+          - link "赛事 56.2万 4193 04:29:53" [ref=e415] [cursor=pointer]:
+            - /url: //www.bilibili.com/video/BV1XnGJ6CEsr/
+            - generic [ref=e418]:
+              - img [ref=e419]
+              - generic [ref=e422]: 赛事
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                    - generic: 56.2万
+                  - generic:
+                    - img
+                    - generic: "4193"
+                - generic:
+                  - generic: 04:29:53
+          - generic [ref=e423]:
+            - paragraph [ref=e424]:
+              - link "【2026LPL第二赛段】5月24日 WBG vs LGD" [ref=e425] [cursor=pointer]:
+                - /url: //www.bilibili.com/video/BV1XnGJ6CEsr/
+            - paragraph [ref=e426]:
+              - link "哔哩哔哩英雄联盟赛事" [ref=e427] [cursor=pointer]:
+                - /url: //space.bilibili.com/50329118
+                - img [ref=e428]
+                - generic [ref=e432]: 哔哩哔哩英雄联盟赛事
+        - generic [ref=e435]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e436]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e437]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e448]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e449]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e450]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e460]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e461]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e462]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+      - button "换一换" [ref=e473] [cursor=pointer]:
+        - img [ref=e474]
+        - generic [ref=e478]: 换一换
+  - img [ref=e483] [cursor=pointer]

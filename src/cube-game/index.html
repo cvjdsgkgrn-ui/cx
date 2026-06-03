@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D 立体球体</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 100vw; height: 100vh;
+            display: flex; overflow: hidden;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        #left-panel {
+            width: 50%; height: 100%;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0d0d2b 100%);
+            position: relative; cursor: grab;
+        }
+        #left-panel:active { cursor: grabbing; }
+        #left-panel canvas { display: block; }
+        #right-panel {
+            width: 50%; height: 100%;
+            background: #111;
+            display: flex; align-items: center; justify-content: center;
+        }
+        #right-panel .placeholder {
+            color: #333; font-size: 1.4rem;
+            letter-spacing: 0.1em;
+        }
+        .hint {
+            position: absolute; bottom: 24px; left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem; pointer-events: none;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Right Panel --- */
+        #right-panel {
+            width: 50%; height: 100%;
+            background: #0d0d0d;
+            display: flex; flex-direction: column;
+        }
+        #right-top {
+            flex: 0 0 35%;
+            display: flex; gap: 12px;
+            padding: 20px; align-items: stretch;
+        }
+        .data-panel {
+            flex: 1;
+            background: linear-gradient(180deg, #1a1a2e 0%, #141428 100%);
+            border: 1px solid #2a2a4a;
+            border-radius: 12px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 4px;
+            transition: border-color 0.3s;
+        }
+        .data-panel:hover {
+            border-color: #e85050;
+        }
+        .data-label {
+            color: #666;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .data-value {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.02em;
+        }
+        .data-unit {
+            color: #555;
+            font-size: 0.7rem;
+        }
+        #right-bottom {
+            flex: 1;
+            margin: 0 20px 20px 20px;
+            background: #0a0a0a;
+            border: 1px solid #2a2a4a;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        #demo-video {
+            width: 100%; height: 100%;
+            object-fit: contain;
+            display: none;
+        }
+        #video-placeholder {
+            display: flex; flex-direction: column;
+            align-items: center; gap: 8px;
+            color: #333;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+        }
+        #video-placeholder .sub {
+            font-size: 0.75rem;
+            color: #222;
+        }
+    </style>
+</head>
+<body>
+    <div id="left-panel">
+        <span class="hint">🖱 拖拽旋转 &nbsp;|&nbsp; 滚轮缩放</span>
+    </div>
+    <div id="right-panel">
+        <div id="right-top">
+            <div class="data-panel">
+                <div class="data-label">速度</div>
+                <div class="data-value" id="val-speed">1.00</div>
+                <div class="data-unit">m/s</div>
+            </div>
+            <div class="data-panel">
+                <div class="data-label">角度</div>
+                <div class="data-value" id="val-angle">0°</div>
+                <div class="data-unit">deg</div>
+            </div>
+            <div class="data-panel">
+                <div class="data-label">距离</div>
+                <div class="data-value" id="val-distance">0.00</div>
+                <div class="data-unit">m</div>
+            </div>
+        </div>
+        <div id="right-bottom">
+            <video id="demo-video" src="" poster="" controls muted loop>
+                您的浏览器不支持视频播放
+            </video>
+            <div id="video-placeholder">
+                <span>🎬 视频播放区域</span>
+                <span class="sub">拖入视频文件或设置 src 播放</span>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module">
+    import * as THREE from "three";
+    import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+    const panel = document.getElementById("left-panel");
+    const w = panel.clientWidth;
+    const h = panel.clientHeight;
+
+    // --- Scene ---
+    const scene = new THREE.Scene();
+
+    // --- Camera ---
+    const camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 100);
+    camera.position.set(4, 2.5, 6);
+    camera.lookAt(0, 0, 0);
+
+    // --- Renderer ---
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(w, h);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.2;
+    panel.appendChild(renderer.domElement);
+
+    // --- Controls ---
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 1.5;
+    controls.minDistance = 3;
+    controls.maxDistance = 12;
+    controls.target.set(0, 0, 0);
+    controls.update();
+
+    // --- Lighting ---
+    // Ambient
+    const ambient = new THREE.AmbientLight("#4a4a8a", 1.5);
+    scene.add(ambient);
+
+    // Key light
+    const keyLight = new THREE.DirectionalLight("#ffffff", 4);
+    keyLight.position.set(5, 8, 5);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.set(1024, 1024);
+    keyLight.shadow.camera.near = 0.5;
+    keyLight.shadow.camera.far = 50;
+    keyLight.shadow.camera.left = -6;
+    keyLight.shadow.camera.right = 6;
+    keyLight.shadow.camera.top = 6;
+    keyLight.shadow.camera.bottom = -6;
+    keyLight.shadow.bias = -0.0001;
+    scene.add(keyLight);
+
+    // Rim / accent light
+    const rimLight = new THREE.DirectionalLight("#ff8866", 2);
+    rimLight.position.set(-3, 1, -3);
+    scene.add(rimLight);
+
+    // Fill light from below
+    const fillLight = new THREE.DirectionalLight("#6688ff", 1.5);
+    fillLight.position.set(0, -2, 2);
+    scene.add(fillLight);
+
+    // --- Sphere ---
+    const sphereRadius = 1.2;
+
+    // Material with subtle metallic sheen
+    const material = new THREE.MeshStandardMaterial({
+        color: "#e85050",
+        roughness: 0.25,
+        metalness: 0.15,
+    });
+
+    const sphere = new THREE.Mesh(new THREE.SphereGeometry(sphereRadius, 64, 64), material);
+    sphere.castShadow = true;
+    sphere.receiveShadow = true;
+    scene.add(sphere);
+
+    // --- Ground plane ---
+    const groundGeo = new THREE.PlaneGeometry(20, 20);
+    const groundMat = new THREE.MeshStandardMaterial({
+        color: "#1a1a3e",
+        roughness: 0.9,
+        metalness: 0,
+    });
+    const ground = new THREE.Mesh(groundGeo, groundMat);
+    ground.rotation.x = -Math.PI / 2;
+    ground.position.y = -3;
+    ground.receiveShadow = true;
+    scene.add(ground);
+
+    // --- Grid helper ---
+    const grid = new THREE.PolarGridHelper(8, 32, 24, 64, "#3a3a6a", "#2a2a4a");
+    grid.position.y = -2.99;
+    scene.add(grid);
+
+    // --- Particles (subtle floating dots) ---
+    const particlesCount = 200;
+    const particlesGeo = new THREE.BufferGeometry();
+    const posArr = new Float32Array(particlesCount * 3);
+    for (let i = 0; i < particlesCount; i++) {
+        posArr[i * 3] = (Math.random() - 0.5) * 10;
+        posArr[i * 3 + 1] = (Math.random() - 0.5) * 8;
+        posArr[i * 3 + 2] = (Math.random() - 0.5) * 8;
+    }
+    particlesGeo.setAttribute("position", new THREE.BufferAttribute(posArr, 3));
+    const particlesMat = new THREE.PointsMaterial({
+        color: "#8888cc",
+        size: 0.02,
+        transparent: true,
+        opacity: 0.5,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+    });
+    const particles = new THREE.Points(particlesGeo, particlesMat);
+    scene.add(particles);
+
+    // --- Resize handler ---
+    window.addEventListener("resize", () => {
+        const W = panel.clientWidth;
+        const H = panel.clientHeight;
+        camera.aspect = W / H;
+        camera.updateProjectionMatrix();
+        renderer.setSize(W, H);
+    });
+
+    // --- Animation loop ---
+    function animate() {
+        requestAnimationFrame(animate);
+
+        controls.update();
+
+        // Subtle particle drift
+        particles.rotation.y += 0.0002;
+        particles.rotation.x += 0.0001;
+
+        // Update data panels
+        const speed = (Math.abs(controls.autoRotateSpeed) + 0.5).toFixed(2);
+        const angle = Math.round((sphere.rotation.y * 180 / Math.PI) % 360);
+        const dist = camera.position.length().toFixed(2);
+        document.getElementById("val-speed").textContent = speed;
+        document.getElementById("val-angle").textContent = angle + "°";
+        document.getElementById("val-distance").textContent = dist;
+
+        renderer.render(scene, camera);
+    }
+    animate();
+    </script>
+</body>
+</html>

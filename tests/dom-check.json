@@ -1,0 +1,1 @@
+"{\n  \"video\": {\n    \"parentClass\": \"bpx-player-video-wrap\",\n    \"gpClass\": \"bpx-player-video-perch\"\n  },\n  \"videoArea\": false,\n  \"playerWrap\": true,\n  \"mirrorWrap\": false,\n  \"bpxContainer\": true,\n  \"bpxVideoWrap\": true,\n  \"opsVideo\": false,\n  \"opsToolbar\": false,\n  \"danmakuInput\": false,\n  \"comments\": false,\n  \"rightSidebar\": true\n}"

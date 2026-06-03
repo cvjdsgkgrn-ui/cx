@@ -1,0 +1,134 @@
+- generic [active] [ref=e1]:
+  - button "开启读屏标签" [ref=e2]
+  - generic: 读屏标签已关闭
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - link [ref=e7] [cursor=pointer]:
+        - /url: //www.douyin.com/jingxuan
+      - generic [ref=e13]:
+        - generic [ref=e15]:
+          - link "精选" [ref=e19] [cursor=pointer]:
+            - /url: https://www.douyin.com/jingxuan?from_nav=1
+            - generic [ref=e22]: 精选
+          - link "推荐" [ref=e26] [cursor=pointer]:
+            - /url: https://www.douyin.com/?recommend=1&from_nav=1
+            - generic [ref=e29]: 推荐
+          - link "搜索" [ref=e33] [cursor=pointer]:
+            - /url: https://www.douyin.com/aisearch?from_nav=1
+            - generic [ref=e36]: 搜索
+          - link "关注" [ref=e40] [cursor=pointer]:
+            - /url: https://www.douyin.com/follow?from_nav=1
+            - generic [ref=e43]: 关注
+          - link "朋友" [ref=e47] [cursor=pointer]:
+            - /url: https://www.douyin.com/friend?from_nav=1
+            - generic [ref=e50]: 朋友
+          - link "我的" [ref=e54] [cursor=pointer]:
+            - /url: https://www.douyin.com/user/self?from_nav=1
+            - generic [ref=e57]: 我的
+          - link "高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜" [ref=e62] [cursor=pointer]:
+            - /url: https://www.douyin.com/activity/2780147?from_nav=1
+            - generic [ref=e64]:
+              - img "高考必胜" [ref=e65]
+              - img "高考必胜" [ref=e66]
+              - img "高考必胜" [ref=e67]
+              - img "高考必胜" [ref=e68]
+              - img "高考必胜" [ref=e69]
+              - img "高考必胜" [ref=e70]
+              - img "高考必胜" [ref=e71]
+              - img "高考必胜" [ref=e72]
+              - img "高考必胜" [ref=e73]
+              - img "高考必胜" [ref=e74]
+              - img "高考必胜" [ref=e75]
+              - img "高考必胜" [ref=e76]
+              - img "高考必胜" [ref=e77]
+              - img "高考必胜" [ref=e78]
+              - img "高考必胜" [ref=e79]
+              - img "高考必胜" [ref=e80]
+              - img "高考必胜" [ref=e81]
+              - img "高考必胜" [ref=e82]
+              - img "高考必胜" [ref=e83]
+              - img "高考必胜" [ref=e84]
+          - link "直播" [ref=e88] [cursor=pointer]:
+            - /url: https://live.douyin.com/?from_nav=1
+            - generic [ref=e91]: 直播
+          - link "放映厅" [ref=e95] [cursor=pointer]:
+            - /url: https://www.douyin.com/vs?from_nav=1
+            - generic [ref=e98]: 放映厅
+          - link "短剧" [ref=e102] [cursor=pointer]:
+            - /url: https://www.douyin.com/series?from_nav=1
+            - generic [ref=e105]: 短剧
+          - link "小游戏" [ref=e109] [cursor=pointer]:
+            - /url: https://www.douyin.com/microgame?from_nav=1
+            - generic [ref=e112]: 小游戏
+        - generic [ref=e115]:
+          - img [ref=e118] [cursor=pointer]
+          - img [ref=e122] [cursor=pointer]
+          - img [ref=e126] [cursor=pointer]
+    - generic [ref=e128]:
+      - banner [ref=e131]:
+        - generic [ref=e137]:
+          - generic [ref=e141] [cursor=pointer]:
+            - img [ref=e143]:
+              - img [ref=e144]
+            - paragraph [ref=e146]: 更多
+          - generic [ref=e150] [cursor=pointer]:
+            - img [ref=e152]:
+              - img [ref=e153]
+            - generic [ref=e155]: 壁纸
+          - list [ref=e156]:
+            - generic [ref=e160] [cursor=pointer]:
+              - img [ref=e162]:
+                - img [ref=e163]
+              - paragraph [ref=e166]: 通知
+          - list [ref=e167]:
+            - generic [ref=e171] [cursor=pointer]:
+              - img [ref=e173]:
+                - img [ref=e174]
+              - paragraph [ref=e178]: 私信
+          - generic [ref=e182] [cursor=pointer]:
+            - img [ref=e184]:
+              - img [ref=e185]
+            - paragraph [ref=e187]: 投稿
+          - generic [ref=e191] [cursor=pointer]: 登录
+      - generic [ref=e192]:
+        - generic [ref=e195]: "404"
+        - generic [ref=e196]: 页面不见了
+  - article [ref=e202]:
+    - img [ref=e204]
+    - generic [ref=e205]:
+      - generic [ref=e206]:
+        - generic [ref=e207]: 登录后免费畅享高清视频
+        - img [ref=e209] [cursor=pointer]
+      - generic [ref=e212]:
+        - generic [ref=e215]:
+          - generic [ref=e217] [cursor=pointer]: 扫码登录
+          - generic [ref=e221]:
+            - generic [ref=e222]:
+              - generic [ref=e223] [cursor=pointer]: 如何扫码
+              - img [ref=e226]
+              - img [ref=e238]
+            - paragraph [ref=e242]:
+              - paragraph [ref=e243]: 打开「抖音APP」点击左上角
+              - img [ref=e244]
+              - paragraph [ref=e250]: 扫一扫
+        - generic [ref=e253]:
+          - generic [ref=e254] [cursor=pointer]:
+            - generic [ref=e255]: 验证码登录
+            - img [ref=e257]
+            - generic [ref=e258]: 密码登录
+          - generic [ref=e262]:
+            - generic [ref=e264]:
+              - combobox "国家/地区" [ref=e267]: "+86"
+              - img [ref=e270]
+              - textbox "请输入手机号" [ref=e271]
+            - generic [ref=e273]:
+              - textbox "请输入验证码" [ref=e275]
+              - generic [ref=e276]: 获取验证码
+            - generic [ref=e279]: 登录
+            - generic "登录即代表同意用户协议和隐私政策" [ref=e281]:
+              - text: 登录即代表同意
+              - link "用户协议" [ref=e282] [cursor=pointer]:
+                - /url: https://www.douyin.com/agreements/?id=6773906068725565448
+              - text: 和
+              - link "隐私政策" [ref=e283] [cursor=pointer]:
+                - /url: https://www.douyin.com/agreements/?id=6773901168964798477

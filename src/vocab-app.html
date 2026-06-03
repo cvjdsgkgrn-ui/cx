@@ -1,0 +1,418 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌟 快乐背单词</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex; justify-content: center; align-items: center; padding: 20px;
+}
+.container {
+  width: 100%; max-width: 600px;
+  background: rgba(255,255,255,0.95); border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  padding: 32px 28px;
+}
+h1 { text-align: center; font-size: 28px; color: #5b3cc4; margin-bottom: 8px; }
+.subtitle { text-align: center; color: #999; font-size: 13px; margin-bottom: 20px; }
+
+.tabs { display: flex; gap: 4px; margin-bottom: 24px; background: #f0eef9; border-radius: 14px; padding: 4px; }
+.tab {
+  flex: 1; padding: 10px; text-align: center; border-radius: 12px;
+  cursor: pointer; font-weight: 600; font-size: 14px; color: #888;
+  transition: all 0.2s; border: none; background: transparent;
+}
+.tab.active { background: #fff; color: #5b3cc4; box-shadow: 0 2px 8px rgba(91,60,196,0.15); }
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* Word Manager */
+.add-row { display: flex; gap: 10px; margin-bottom: 16px; }
+.add-row input {
+  flex: 1; padding: 12px 16px; border: 2px solid #e8e5f5; border-radius: 12px;
+  font-size: 15px; outline: none; transition: border 0.2s;
+}
+.add-row input:focus { border-color: #7c6ef0; }
+.btn {
+  padding: 12px 24px; border: none; border-radius: 12px;
+  font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+}
+.btn-primary { background: linear-gradient(135deg, #7c6ef0, #5b3cc4); color: #fff; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(91,60,196,0.3); }
+.btn-danger { background: #ff6b6b; color: #fff; padding: 6px 14px; font-size: 13px; }
+.btn-danger:hover { background: #ee5555; }
+
+.word-list { max-height: 300px; overflow-y: auto; }
+.word-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; margin-bottom: 6px; background: #f8f7fd; border-radius: 10px;
+}
+.word-item .eng { font-weight: 600; color: #444; font-size: 16px; }
+.word-item .chn { color: #999; font-size: 14px; }
+.empty { text-align: center; color: #ccc; padding: 40px; font-size: 15px; }
+.count { color: #999; font-size: 13px; margin-bottom: 10px; }
+
+/* Flashcard */
+.flashcard-area { text-align: center; }
+.flashcard {
+  width: 100%; height: 260px; perspective: 1000px; cursor: pointer; margin-bottom: 20px;
+}
+.flashcard-inner {
+  position: relative; width: 100%; height: 100%;
+  transition: transform 0.5s; transform-style: preserve-3d;
+}
+.flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+.flashcard-front, .flashcard-back {
+  position: absolute; width: 100%; height: 100%;
+  backface-visibility: hidden; border-radius: 20px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.flashcard-front {
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  font-size: 48px; font-weight: 700; color: #e0553d;
+}
+.flashcard-back {
+  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+  transform: rotateY(180deg);
+  font-size: 36px; font-weight: 600; color: #3b6dc4;
+}
+.flashcard-hint { font-size: 13px; color: #aaa; position: absolute; bottom: 20px; }
+.flashcard-nav { display: flex; gap: 14px; align-items: center; justify-content: center; }
+.flashcard-nav .btn { padding: 10px 20px; }
+.flashcard-nav .progress { color: #999; font-size: 14px; }
+
+/* Quiz */
+.quiz-word {
+  font-size: 42px; font-weight: 700; text-align: center;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  border-radius: 20px; padding: 40px; margin-bottom: 20px; color: #e0553d;
+}
+.quiz-input {
+  width: 100%; padding: 14px 18px; border: 2px solid #e8e5f5; border-radius: 14px;
+  font-size: 18px; text-align: center; outline: none; margin-bottom: 12px;
+}
+.quiz-input:focus { border-color: #7c6ef0; }
+.quiz-feedback { text-align: center; font-size: 16px; font-weight: 600; min-height: 28px; margin-bottom: 10px; }
+.quiz-feedback.correct { color: #2ecc71; }
+.quiz-feedback.wrong { color: #ff6b6b; }
+.quiz-score { text-align: center; color: #999; font-size: 14px; margin-bottom: 16px; }
+
+/* Celebration */
+@keyframes confetti-fall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+.confetti {
+  position: fixed; top: -20px; width: 12px; height: 12px; border-radius: 3px;
+  animation: confetti-fall 2s ease-in forwards; z-index: 999; pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .container { padding: 20px 16px; }
+  .flashcard { height: 200px; }
+  .flashcard-front { font-size: 32px; }
+  .flashcard-back { font-size: 26px; }
+  .quiz-word { font-size: 30px; padding: 30px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🌟 快乐背单词</h1>
+  <p class="subtitle">每天进步一点点，英语小达人就是你！</p>
+
+  <div class="tabs">
+    <button class="tab active" data-panel="manage">📝 词库</button>
+    <button class="tab" data-panel="flashcard">🃏 闪卡</button>
+    <button class="tab" data-panel="quiz">🎯 测验</button>
+  </div>
+
+  <!-- 词库管理 -->
+  <div id="panel-manage" class="panel active">
+    <div class="add-row">
+      <input type="text" id="input-en" placeholder="输入英文单词…">
+      <input type="text" id="input-cn" placeholder="中文释义…">
+      <button class="btn btn-primary" onclick="addWord()">➕ 添加</button>
+    </div>
+    <div class="count" id="word-count">共 0 个单词</div>
+    <div class="word-list" id="word-list">
+      <div class="empty">还没有单词哦，快添加吧！📖</div>
+    </div>
+  </div>
+
+  <!-- 闪卡模式 -->
+  <div id="panel-flashcard" class="panel">
+    <div class="flashcard-area" id="flashcard-area">
+      <div class="empty">请先在"词库"中添加单词哦！</div>
+    </div>
+    <div class="flashcard-nav" id="flashcard-nav" style="display:none;">
+      <button class="btn btn-primary" onclick="prevCard()">⬅</button>
+      <span class="progress" id="card-progress">1 / 1</span>
+      <button class="btn btn-primary" onclick="nextCard()">➡</button>
+      <button class="btn btn-primary" onclick="shuffleCards()">🔀 洗牌</button>
+    </div>
+  </div>
+
+  <!-- 测验模式 -->
+  <div id="panel-quiz" class="panel">
+    <div class="quiz-word" id="quiz-word">-</div>
+    <input type="text" class="quiz-input" id="quiz-input" placeholder="输入中文意思…" onkeydown="if(event.key==='Enter')checkAnswer()">
+    <div class="quiz-feedback" id="quiz-feedback"></div>
+    <div style="text-align:center; margin-bottom:12px;">
+      <button class="btn btn-primary" onclick="checkAnswer()">✅ 提交</button>
+      <button class="btn btn-primary" style="background:#888;" onclick="skipQuiz()">⏭ 跳过</button>
+    </div>
+    <div class="quiz-score" id="quiz-score">得分: 0 / 0</div>
+    <div class="quiz-feedback" id="quiz-detail"></div>
+    <div style="text-align:center; margin-top:8px;">
+      <button class="btn btn-danger" onclick="resetQuiz()">🔄 重新开始</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Init - built-in elementary school words
+const defaultWords = [
+  { en: "apple", cn: "苹果" },{ en: "banana", cn: "香蕉" },{ en: "cat", cn: "猫" },{ en: "dog", cn: "狗" },
+  { en: "book", cn: "书" },{ en: "pen", cn: "笔" },{ en: "school", cn: "学校" },{ en: "teacher", cn: "老师" },
+  { en: "student", cn: "学生" },{ en: "water", cn: "水" },{ en: "rice", cn: "米饭" },{ en: "milk", cn: "牛奶" },
+  { en: "egg", cn: "鸡蛋" },{ en: "fish", cn: "鱼" },{ en: "bird", cn: "鸟" },{ en: "flower", cn: "花" },
+  { en: "tree", cn: "树" },{ en: "sun", cn: "太阳" },{ en: "moon", cn: "月亮" },{ en: "star", cn: "星星" },
+  { en: "red", cn: "红色" },{ en: "blue", cn: "蓝色" },{ en: "big", cn: "大的" },{ en: "small", cn: "小的" },
+  { en: "happy", cn: "开心的" },{ en: "run", cn: "跑" },{ en: "eat", cn: "吃" },{ en: "drink", cn: "喝" },
+  { en: "sleep", cn: "睡觉" },{ en: "read", cn: "阅读" },{ en: "one", cn: "一" },{ en: "two", cn: "二" },
+  { en: "three", cn: "三" },{ en: "four", cn: "四" },{ en: "five", cn: "五" },
+  { en: "mother", cn: "妈妈" },{ en: "father", cn: "爸爸" },{ en: "sister", cn: "姐妹" },{ en: "brother", cn: "兄弟" },
+  { en: "friend", cn: "朋友" },{ en: "hello", cn: "你好" },{ en: "goodbye", cn: "再见" },
+  { en: "please", cn: "请" },{ en: "sorry", cn: "对不起" },{ en: "yes", cn: "是" },{ en: "no", cn: "不" },
+  { en: "hand", cn: "手" },{ en: "eye", cn: "眼睛" },{ en: "ear", cn: "耳朵" },{ en: "mouth", cn: "嘴巴" },
+];
+
+let words = JSON.parse(localStorage.getItem('vocab_words') || '[]');
+if (!localStorage.getItem('vocab_words_done_v1')) { words = defaultWords; save(); localStorage.setItem('vocab_words_done_v1','1'); }
+let cardIndex = 0;
+let quizIndex = 0;
+let quizCorrect = 0;
+let quizTotal = 0;
+let quizOrder = [];
+let quizAnswered = false;
+
+function save() { localStorage.setItem('vocab_words', JSON.stringify(words)); }
+function renderWordList() {
+  const list = document.getElementById('word-list');
+  document.getElementById('word-count').textContent = `共 ${words.length} 个单词`;
+  if (words.length === 0) {
+    list.innerHTML = '<div class="empty">还没有单词哦，快添加吧！📖</div>';
+    return;
+  }
+  list.innerHTML = words.map((w, i) => `
+    <div class="word-item">
+      <span><span class="eng">${escapeHtml(w.en)}</span> — <span class="chn">${escapeHtml(w.cn)}</span></span>
+      <button class="btn btn-danger" onclick="deleteWord(${i})">删除</button>
+    </div>
+  `).join('');
+}
+
+function escapeHtml(s) {
+  const d = document.createElement('div'); d.textContent = s; return d.innerHTML;
+}
+
+function addWord() {
+  const en = document.getElementById('input-en').value.trim();
+  const cn = document.getElementById('input-cn').value.trim();
+  if (!en || !cn) return;
+  words.push({ en, cn });
+  words.sort((a, b) => a.en.localeCompare(b.en));
+  save(); renderWordList();
+  document.getElementById('input-en').value = '';
+  document.getElementById('input-cn').value = '';
+  document.getElementById('input-en').focus();
+  updateFlashcardPanel(); updateQuizPanel();
+}
+
+function deleteWord(i) {
+  words.splice(i, 1);
+  save(); renderWordList();
+  updateFlashcardPanel(); updateQuizPanel();
+}
+
+// Flashcard
+function updateFlashcardPanel() {
+  const area = document.getElementById('flashcard-area');
+  const nav = document.getElementById('flashcard-nav');
+  if (words.length === 0) {
+    area.innerHTML = '<div class="empty">请先在"词库"中添加单词哦！</div>';
+    nav.style.display = 'none';
+    return;
+  }
+  nav.style.display = 'flex';
+  cardIndex = Math.min(cardIndex, words.length - 1);
+  renderCard();
+}
+
+function renderCard() {
+  if (words.length === 0) return;
+  const w = words[cardIndex];
+  const area = document.getElementById('flashcard-area');
+  area.innerHTML = `
+    <div class="flashcard" id="flashcard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">${escapeHtml(w.en)}<span class="flashcard-hint">点击翻转 👆</span></div>
+        <div class="flashcard-back">${escapeHtml(w.cn)}<span class="flashcard-hint">点击翻回 👆</span></div>
+      </div>
+    </div>
+  `;
+  document.getElementById('card-progress').textContent = `${cardIndex + 1} / ${words.length}`;
+}
+
+function nextCard() {
+  cardIndex = (cardIndex + 1) % words.length;
+  renderCard();
+}
+function prevCard() {
+  cardIndex = (cardIndex - 1 + words.length) % words.length;
+  renderCard();
+}
+function shuffleCards() {
+  words.sort(() => Math.random() - 0.5);
+  cardIndex = 0;
+  renderCard();
+}
+
+// Quiz
+function updateQuizPanel() {
+  resetQuiz();
+}
+
+function resetQuiz() {
+  if (words.length === 0) {
+    document.getElementById('quiz-word').textContent = '请先添加单词';
+    document.getElementById('quiz-input').disabled = true;
+    document.getElementById('quiz-feedback').textContent = '';
+    document.getElementById('quiz-detail').textContent = '';
+    return;
+  }
+  document.getElementById('quiz-input').disabled = false;
+  quizOrder = [...Array(words.length).keys()];
+  for (let i = quizOrder.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [quizOrder[i], quizOrder[j]] = [quizOrder[j], quizOrder[i]];
+  }
+  quizIndex = 0; quizCorrect = 0; quizTotal = 0; quizAnswered = false;
+  document.getElementById('quiz-feedback').textContent = '';
+  document.getElementById('quiz-feedback').className = 'quiz-feedback';
+  document.getElementById('quiz-detail').textContent = '';
+  document.getElementById('quiz-detail').className = 'quiz-feedback';
+  document.getElementById('quiz-input').value = '';
+  updateQuizScore();
+  showQuizWord();
+}
+
+function showQuizWord() {
+  if (quizIndex >= quizOrder.length) {
+    document.getElementById('quiz-word').textContent = '🎉 全部完成！';
+    document.getElementById('quiz-input').disabled = true;
+    document.getElementById('quiz-feedback').textContent = quizTotal > 0 
+      ? `答对 ${quizCorrect}/${quizTotal}，正确率 ${Math.round(quizCorrect/quizTotal*100)}%！` 
+      : '';
+    document.getElementById('quiz-feedback').className = 'quiz-feedback correct';
+    return;
+  }
+  quizAnswered = false;
+  const w = words[quizOrder[quizIndex]];
+  document.getElementById('quiz-word').textContent = w.en;
+  document.getElementById('quiz-input').value = '';
+  document.getElementById('quiz-feedback').textContent = '';
+  document.getElementById('quiz-feedback').className = 'quiz-feedback';
+  document.getElementById('quiz-detail').textContent = '';
+  document.getElementById('quiz-detail').className = 'quiz-feedback';
+  document.getElementById('quiz-input').focus();
+}
+
+function checkAnswer() {
+  if (quizAnswered || quizIndex >= quizOrder.length) return;
+  const answer = document.getElementById('quiz-input').value.trim();
+  if (!answer) return;
+  quizAnswered = true; quizTotal++;
+  const w = words[quizOrder[quizIndex]];
+  if (answer === w.cn) {
+    quizCorrect++;
+    document.getElementById('quiz-feedback').textContent = '✅ 太棒了！答对了！';
+    document.getElementById('quiz-feedback').className = 'quiz-feedback correct';
+    document.getElementById('quiz-detail').textContent = '';
+    document.getElementById('quiz-detail').className = 'quiz-feedback';
+    spawnConfetti();
+  } else {
+    document.getElementById('quiz-feedback').textContent = '❌ 再想想哦～';
+    document.getElementById('quiz-feedback').className = 'quiz-feedback wrong';
+    document.getElementById('quiz-detail').textContent = `正确答案：${w.cn}`;
+    document.getElementById('quiz-detail').className = 'quiz-feedback wrong';
+  }
+  updateQuizScore();
+  quizIndex++;
+  setTimeout(showQuizWord, 1200);
+}
+
+function skipQuiz() {
+  if (quizAnswered || quizIndex >= quizOrder.length) return;
+  quizAnswered = true; quizTotal++;
+  const w = words[quizOrder[quizIndex]];
+  document.getElementById('quiz-detail').textContent = `正确答案：${w.cn}`;
+  document.getElementById('quiz-detail').className = 'quiz-feedback';
+  document.getElementById('quiz-feedback').textContent = '⏭ 已跳过';
+  document.getElementById('quiz-feedback').className = 'quiz-feedback';
+  quizIndex++;
+  updateQuizScore();
+  setTimeout(showQuizWord, 1000);
+}
+
+function updateQuizScore() {
+  document.getElementById('quiz-score').textContent = `得分: ${quizCorrect} / ${quizTotal}`;
+}
+
+function spawnConfetti() {
+  const colors = ['#ff6b6b','#ffd93d','#6bcb77','#4d96ff','#ff922b','#845ef7','#ff6eb4'];
+  for (let i = 0; i < 40; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random() * 100 + '%';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+    c.style.animationDelay = Math.random() * 0.5 + 's';
+    c.style.width = (8 + Math.random() * 10) + 'px';
+    c.style.height = (8 + Math.random() * 10) + 'px';
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 3000);
+  }
+}
+
+// Tabs
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', function() {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(x => x.classList.remove('active'));
+    this.classList.add('active');
+    const panelId = 'panel-' + this.dataset.panel;
+    document.getElementById(panelId).classList.add('active');
+    if (this.dataset.panel === 'flashcard') updateFlashcardPanel();
+    if (this.dataset.panel === 'quiz') updateQuizPanel();
+  });
+});
+
+// Init
+renderWordList();
+document.getElementById('input-en').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') { document.getElementById('input-cn').focus(); e.preventDefault(); }
+});
+document.getElementById('input-cn').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') { addWord(); e.preventDefault(); }
+});
+</script>
+</body>
+</html>

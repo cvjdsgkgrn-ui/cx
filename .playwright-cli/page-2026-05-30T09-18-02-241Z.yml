@@ -1,0 +1,362 @@
+- generic [active] [ref=e1]:
+  - button "开启读屏标签" [ref=e2]
+  - generic: 读屏标签已关闭
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - link [ref=e7] [cursor=pointer]:
+        - /url: //www.douyin.com/jingxuan
+      - generic [ref=e13]:
+        - generic [ref=e15]:
+          - link "精选" [ref=e19] [cursor=pointer]:
+            - /url: https://www.douyin.com/jingxuan?from_nav=1
+            - generic [ref=e22]: 精选
+          - link "推荐" [ref=e26] [cursor=pointer]:
+            - /url: https://www.douyin.com/?recommend=1&from_nav=1
+            - generic [ref=e29]: 推荐
+          - link "搜索" [ref=e33] [cursor=pointer]:
+            - /url: https://www.douyin.com/aisearch?from_nav=1
+            - generic [ref=e36]: 搜索
+          - link "关注" [ref=e40] [cursor=pointer]:
+            - /url: https://www.douyin.com/follow?from_nav=1
+            - generic [ref=e43]: 关注
+          - link "朋友" [ref=e47] [cursor=pointer]:
+            - /url: https://www.douyin.com/friend?from_nav=1
+            - generic [ref=e50]: 朋友
+          - link "我的" [ref=e54] [cursor=pointer]:
+            - /url: https://www.douyin.com/user/self?from_nav=1
+            - generic [ref=e57]: 我的
+          - link "高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜 高考必胜" [ref=e62] [cursor=pointer]:
+            - /url: https://www.douyin.com/activity/2780147?from_nav=1
+            - generic [ref=e64]:
+              - img "高考必胜" [ref=e65]
+              - img "高考必胜" [ref=e66]
+              - img "高考必胜" [ref=e67]
+              - img "高考必胜" [ref=e68]
+              - img "高考必胜" [ref=e69]
+              - img "高考必胜" [ref=e70]
+              - img "高考必胜" [ref=e71]
+              - img "高考必胜" [ref=e72]
+              - img "高考必胜" [ref=e73]
+              - img "高考必胜" [ref=e74]
+              - img "高考必胜" [ref=e75]
+              - img "高考必胜" [ref=e76]
+              - img "高考必胜" [ref=e77]
+              - img "高考必胜" [ref=e78]
+              - img "高考必胜" [ref=e79]
+              - img "高考必胜" [ref=e80]
+              - img "高考必胜" [ref=e81]
+              - img "高考必胜" [ref=e82]
+              - img "高考必胜" [ref=e83]
+              - img "高考必胜" [ref=e84]
+          - link "直播" [ref=e88] [cursor=pointer]:
+            - /url: https://live.douyin.com/?from_nav=1
+            - generic [ref=e91]: 直播
+          - link "放映厅" [ref=e95] [cursor=pointer]:
+            - /url: https://www.douyin.com/vs?from_nav=1
+            - generic [ref=e98]: 放映厅
+          - link "短剧" [ref=e102] [cursor=pointer]:
+            - /url: https://www.douyin.com/series?from_nav=1
+            - generic [ref=e105]: 短剧
+          - link "小游戏" [ref=e109] [cursor=pointer]:
+            - /url: https://www.douyin.com/microgame?from_nav=1
+            - generic [ref=e112]: 小游戏
+        - generic [ref=e114]:
+          - img [ref=e117]
+          - img [ref=e121]
+          - img [ref=e125]
+    - generic [ref=e127]:
+      - banner [ref=e130]:
+        - generic [ref=e132]:
+          - generic [ref=e136]:
+            - textbox "搜索你感兴趣的内容" [ref=e138]
+            - button "搜索" [ref=e140] [cursor=pointer]:
+              - img [ref=e141]
+              - generic [ref=e143]: 搜索
+          - generic [ref=e147]:
+            - generic [ref=e149] [cursor=pointer]:
+              - img [ref=e151]:
+                - img [ref=e152]
+              - paragraph [ref=e154]: 充钻石
+            - link "客户端" [ref=e159] [cursor=pointer]:
+              - /url: ""
+              - generic [ref=e161]:
+                - img [ref=e163]:
+                  - img [ref=e164]
+                - paragraph [ref=e167]: 客户端
+            - generic [ref=e169] [cursor=pointer]:
+              - img [ref=e171]:
+                - img [ref=e172]
+              - paragraph [ref=e174]: 壁纸
+            - list [ref=e175]:
+              - generic [ref=e179] [cursor=pointer]:
+                - img [ref=e181]:
+                  - img [ref=e182]
+                - paragraph [ref=e185]: 通知
+            - generic [ref=e189] [cursor=pointer]:
+              - img [ref=e191]:
+                - img [ref=e192]
+              - paragraph [ref=e194]: 投稿
+            - button "登录" [ref=e198] [cursor=pointer]:
+              - paragraph [ref=e200]: 登录
+      - generic [ref=e202]:
+        - tablist [ref=e203]:
+          - tab "全部" [selected] [ref=e204]
+          - tab "公开课" [ref=e205] [cursor=pointer]
+          - tab "游戏" [ref=e206] [cursor=pointer]
+          - tab "二次元" [ref=e207] [cursor=pointer]
+          - tab "音乐" [ref=e208] [cursor=pointer]
+          - tab "影视" [ref=e209] [cursor=pointer]
+          - tab "美食" [ref=e210] [cursor=pointer]
+          - tab "知识" [ref=e211] [cursor=pointer]
+          - tab "小剧场" [ref=e212] [cursor=pointer]
+          - tab "生活vlog" [ref=e213] [cursor=pointer]
+          - tab "体育" [ref=e214] [cursor=pointer]
+          - tab "旅行" [ref=e215] [cursor=pointer]
+          - tab "亲子" [ref=e216] [cursor=pointer]
+          - tab "动物" [ref=e217] [cursor=pointer]
+          - tab "三农" [ref=e218] [cursor=pointer]
+          - tab "汽车" [ref=e219] [cursor=pointer]
+          - tab "美妆穿搭" [ref=e220] [cursor=pointer]
+        - tabpanel "全部" [ref=e222]:
+          - generic [ref=e228]:
+            - generic [ref=e231] [cursor=pointer]:
+              - generic [ref=e233]:
+                - img "一口气看完。我被困在阿拉斯加荒野的一年？这里只有一片荒野，我要在这里搭建自己的庇护所种植农作物，储存食物熬过寒冷的冬天。#我的世界#mc#MC生存日记#荒野求生#青年创作者成长计划" [ref=e235]
+                - generic [ref=e238]:
+                  - generic [ref=e239]: 41:07
+                  - generic [ref=e241]: 6.2万
+              - generic [ref=e243]:
+                - generic [ref=e244]: 一口气看完。我被困在阿拉斯加荒野的一年？这里只有一片荒野，我要在这里搭建自己的庇护所种植农作物，储存食物熬过寒冷的冬天。#我的世界#mc#MC生存日记#荒野求生#青年创作者成长计划
+                - generic [ref=e246]:
+                  - generic [ref=e247]: "@我的世界-祖子"
+                  - generic [ref=e248]: · 4月24日
+            - generic [ref=e251] [cursor=pointer]:
+              - generic [ref=e253]:
+                - 'img "《老狐狸》一个老头培养一个小孩成为了狐狸的故事 #老狐狸#韩剧推荐 #抖音精选计划" [ref=e255]'
+                - generic [ref=e258]:
+                  - generic [ref=e259]: 31:25
+                  - generic [ref=e261]: 52.7万
+              - generic [ref=e263]:
+                - generic [ref=e264]: "《老狐狸》一个老头培养一个小孩成为了狐狸的故事 #老狐狸#韩剧推荐 #抖音精选计划"
+                - generic [ref=e266]:
+                  - generic [ref=e267]: "@秀才探影"
+                  - generic [ref=e268]: · 5月13日
+            - generic [ref=e271] [cursor=pointer]:
+              - generic [ref=e273]:
+                - img "岁月留经典，永恒周星驰" [ref=e275]
+                - generic [ref=e278]:
+                  - generic [ref=e279]: 31:42
+                  - generic [ref=e281]: 3.6万
+              - generic [ref=e283]:
+                - generic [ref=e284]: 岁月留经典，永恒周星驰
+                - generic [ref=e286]:
+                  - generic [ref=e287]: "@云烬"
+                  - generic [ref=e288]: · 5月15日
+            - generic [ref=e291] [cursor=pointer]:
+              - generic [ref=e293]:
+                - 'img "单局2700W 清图猛炫两队勇敢者 #三角洲行动 #我们三角洲玩家猛攻就是这样 #猛攻猛攻还是猛攻 #三角洲s9回声新赛季 #三角洲行动猛攻剧场" [ref=e295]'
+                - generic [ref=e298]:
+                  - generic [ref=e299]: 09:13
+                  - generic [ref=e301]: 30.7万
+              - generic [ref=e303]:
+                - generic [ref=e304]: "单局2700W 清图猛炫两队勇敢者 #三角洲行动 #我们三角洲玩家猛攻就是这样 #猛攻猛攻还是猛攻 #三角洲s9回声新赛季 #三角洲行动猛攻剧场"
+                - generic [ref=e306]:
+                  - generic [ref=e307]: "@林树（三角洲行动）"
+                  - generic [ref=e308]: · 4天前
+            - generic [ref=e311] [cursor=pointer]:
+              - generic [ref=e313]:
+                - 'img "埃及挺好的，下次再也不来了 #抽象 #vlog日常 #刘大炮 #埃及#人间观察计划" [ref=e315]'
+                - generic [ref=e318]:
+                  - generic [ref=e319]: 09:25
+                  - generic [ref=e321]: 72.9万
+              - generic [ref=e323]:
+                - generic [ref=e324]: "埃及挺好的，下次再也不来了 #抽象 #vlog日常 #刘大炮 #埃及#人间观察计划"
+                - generic [ref=e326]:
+                  - generic [ref=e327]: "@刘大炮"
+                  - generic [ref=e328]: · 5天前
+            - generic [ref=e331] [cursor=pointer]:
+              - generic [ref=e333]:
+                - img "饭店的暑假工，一个人看俩包房！" [ref=e335]
+                - generic [ref=e338]:
+                  - generic [ref=e339]: 02:29
+                  - generic [ref=e341]: 313.0万
+              - generic [ref=e343]:
+                - generic [ref=e344]: 饭店的暑假工，一个人看俩包房！
+                - generic [ref=e346]:
+                  - generic [ref=e347]: "@周小闹"
+                  - generic [ref=e348]: · 1天前
+            - generic [ref=e351] [cursor=pointer]:
+              - generic [ref=e353]:
+                - img "【参考答案·甄嬛传】EP30 是谁之过与 剪辑上是比较缓慢的一集，情绪充沛，BGM用的非常克制。甄嬛的第一个孩子在外力作用下离她而去，爱与恨都化作眼泪，刺向了自己。#了不起的精讲团#影视经典补完计划#影视万字精讲#甄嬛传解说#甄嬛传" [ref=e355]
+                - generic [ref=e358]:
+                  - generic [ref=e359]: 42:57
+                  - generic [ref=e361]: 4.6万
+              - generic [ref=e363]:
+                - generic [ref=e364]: 【参考答案·甄嬛传】EP30 是谁之过与 剪辑上是比较缓慢的一集，情绪充沛，BGM用的非常克制。甄嬛的第一个孩子在外力作用下离她而去，爱与恨都化作眼泪，刺向了自己。#了不起的精讲团#影视经典补完计划#影视万字精讲#甄嬛传解说#甄嬛传
+                - generic [ref=e366]:
+                  - generic [ref=e367]: "@Cekai世界"
+                  - generic [ref=e368]: · 2天前
+            - generic [ref=e371] [cursor=pointer]:
+              - generic [ref=e373]:
+                - 'img "世界最最神秘最坚固的末日核地堡 价值超过10亿美元的世界最昂贵核地堡。从1美元的地堡到最贵地堡应有尽有#野兽先生 #mrbeast #末日地堡" [ref=e375]'
+                - generic [ref=e378]:
+                  - generic [ref=e379]: 16:14
+                  - generic [ref=e381]: 2.0万
+              - generic [ref=e383]:
+                - generic [ref=e384]: "世界最最神秘最坚固的末日核地堡 价值超过10亿美元的世界最昂贵核地堡。从1美元的地堡到最贵地堡应有尽有#野兽先生 #mrbeast #末日地堡"
+                - generic [ref=e386]:
+                  - generic [ref=e387]: "@综艺挑战汇"
+                  - generic [ref=e388]: · 5月14日
+            - generic [ref=e391] [cursor=pointer]:
+              - generic [ref=e393]:
+                - 'img "听说昂贵的澳龙在新西兰泛滥了，帅小伙带女友火速前往。。 #潘婷胜肽泡弹发膜" [ref=e395]'
+                - generic [ref=e398]:
+                  - generic [ref=e399]: 14:15
+                  - generic [ref=e401]: 90.2万
+              - generic [ref=e403]:
+                - generic [ref=e404]: "听说昂贵的澳龙在新西兰泛滥了，帅小伙带女友火速前往。。 #潘婷胜肽泡弹发膜"
+                - generic [ref=e406]:
+                  - generic [ref=e407]: "@大豪夫妇"
+                  - generic [ref=e408]: · 4月1日
+            - generic [ref=e411] [cursor=pointer]:
+              - generic [ref=e413]:
+                - 'img "牛在在重返校园？校园捉迷藏第三期！ #未来导演扶持计划 #自制综艺 #校园捉迷藏 #我的校园超丰富 #牛在在" [ref=e415]'
+                - generic [ref=e418]:
+                  - generic [ref=e419]: 39:00
+                  - generic [ref=e421]: 48.9万
+              - generic [ref=e423]:
+                - generic [ref=e424]: "牛在在重返校园？校园捉迷藏第三期！ #未来导演扶持计划 #自制综艺 #校园捉迷藏 #我的校园超丰富 #牛在在"
+                - generic [ref=e426]:
+                  - generic [ref=e427]: "@ChenLewy"
+                  - generic [ref=e428]: · 5月3日
+  - generic [ref=e432]:
+    - tablist [ref=e433]:
+      - tab "全部" [selected] [ref=e434]
+      - tab "公开课" [ref=e435] [cursor=pointer]
+      - tab "游戏" [ref=e436] [cursor=pointer]
+      - tab "二次元" [ref=e437] [cursor=pointer]
+      - tab "音乐" [ref=e438] [cursor=pointer]
+      - tab "影视" [ref=e439] [cursor=pointer]
+      - tab "美食" [ref=e440] [cursor=pointer]
+      - tab "知识" [ref=e441] [cursor=pointer]
+      - tab "小剧场" [ref=e442] [cursor=pointer]
+      - tab "生活vlog" [ref=e443] [cursor=pointer]
+      - tab "体育" [ref=e444] [cursor=pointer]
+      - tab "旅行" [ref=e445] [cursor=pointer]
+      - tab "亲子" [ref=e446] [cursor=pointer]
+      - tab "动物" [ref=e447] [cursor=pointer]
+      - tab "三农" [ref=e448] [cursor=pointer]
+      - tab "汽车" [ref=e449] [cursor=pointer]
+      - tab "美妆穿搭" [ref=e450] [cursor=pointer]
+    - tabpanel "全部" [ref=e452]:
+      - generic [ref=e458]:
+        - generic [ref=e461] [cursor=pointer]:
+          - generic [ref=e463]:
+            - img "一口气看完。我被困在阿拉斯加荒野的一年？这里只有一片荒野，我要在这里搭建自己的庇护所种植农作物，储存食物熬过寒冷的冬天。#我的世界#mc#MC生存日记#荒野求生#青年创作者成长计划" [ref=e465]
+            - generic [ref=e468]:
+              - generic [ref=e469]: 41:07
+              - generic [ref=e471]: 6.2万
+          - generic [ref=e473]:
+            - generic [ref=e474]: 一口气看完。我被困在阿拉斯加荒野的一年？这里只有一片荒野，我要在这里搭建自己的庇护所种植农作物，储存食物熬过寒冷的冬天。#我的世界#mc#MC生存日记#荒野求生#青年创作者成长计划
+            - generic [ref=e476]:
+              - generic [ref=e477]: "@我的世界-祖子"
+              - generic [ref=e478]: · 4月24日
+        - generic [ref=e481] [cursor=pointer]:
+          - generic [ref=e483]:
+            - 'img "《老狐狸》一个老头培养一个小孩成为了狐狸的故事 #老狐狸#韩剧推荐 #抖音精选计划" [ref=e485]'
+            - generic [ref=e488]:
+              - generic [ref=e489]: 31:25
+              - generic [ref=e491]: 52.7万
+          - generic [ref=e493]:
+            - generic [ref=e494]: "《老狐狸》一个老头培养一个小孩成为了狐狸的故事 #老狐狸#韩剧推荐 #抖音精选计划"
+            - generic [ref=e496]:
+              - generic [ref=e497]: "@秀才探影"
+              - generic [ref=e498]: · 5月13日
+        - generic [ref=e501] [cursor=pointer]:
+          - generic [ref=e503]:
+            - img "岁月留经典，永恒周星驰" [ref=e505]
+            - generic [ref=e508]:
+              - generic [ref=e509]: 31:42
+              - generic [ref=e511]: 3.6万
+          - generic [ref=e513]:
+            - generic [ref=e514]: 岁月留经典，永恒周星驰
+            - generic [ref=e516]:
+              - generic [ref=e517]: "@云烬"
+              - generic [ref=e518]: · 5月15日
+        - generic [ref=e521] [cursor=pointer]:
+          - generic [ref=e523]:
+            - 'img "单局2700W 清图猛炫两队勇敢者 #三角洲行动 #我们三角洲玩家猛攻就是这样 #猛攻猛攻还是猛攻 #三角洲s9回声新赛季 #三角洲行动猛攻剧场" [ref=e525]'
+            - generic [ref=e528]:
+              - generic [ref=e529]: 09:13
+              - generic [ref=e531]: 30.7万
+          - generic [ref=e533]:
+            - generic [ref=e534]: "单局2700W 清图猛炫两队勇敢者 #三角洲行动 #我们三角洲玩家猛攻就是这样 #猛攻猛攻还是猛攻 #三角洲s9回声新赛季 #三角洲行动猛攻剧场"
+            - generic [ref=e536]:
+              - generic [ref=e537]: "@林树（三角洲行动）"
+              - generic [ref=e538]: · 4天前
+        - generic [ref=e541] [cursor=pointer]:
+          - generic [ref=e543]:
+            - 'img "埃及挺好的，下次再也不来了 #抽象 #vlog日常 #刘大炮 #埃及#人间观察计划" [ref=e545]'
+            - generic [ref=e548]:
+              - generic [ref=e549]: 09:25
+              - generic [ref=e551]: 72.9万
+          - generic [ref=e553]:
+            - generic [ref=e554]: "埃及挺好的，下次再也不来了 #抽象 #vlog日常 #刘大炮 #埃及#人间观察计划"
+            - generic [ref=e556]:
+              - generic [ref=e557]: "@刘大炮"
+              - generic [ref=e558]: · 5天前
+        - generic [ref=e561] [cursor=pointer]:
+          - generic [ref=e563]:
+            - img "饭店的暑假工，一个人看俩包房！" [ref=e565]
+            - generic [ref=e568]:
+              - generic [ref=e569]: 02:29
+              - generic [ref=e571]: 313.0万
+          - generic [ref=e573]:
+            - generic [ref=e574]: 饭店的暑假工，一个人看俩包房！
+            - generic [ref=e576]:
+              - generic [ref=e577]: "@周小闹"
+              - generic [ref=e578]: · 1天前
+        - generic [ref=e581] [cursor=pointer]:
+          - generic [ref=e583]:
+            - img "【参考答案·甄嬛传】EP30 是谁之过与 剪辑上是比较缓慢的一集，情绪充沛，BGM用的非常克制。甄嬛的第一个孩子在外力作用下离她而去，爱与恨都化作眼泪，刺向了自己。#了不起的精讲团#影视经典补完计划#影视万字精讲#甄嬛传解说#甄嬛传" [ref=e585]
+            - generic [ref=e588]:
+              - generic [ref=e589]: 42:57
+              - generic [ref=e591]: 4.6万
+          - generic [ref=e593]:
+            - generic [ref=e594]: 【参考答案·甄嬛传】EP30 是谁之过与 剪辑上是比较缓慢的一集，情绪充沛，BGM用的非常克制。甄嬛的第一个孩子在外力作用下离她而去，爱与恨都化作眼泪，刺向了自己。#了不起的精讲团#影视经典补完计划#影视万字精讲#甄嬛传解说#甄嬛传
+            - generic [ref=e596]:
+              - generic [ref=e597]: "@Cekai世界"
+              - generic [ref=e598]: · 2天前
+        - generic [ref=e601] [cursor=pointer]:
+          - generic [ref=e603]:
+            - 'img "世界最最神秘最坚固的末日核地堡 价值超过10亿美元的世界最昂贵核地堡。从1美元的地堡到最贵地堡应有尽有#野兽先生 #mrbeast #末日地堡" [ref=e605]'
+            - generic [ref=e608]:
+              - generic [ref=e609]: 16:14
+              - generic [ref=e611]: 2.0万
+          - generic [ref=e613]:
+            - generic [ref=e614]: "世界最最神秘最坚固的末日核地堡 价值超过10亿美元的世界最昂贵核地堡。从1美元的地堡到最贵地堡应有尽有#野兽先生 #mrbeast #末日地堡"
+            - generic [ref=e616]:
+              - generic [ref=e617]: "@综艺挑战汇"
+              - generic [ref=e618]: · 5月14日
+        - generic [ref=e621] [cursor=pointer]:
+          - generic [ref=e623]:
+            - 'img "听说昂贵的澳龙在新西兰泛滥了，帅小伙带女友火速前往。。 #潘婷胜肽泡弹发膜" [ref=e625]'
+            - generic [ref=e628]:
+              - generic [ref=e629]: 14:15
+              - generic [ref=e631]: 90.2万
+          - generic [ref=e633]:
+            - generic [ref=e634]: "听说昂贵的澳龙在新西兰泛滥了，帅小伙带女友火速前往。。 #潘婷胜肽泡弹发膜"
+            - generic [ref=e636]:
+              - generic [ref=e637]: "@大豪夫妇"
+              - generic [ref=e638]: · 4月1日
+        - generic [ref=e641] [cursor=pointer]:
+          - generic [ref=e643]:
+            - 'img "牛在在重返校园？校园捉迷藏第三期！ #未来导演扶持计划 #自制综艺 #校园捉迷藏 #我的校园超丰富 #牛在在" [ref=e645]'
+            - generic [ref=e648]:
+              - generic [ref=e649]: 39:00
+              - generic [ref=e651]: 48.9万
+          - generic [ref=e653]:
+            - generic [ref=e654]: "牛在在重返校园？校园捉迷藏第三期！ #未来导演扶持计划 #自制综艺 #校园捉迷藏 #我的校园超丰富 #牛在在"
+            - generic [ref=e656]:
+              - generic [ref=e657]: "@ChenLewy"
+              - generic [ref=e658]: · 5月3日

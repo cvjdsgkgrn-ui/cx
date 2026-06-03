@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赛博朋克街区 | Cyberpunk Street</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { overflow: hidden; background: #000; font-family: "Segoe UI", sans-serif; }
+  canvas { display: block; }
+  #info {
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+    color: rgba(0,255,255,0.85); font-size: 14px; letter-spacing: 2px;
+    pointer-events: none; user-select: none;
+    text-shadow: 0 0 15px rgba(0,255,255,0.7), 0 0 30px rgba(255,0,255,0.5);
+  }
+</style>
+</head>
+<body>
+<div id="info">拖拽旋转 &nbsp;|&nbsp; 滚轮缩放 &nbsp;|&nbsp; 右键平移</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0a001a, 0.00018);
+scene.background = new THREE.Color(0x050010);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.6;
+document.body.appendChild(renderer.domElement);
+
+const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 1, 500);
+camera.position.set(0, 22, 55);
+camera.lookAt(0, 15, -80);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 20, -80);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.minDistance = 12;
+controls.maxDistance = 180;
+controls.maxPolarAngle = Math.PI * 0.48;
+controls.update();
+
+// Ambient — purple base
+const ambient = new THREE.AmbientLight(0x331144, 1.5);
+scene.add(ambient);
+
+// Key light — cyan/magenta cross
+const keyLight = new THREE.DirectionalLight(0xcc88ff, 2.5);
+keyLight.position.set(60, 100, 40);
+keyLight.castShadow = true;
+keyLight.shadow.mapSize.width = 2048;
+keyLight.shadow.mapSize.height = 2048;
+keyLight.shadow.camera.near = 1;
+keyLight.shadow.camera.far = 500;
+keyLight.shadow.camera.left = -150;
+keyLight.shadow.camera.right = 150;
+keyLight.shadow.camera.top = 150;
+keyLight.shadow.camera.bottom = -150;
+keyLight.shadow.bias = -0.0001;
+scene.add(keyLight);
+
+// Fill — cyan
+const fillLight = new THREE.DirectionalLight(0x00ccff, 1.2);
+fillLight.position.set(-40, 50, -100);
+scene.add(fillLight);
+
+// Rim — hot pink
+const rimLight = new THREE.DirectionalLight(0xff2288, 1.5);
+rimLight.position.set(0, 30, 60);
+scene.add(rimLight);
+
+// Street-level neon glow array
+const neonLights = [];
+const neonColors = [0xff00aa, 0x00ffff, 0xff6600, 0xcc00ff, 0x00ff88, 0xff0066];
+function createStreetLight(x, z, color) {
+  const light = new THREE.PointLight(color, 8, 30, 2);
+  light.position.set(x, 2.5, z);
+  scene.add(light);
+  neonLights.push({ light, color, baseIntensity: 8, phase: Math.random() * Math.PI * 2 });
+  // Visible bulb
+  const bulbGeom = new THREE.SphereGeometry(0.25, 8, 8);
+  const bulbMat = new THREE.MeshStandardMaterial({ color, emissive: color, emissiveIntensity: 2, roughness: 0.2 });
+  const bulb = new THREE.Mesh(bulbGeom, bulbMat);
+  bulb.position.copy(light.position);
+  scene.add(bulb);
+  return light;
+}
+
+for (let z = 40; z > -200; z -= 10) {
+  createStreetLight(9, z, neonColors[Math.floor(Math.random() * neonColors.length)]);
+  createStreetLight(-9, z, neonColors[Math.floor(Math.random() * neonColors.length)]);
+}
+
+// Ground — dark reflective
+const groundGeom = new THREE.PlaneGeometry(400, 300);
+const groundMat = new THREE.MeshStandardMaterial({ color: 0x0a0a14, roughness: 0.55, metalness: 0.5 });
+const ground = new THREE.Mesh(groundGeom, groundMat);
+ground.rotation.x = -Math.PI / 2;
+ground.position.z = -80;
+ground.receiveShadow = true;
+scene.add(ground);
+
+// Road — wet dark asphalt
+const roadWidth = 14;
+const roadLength = 260;
+const roadGeom = new THREE.PlaneGeometry(roadWidth, roadLength);
+const roadMat = new THREE.MeshStandardMaterial({ color: 0x111118, roughness: 0.3, metalness: 0.7 });
+const road = new THREE.Mesh(roadGeom, roadMat);
+road.rotation.x = -Math.PI / 2;
+road.position.z = -80;
+road.position.y = 0.02;
+road.receiveShadow = true;
+scene.add(road);
+
+// Road dashed center markings — glowing cyan
+for (let z = 40; z > -200; z -= 7) {
+  const dashGeom = new THREE.PlaneGeometry(0.5, 3.5);
+  const dashMat = new THREE.MeshStandardMaterial({ color: 0x00ffff, emissive: 0x00ffff, emissiveIntensity: 1.5, roughness: 0.1 });
+  const dash = new THREE.Mesh(dashGeom, dashMat);
+  dash.rotation.x = -Math.PI / 2;
+  dash.position.set(0, 0.05, z);
+  scene.add(dash);
+}
+
+// Sidewalks — lit edges
+function createSidewalk(x) {
+  const swGeom = new THREE.BoxGeometry(4.5, 0.35, roadLength);
+  const swMat = new THREE.MeshStandardMaterial({ color: 0x2a2a3a, roughness: 0.4, metalness: 0.3 });
+  const sw = new THREE.Mesh(swGeom, swMat);
+  sw.position.set(x, 0.17, -80);
+  sw.receiveShadow = true;
+  scene.add(sw);
+  // Edge glow strip
+  const edgeGeom = new THREE.BoxGeometry(0.15, 0.08, roadLength);
+  const edgeMat = new THREE.MeshStandardMaterial({ color: 0x00ffff, emissive: 0x00ffff, emissiveIntensity: 1.2, roughness: 0.1 });
+  const edge = new THREE.Mesh(edgeGeom, edgeMat);
+  edge.position.set(x > 0 ? x - 2.25 : x + 2.25, 0.36, -80);
+  scene.add(edge);
+}
+createSidewalk(roadWidth / 2 + 2.25);
+createSidewalk(-roadWidth / 2 - 2.25);
+
+// ── Cyberpunk buildings ──
+const buildingGroup = new THREE.Group();
+function rr(min, max) { return min + Math.random() * (max - min); }
+function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+const glassColors = [
+  0xff44aa, 0x00ffff, 0xff6600, 0xcc44ff, 0x00ff88,
+  0xff0088, 0x00ccff, 0xffaa00, 0x8800ff, 0x00ffcc,
+  0xff2288, 0x44ccff, 0xff8800, 0xaa00ff, 0x00ffaa
+];
+const wallColors = [0x111122, 0x141428, 0x0f0f1e, 0x161630, 0x101020, 0x131328, 0x0d0d1c, 0x18182a];
+
+function createBuilding(x, z, w, d, h, glassColor, wallColor) {
+  const group = new THREE.Group();
+
+  const bodyGeom = new THREE.BoxGeometry(w, h, d);
+  const bodyMat = new THREE.MeshStandardMaterial({ color: wallColor, roughness: 0.4, metalness: 0.4 });
+  const body = new THREE.Mesh(bodyGeom, bodyMat);
+  body.position.y = h / 2;
+  body.castShadow = true;
+  body.receiveShadow = true;
+  group.add(body);
+
+  const floorHeight = 1.15;
+  const floors = Math.floor(h / floorHeight);
+  const winH = 0.75;
+  const winW = 0.85;
+  const spacing = 1.15;
+  const margin = 0.35;
+
+  for (let side = 0; side < 2; side++) {
+    const faceW = side === 0 ? w : d;
+    const faceD = side === 0 ? d : w;
+    const cols = Math.floor((faceW - margin * 2) / spacing);
+    for (let f = 0; f < floors; f++) {
+      const y = floorHeight * f + floorHeight / 2;
+      for (let c = 0; c < cols; c++) {
+        const offset = -faceW / 2 + margin + spacing * c + spacing / 2;
+        const winGeom = new THREE.PlaneGeometry(winW, winH);
+        const lit = Math.random() > 0.35;
+        const winMat = new THREE.MeshStandardMaterial({
+          color: lit ? glassColor : 0x0a0a18,
+          emissive: lit ? glassColor : 0x000000,
+          emissiveIntensity: lit ? rr(0.6, 1.8) : 0,
+          roughness: 0.15,
+          metalness: 0.05,
+          side: THREE.DoubleSide
+        });
+        const win = new THREE.Mesh(winGeom, winMat);
+        win.position.y = y;
+        if (side === 0) {
+          win.position.set(offset, 0, faceD / 2 + 0.01);
+        } else {
+          win.position.set(faceW / 2 + 0.01, 0, offset);
+          win.rotation.y = Math.PI / 2;
+        }
+        group.add(win);
+      }
+    }
+  }
+
+  group.position.set(x, 0, z);
+  return group;
+}
+
+function addNeonSign(group, h, w) {
+  if (Math.random() > 0.55) {
+    const signW = rr(1.5, w * 0.6);
+    const signGeom = new THREE.PlaneGeometry(signW, 0.6);
+    const signColor = pick([0xff00aa, 0x00ffff, 0xff6600, 0xcc00ff, 0x00ff88]);
+    const signMat = new THREE.MeshStandardMaterial({
+      color: signColor, emissive: signColor, emissiveIntensity: 2.5,
+      roughness: 0.1, side: THREE.DoubleSide
+    });
+    const sign = new THREE.Mesh(signGeom, signMat);
+    sign.position.y = h * rr(0.5, 0.9);
+    sign.position.z = w / 2 + 1.5;
+    group.add(sign);
+  }
+}
+
+function addSpire(group, h) {
+  if (Math.random() > 0.6) {
+    const spireH = rr(2, 8);
+    const spireGeom = new THREE.ConeGeometry(0.2, spireH, 6);
+    const color = pick([0xff0044, 0x00ffff, 0xff00ff]);
+    const spireMat = new THREE.MeshStandardMaterial({ color, roughness: 0.2, metalness: 0.9, emissive: color, emissiveIntensity: 1.5 });
+    const spire = new THREE.Mesh(spireGeom, spireMat);
+    spire.position.y = h + spireH / 2;
+    group.add(spire);
+  }
+}
+
+// Left side
+for (let z = 45; z > -210;) {
+  const w = rr(3, 10);
+  const d = rr(4, 9);
+  const h = rr(15, 75);
+  const x = -(roadWidth / 2 + 4.5 + d / 2);
+  const glass = pick(glassColors);
+  const wall = pick(wallColors);
+  const bld = createBuilding(x, z, d, w, h, glass, wall);
+  addNeonSign(bld, h, w);
+  addSpire(bld, h);
+  buildingGroup.add(bld);
+  z -= d + rr(0, 0.8);
+}
+
+// Right side
+for (let z = 45; z > -210;) {
+  const w = rr(3, 10);
+  const d = rr(4, 9);
+  const h = rr(15, 75);
+  const x = roadWidth / 2 + 4.5 + d / 2;
+  const glass = pick(glassColors);
+  const wall = pick(wallColors);
+  const bld = createBuilding(x, z, d, w, h, glass, wall);
+  addNeonSign(bld, h, w);
+  addSpire(bld, h);
+  buildingGroup.add(bld);
+  z -= d + rr(0, 0.8);
+}
+
+scene.add(buildingGroup);
+
+// Stars — purple/cyan
+const starsGeom = new THREE.BufferGeometry();
+const starCount = 3000;
+const starPositions = new Float32Array(starCount * 3);
+const starColorsArr = new Float32Array(starCount * 3);
+for (let i = 0; i < starCount; i++) {
+  starPositions[i * 3] = (Math.random() - 0.5) * 400;
+  starPositions[i * 3 + 1] = 50 + Math.random() * 220;
+  starPositions[i * 3 + 2] = (Math.random() - 0.5) * 300 - 80;
+  const tint = Math.random();
+  if (tint < 0.33) { starColorsArr[i*3]=0.3; starColorsArr[i*3+1]=0.6; starColorsArr[i*3+2]=1; }
+  else if (tint < 0.66) { starColorsArr[i*3]=1; starColorsArr[i*3+1]=0.3; starColorsArr[i*3+2]=0.8; }
+  else { starColorsArr[i*3]=0.8; starColorsArr[i*3+1]=0.8; starColorsArr[i*3+2]=1; }
+}
+starsGeom.setAttribute("position", new THREE.BufferAttribute(starPositions, 3));
+starsGeom.setAttribute("color", new THREE.BufferAttribute(starColorsArr, 3));
+const starsMat = new THREE.PointsMaterial({ size: 0.3, transparent: true, opacity: 0.9, vertexColors: true });
+const stars = new THREE.Points(starsGeom, starsMat);
+scene.add(stars);
+
+// ── Animate ──
+const clock = new THREE.Clock();
+function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+
+  controls.update();
+
+  // Flicker street lights randomly
+  neonLights.forEach((nl) => {
+    const flicker = 0.7 + 0.3 * Math.sin(t * (3 + nl.phase * 10) + nl.phase) * Math.sin(t * (5 + nl.phase * 7));
+    nl.light.intensity = nl.baseIntensity * (0.85 + 0.15 * Math.sin(t * 4.3 + nl.phase) * Math.sin(t * 7.1 + nl.phase * 2));
+    nl.light.intensity = Math.max(nl.baseIntensity * 0.5, nl.light.intensity);
+  });
+
+  renderer.render(scene, camera);
+}
+animate();
+
+window.addEventListener("resize", () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
+</body>
+</html>

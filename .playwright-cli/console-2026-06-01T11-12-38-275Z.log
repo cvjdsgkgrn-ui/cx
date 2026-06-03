@@ -1,0 +1,5 @@
+[     707ms] [WARNING] Deprecated API for given entry type. @ https://s1.hdslb.com/bfs/static/shanks/laputa-home/assets/index-fe35e7d5.js:47
+[     787ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ https://www.bilibili.com/:0
+[    1020ms] [INFO] %c bili-fe-mirror %c v2.1.0  padding: 2px 6px; border-radius: 3px 0 0 3px; color: #fff; background: #FF6699; font-weight: bold; padding: 2px 6px; border-radius: 0 3px 3px 0; color: #fff; background: #FF9999; font-weight: bold; @ https://s1.hdslb.com/bfs/seed/jinkela/short/b-mirror/biliMirror.umd.mini.js:1
+[    1023ms] [LOG] 白屏检测是否正常 {status: ok, loop: 0, data: Object} @ https://www.bilibili.com/:159
+[   16037ms] [WARNING] Deprecated API for given entry type. @ https://s1.hdslb.com/bfs/seed/jinkela/short/b-mirror/biliMirror.umd.mini.js:1

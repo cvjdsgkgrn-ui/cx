@@ -1,0 +1,14 @@
+[     388ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://www.douyin.com/aisearch/codex%20skills:0
+[     388ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://www.douyin.com/aisearch/codex%20skills:0
+[     399ms] [LOG] init slardar @ https://www.douyin.com/aisearch/codex%20skills:21
+[     399ms] [LOG] init slardar success @ https://www.douyin.com/aisearch/codex%20skills:101
+[     932ms] [WARNING] [SDK] 1780132731220        0 already inited @ https://lf3-short.ibytedapm.com/slardar/fe/sdk-web/browser.cn.js?bid=douyin_web&globalName=Slardar:0
+[    1461ms] [LOG] init or use must be first call, cmd: config @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    1470ms] [LOG] init or use must be first call, cmd: start @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    1985ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/async/5498.ee242fbb.js:1
+[    2303ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/async/81708.2d357fed.js:1
+[    2340ms] [ERROR] Not allowed to launch 'bitbrowser://cc/' because a user gesture is required. @ https://www.douyin.com/aisearch/codex%20skills:0
+[    2393ms] [LOG] Service worker registration success @ https://www.douyin.com/aisearch/codex%20skills:948
+[    4311ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/8708.7c8663ca.js:1
+[    4312ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/8708.7c8663ca.js:1
+[    4315ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/8708.7c8663ca.js:1

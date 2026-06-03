@@ -1,0 +1,464 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - list [ref=e6]:
+        - listitem [ref=e7]:
+          - link "首页" [ref=e8] [cursor=pointer]:
+            - /url: //www.bilibili.com
+            - img [ref=e9]
+            - generic [ref=e11]: 首页
+        - listitem [ref=e12]:
+          - link "番剧" [ref=e13] [cursor=pointer]:
+            - /url: //www.bilibili.com/anime/
+        - listitem [ref=e14]:
+          - link "直播" [ref=e15] [cursor=pointer]:
+            - /url: //live.bilibili.com
+        - listitem [ref=e16]:
+          - link "游戏中心" [ref=e17] [cursor=pointer]:
+            - /url: //game.bilibili.com/platform
+        - listitem [ref=e18]:
+          - link "会员购" [ref=e19] [cursor=pointer]:
+            - /url: //show.bilibili.com/platform/home.html?msource=pc_web
+        - listitem [ref=e20]:
+          - link "漫画" [ref=e21] [cursor=pointer]:
+            - /url: //manga.bilibili.com?from=bill_top_mnav
+        - listitem [ref=e22]:
+          - link "赛事" [ref=e23] [cursor=pointer]:
+            - /url: //www.bilibili.com/match/home/
+        - listitem [ref=e24]:
+          - link "下载客户端" [ref=e25] [cursor=pointer]:
+            - /url: //app.bilibili.com
+            - img [ref=e26]
+            - generic [ref=e29]: 下载客户端
+      - generic [ref=e33]:
+        - textbox "TF家族" [ref=e35]
+        - img [ref=e37] [cursor=pointer]
+      - list [ref=e39]:
+        - listitem [ref=e40] [cursor=pointer]:
+          - listitem [ref=e41]:
+            - generic [ref=e43]: 登录
+            - generic [ref=e46]:
+              - paragraph [ref=e47]: 登录后你可以：
+              - generic [ref=e48]:
+                - generic [ref=e49]:
+                  - img [ref=e50]
+                  - generic [ref=e54]: 免费看高清视频
+                - generic [ref=e55]:
+                  - img [ref=e56]
+                  - generic [ref=e59]: 多端同步播放记录
+                - generic [ref=e60]:
+                  - img [ref=e61]
+                  - generic [ref=e67]: 发表弹幕/评论
+                - generic [ref=e68]:
+                  - img [ref=e69]
+                  - generic [ref=e72]: 热门番剧影视看不停
+              - generic [ref=e73]: 立即登录
+              - generic [ref=e74]: 首次使用？ 点我注册
+        - listitem [ref=e75] [cursor=pointer]:
+          - listitem [ref=e77]:
+            - link [ref=e78]:
+              - /url: //account.bilibili.com/big
+              - img [ref=e79]
+        - listitem [ref=e83] [cursor=pointer]:
+          - img [ref=e85]
+        - listitem [ref=e88] [cursor=pointer]:
+          - img [ref=e90]
+        - listitem [ref=e96] [cursor=pointer]:
+          - img [ref=e98]
+        - listitem [ref=e101] [cursor=pointer]:
+          - img [ref=e103]
+        - listitem [ref=e105] [cursor=pointer]:
+          - img [ref=e107]
+        - listitem [ref=e111] [cursor=pointer]:
+          - listitem [ref=e112]:
+            - img [ref=e115]
+    - link "B站 b站" [ref=e122] [cursor=pointer]:
+      - /url: //www.bilibili.com
+      - img "B站 b站" [ref=e123]
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - link "动态" [ref=e126] [cursor=pointer]:
+          - /url: //t.bilibili.com
+          - img [ref=e128]
+          - generic [ref=e133]: 动态
+        - link "热门" [ref=e134] [cursor=pointer]:
+          - /url: //www.bilibili.com/v/popular/all
+          - img [ref=e136]
+          - generic [ref=e138]: 热门
+      - generic [ref=e139]:
+        - generic [ref=e140]:
+          - link "番剧" [ref=e141] [cursor=pointer]:
+            - /url: //www.bilibili.com/anime/
+          - link "电影" [ref=e142] [cursor=pointer]:
+            - /url: //www.bilibili.com/movie/
+          - link "国创" [ref=e143] [cursor=pointer]:
+            - /url: //www.bilibili.com/guochuang/
+          - link "电视剧" [ref=e144] [cursor=pointer]:
+            - /url: //www.bilibili.com/tv/
+          - link "综艺" [ref=e145] [cursor=pointer]:
+            - /url: //www.bilibili.com/variety/
+          - link "纪录片" [ref=e146] [cursor=pointer]:
+            - /url: //www.bilibili.com/documentary/
+          - link "动画" [ref=e147] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/douga/
+          - link "游戏" [ref=e148] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/game/
+          - link "鬼畜" [ref=e149] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/kichiku/
+          - link "音乐" [ref=e150] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/music/
+          - link "舞蹈" [ref=e151] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/dance/
+          - link "影视" [ref=e152] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/cinephile/
+          - link "娱乐" [ref=e153] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/ent/
+          - link "知识" [ref=e154] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/knowledge/
+          - link "科技数码" [ref=e155] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/tech/
+          - link "资讯" [ref=e156] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/information/
+          - link "美食" [ref=e157] [cursor=pointer]:
+            - /url: //www.bilibili.com/c/food/
+          - generic [ref=e158]:
+            - text: 更多
+            - img [ref=e159]
+        - generic [ref=e162]:
+          - link "专栏" [ref=e163] [cursor=pointer]:
+            - /url: //www.bilibili.com/read/home/
+            - generic [ref=e164]: 专栏
+          - link "直播" [ref=e165] [cursor=pointer]:
+            - /url: //live.bilibili.com
+            - generic [ref=e166]: 直播
+          - link "活动" [ref=e167] [cursor=pointer]:
+            - /url: //www.bilibili.com/blackboard/era/reward-activity-list-page.html#/list
+            - generic [ref=e168]: 活动
+          - link "课堂" [ref=e169] [cursor=pointer]:
+            - /url: //www.bilibili.com/cheese/?csource=common_hp_channelclass_icon
+            - generic [ref=e170]: 课堂
+          - link "社区中心" [ref=e171] [cursor=pointer]:
+            - /url: //www.bilibili.com/blackboard/activity-5zJxM3spoS.html
+            - generic [ref=e172]: 社区中心
+          - link "新歌热榜" [ref=e173] [cursor=pointer]:
+            - /url: //music.bilibili.com/pc/music-center/
+            - generic [ref=e174]: 新歌热榜
+  - main [ref=e175]:
+    - generic [ref=e177]:
+      - generic [ref=e178]:
+        - generic [ref=e185]:
+          - generic [ref=e186]:
+            - link "【医学博士】高考前如何把身体调到最佳状态？｜考前身体调参指南！" [ref=e190] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1oRVA6uE68?track_id=
+              - img "【医学博士】高考前如何把身体调到最佳状态？｜考前身体调参指南！" [ref=e192]
+            - link "正在直播LPL：AL vs WE！" [ref=e196] [cursor=pointer]:
+              - /url: https://live.bilibili.com/6?live_from=81001
+              - img "正在直播LPL：AL vs WE！" [ref=e198]
+            - link "大型解压现场！纯享舞台上线>>" [ref=e202] [cursor=pointer]:
+              - /url: https://www.bilibili.com/video/BV1s5Vp6uEJ4/
+              - img "大型解压现场！纯享舞台上线>>" [ref=e204]
+            - link "Aboflab阿波哥中国行来啦！" [ref=e208] [cursor=pointer]:
+              - /url: https://www.bilibili.com/blackboard/era/UQGRLtiFGDS0aurh.html
+              - img "Aboflab阿波哥中国行来啦！" [ref=e210]
+            - link "【硅谷101】详解人形机器人“肉身困局”" [ref=e214] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1hjV96MEUE?track_id=
+              - img "【硅谷101】详解人形机器人“肉身困局”" [ref=e216]
+            - link "阿根廷国家队入驻B站！" [ref=e220] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1N3Vo6uEyb?track_id=
+              - img "阿根廷国家队入驻B站！" [ref=e222]
+            - link "星月秀：沈凌专访梁咏琪！" [ref=e226] [cursor=pointer]:
+              - /url: https://www.bilibili.com/bangumi/play/ep4081171
+              - img "星月秀：沈凌专访梁咏琪！" [ref=e228]
+            - link "祝所有小朋友节日快乐！" [ref=e232] [cursor=pointer]:
+              - /url: https://www.bilibili.com/blackboard/era/5QPj0DB7LDJWx1Ru.html
+              - img "祝所有小朋友节日快乐！" [ref=e234]
+            - link "SideStory「泡影苍霆」现已开启" [ref=e238] [cursor=pointer]:
+              - /url: https://www.bilibili.com/blackboard/era/ox1WAcaBsQh8YPw1.html
+              - img "SideStory「泡影苍霆」现已开启" [ref=e240]
+            - link "【医学博士】高考前如何把身体调到最佳状态？｜考前身体调参指南！" [ref=e244] [cursor=pointer]:
+              - /url: //www.bilibili.com/video/BV1oRVA6uE68?track_id=
+              - img "【医学博士】高考前如何把身体调到最佳状态？｜考前身体调参指南！" [ref=e246]
+            - link "正在直播LPL：AL vs WE！" [ref=e250] [cursor=pointer]:
+              - /url: https://live.bilibili.com/6?live_from=81001
+              - img "正在直播LPL：AL vs WE！" [ref=e252]
+          - generic:
+            - link "正在直播LPL：AL vs WE！" [ref=e255] [cursor=pointer]:
+              - /url: https://live.bilibili.com/6?live_from=81001
+              - generic [ref=e256]: 正在直播LPL：AL vs WE！
+            - list [ref=e258]:
+              - listitem [ref=e259] [cursor=pointer]
+              - listitem [ref=e262] [cursor=pointer]
+              - listitem [ref=e265] [cursor=pointer]
+              - listitem [ref=e268] [cursor=pointer]
+              - listitem [ref=e271] [cursor=pointer]
+              - listitem [ref=e274] [cursor=pointer]
+              - listitem [ref=e277] [cursor=pointer]
+              - listitem [ref=e280] [cursor=pointer]
+              - listitem [ref=e283] [cursor=pointer]
+          - generic [ref=e286]:
+            - button [ref=e287]:
+              - img [ref=e288]
+            - button [ref=e290]:
+              - img [ref=e291]
+        - generic [ref=e296]:
+          - link "薰儿探班凡人剧组vlog日常 22.5万 512 04:03" [ref=e297] [cursor=pointer]:
+            - /url: https://www.bilibili.com/video/BV1MiVE6BEDB
+            - generic [ref=e298]:
+              - img "薰儿探班凡人剧组vlog日常" [ref=e301]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 22.5万
+                    - generic:
+                      - img
+                      - generic: "512"
+                  - generic: 04:03
+          - generic [ref=e303]:
+            - heading "薰儿探班凡人剧组vlog日常" [level=3] [ref=e304]:
+              - link "薰儿探班凡人剧组vlog日常" [ref=e305] [cursor=pointer]:
+                - /url: https://www.bilibili.com/video/BV1MiVE6BEDB
+            - link "JanusAI · 昨天" [ref=e307] [cursor=pointer]:
+              - /url: //space.bilibili.com/24372514
+              - img [ref=e308]
+              - generic "JanusAI" [ref=e312]
+              - generic [ref=e313]: · 昨天
+        - generic [ref=e317]:
+          - link "我把隔壁牧场的小哥哥拿下了！哈哈哈哈哈哈哈 120.4万 1343 02:22" [ref=e318] [cursor=pointer]:
+            - /url: https://www.bilibili.com/video/BV17RVt6jEzp
+            - generic [ref=e319]:
+              - img "我把隔壁牧场的小哥哥拿下了！哈哈哈哈哈哈哈" [ref=e322]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 120.4万
+                    - generic:
+                      - img
+                      - generic: "1343"
+                  - generic: 02:22
+          - generic [ref=e324]:
+            - heading "我把隔壁牧场的小哥哥拿下了！哈哈哈哈哈哈哈" [level=3] [ref=e325]:
+              - link "我把隔壁牧场的小哥哥拿下了！哈哈哈哈哈哈哈" [ref=e326] [cursor=pointer]:
+                - /url: https://www.bilibili.com/video/BV17RVt6jEzp
+            - link "阿树是牧n代 · 05-29" [ref=e328] [cursor=pointer]:
+              - /url: //space.bilibili.com/3493105672129347
+              - img [ref=e329]
+              - generic "阿树是牧n代" [ref=e333]
+              - generic [ref=e334]: · 05-29
+        - generic [ref=e338]:
+          - 'link "当威虫进入我的世界！能否助我打败末影龙？ #我的世界 #游戏内容风向标 #我的世界黑球 #我的世界重启 #我的世界乐魂养成 148.7万 443 07:38" [ref=e339] [cursor=pointer]':
+            - /url: https://www.bilibili.com/video/BV1zEV86UEKV
+            - generic [ref=e340]:
+              - 'img "当威虫进入我的世界！能否助我打败末影龙？ #我的世界 #游戏内容风向标 #我的世界黑球 #我的世界重启 #我的世界乐魂养成" [ref=e343]'
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 148.7万
+                    - generic:
+                      - img
+                      - generic: "443"
+                  - generic: 07:38
+          - generic [ref=e345]:
+            - 'heading "当威虫进入我的世界！能否助我打败末影龙？ #我的世界 #游戏内容风向标 #我的世界黑球 #我的世界重启 #我的世界乐魂养成" [level=3] [ref=e346]':
+              - 'link "当威虫进入我的世界！能否助我打败末影龙？ #我的世界 #游戏内容风向标 #我的世界黑球 #我的世界重启 #我的世界乐魂养成" [ref=e347] [cursor=pointer]':
+                - /url: https://www.bilibili.com/video/BV1zEV86UEKV
+            - link "黑球冲冲冲 · 05-29" [ref=e349] [cursor=pointer]:
+              - /url: //space.bilibili.com/58934071
+              - img [ref=e350]
+              - generic "黑球冲冲冲" [ref=e354]
+              - generic [ref=e355]: · 05-29
+        - generic [ref=e359]:
+          - link "什么叫罗马人只会种菜了？ 73.6万 5430 03:54" [ref=e360] [cursor=pointer]:
+            - /url: https://www.bilibili.com/video/BV1T1V36EEBw
+            - generic [ref=e361]:
+              - img "什么叫罗马人只会种菜了？" [ref=e364]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 73.6万
+                    - generic:
+                      - img
+                      - generic: "5430"
+                  - generic: 03:54
+          - generic [ref=e366]:
+            - heading "什么叫罗马人只会种菜了？" [level=3] [ref=e367]:
+              - link "什么叫罗马人只会种菜了？" [ref=e368] [cursor=pointer]:
+                - /url: https://www.bilibili.com/video/BV1T1V36EEBw
+            - link "原野郎中 · 05-30" [ref=e370] [cursor=pointer]:
+              - /url: //space.bilibili.com/27717433
+              - img [ref=e371]
+              - generic "原野郎中" [ref=e375]
+              - generic [ref=e376]: · 05-30
+        - generic [ref=e380]:
+          - link "地狱高温来袭 中国与印度的发展水平迎来大考！ 449.2万 7382 12:36" [ref=e381] [cursor=pointer]:
+            - /url: https://www.bilibili.com/video/BV18EGm6UEqa
+            - generic [ref=e382]:
+              - img "地狱高温来袭 中国与印度的发展水平迎来大考！" [ref=e385]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 449.2万
+                    - generic:
+                      - img
+                      - generic: "7382"
+                  - generic: 12:36
+          - generic [ref=e387]:
+            - heading "地狱高温来袭 中国与印度的发展水平迎来大考！" [level=3] [ref=e388]:
+              - link "地狱高温来袭 中国与印度的发展水平迎来大考！" [ref=e389] [cursor=pointer]:
+                - /url: https://www.bilibili.com/video/BV18EGm6UEqa
+            - link "树根龙门阵 · 05-27" [ref=e391] [cursor=pointer]:
+              - /url: //space.bilibili.com/99336697
+              - img [ref=e392]
+              - generic "树根龙门阵" [ref=e396]
+              - generic [ref=e397]: · 05-27
+        - generic [ref=e401]:
+          - link "30元vs1700元！现在的台球厅还有这样的服务？ 88.9万 2699 10:26" [ref=e402] [cursor=pointer]:
+            - /url: https://www.bilibili.com/video/BV1AaVh6fETy
+            - generic [ref=e403]:
+              - img "30元vs1700元！现在的台球厅还有这样的服务？" [ref=e406]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 88.9万
+                    - generic:
+                      - img
+                      - generic: "2699"
+                  - generic: 10:26
+          - generic [ref=e408]:
+            - heading "30元vs1700元！现在的台球厅还有这样的服务？" [level=3] [ref=e409]:
+              - link "30元vs1700元！现在的台球厅还有这样的服务？" [ref=e410] [cursor=pointer]:
+                - /url: https://www.bilibili.com/video/BV1AaVh6fETy
+            - link "汤姆的混乱空间 · 05-30" [ref=e412] [cursor=pointer]:
+              - /url: //space.bilibili.com/11643866
+              - img [ref=e413]
+              - generic "汤姆的混乱空间" [ref=e417]
+              - generic [ref=e418]: · 05-30
+        - generic [ref=e422]:
+          - link "【火兰短报】LPL无缘亚运，小孩曾卓君再次夺冠，CS猎鹰离谱7亚王 60.7万 2505 14:33" [ref=e423] [cursor=pointer]:
+            - /url: https://www.bilibili.com/video/BV1LiVV6AEzm
+            - generic [ref=e424]:
+              - img "【火兰短报】LPL无缘亚运，小孩曾卓君再次夺冠，CS猎鹰离谱7亚王" [ref=e427]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                      - generic: 60.7万
+                    - generic:
+                      - img
+                      - generic: "2505"
+                  - generic: 14:33
+          - generic [ref=e429]:
+            - heading "【火兰短报】LPL无缘亚运，小孩曾卓君再次夺冠，CS猎鹰离谱7亚王" [level=3] [ref=e430]:
+              - link "【火兰短报】LPL无缘亚运，小孩曾卓君再次夺冠，CS猎鹰离谱7亚王" [ref=e431] [cursor=pointer]:
+                - /url: https://www.bilibili.com/video/BV1LiVV6AEzm
+            - link "火兰朋克 · 05-30" [ref=e433] [cursor=pointer]:
+              - /url: //space.bilibili.com/508215481
+              - img [ref=e434]
+              - generic "火兰朋克" [ref=e438]
+              - generic [ref=e439]: · 05-30
+        - generic [ref=e442]:
+          - link "赛事 4925.9万 游戏赛事" [ref=e444] [cursor=pointer]:
+            - /url: https://live.bilibili.com/7734200?live_from=81003
+            - generic [ref=e447]:
+              - img [ref=e448]
+              - generic [ref=e451]: 赛事
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                    - generic: 4925.9万
+                - generic:
+                  - generic: 游戏赛事
+          - generic [ref=e452]:
+            - paragraph [ref=e453]:
+              - link "直播中 【直播】AL vs WE" [ref=e454] [cursor=pointer]:
+                - /url: https://live.bilibili.com/7734200?live_from=81003
+                - generic [ref=e457]: 直播中
+                - text: 【直播】AL vs WE
+            - paragraph:
+              - link:
+                - /url: //space.bilibili.com/50329118
+        - generic [ref=e460]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e461]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e462]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e473]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e474]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e475]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e485]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e486]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+        - generic [ref=e487]:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph
+                - paragraph
+                - paragraph
+      - button "换一换" [ref=e498] [cursor=pointer]:
+        - img [ref=e499]
+        - generic [ref=e503]: 换一换
+  - generic [ref=e505] [cursor=pointer]:
+    - img [ref=e508]
+    - generic [ref=e512]:
+      - img [ref=e514]
+      - generic [ref=e516]: 点击视频卡片右上角添加！

@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人仪表盘</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white flex items-center justify-center transition-colors duration-1000" id="body">
+  <div class="w-full max-w-4xl mx-auto p-4 md:p-8">
+    <!-- 时钟 -->
+    <div class="text-center mb-8">
+      <div id="clock" class="text-6xl md:text-8xl font-light tracking-widest tabular-nums">00:00:00</div>
+      <div id="date" class="text-lg md:text-xl text-slate-400 mt-2">加载中...</div>
+    </div>
+    <!-- 卡片网格 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+      <!-- 天气卡片 -->
+      <div class="bg-white/10 backdrop-blur rounded-2xl p-6" id="weather-card">
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-sm uppercase tracking-wider text-slate-400">天气</h2>
+          <span class="text-xs text-slate-500" id="weather-location">定位中...</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-5xl" id="weather-icon">⏳</span>
+          <div>
+            <div class="text-3xl font-light" id="weather-temp">-- C</div>
+            <div class="text-sm text-slate-400 mt-1">
+              <span id="weather-humidity">湿度 --</span> | 
+              <span id="weather-wind">风速 --</span>
+            </div>
+          </div>
+        </div>
+        <div id="weather-error" class="hidden text-xs text-red-400 mt-3"></div>
+      </div>
+      <!-- 待办卡片 -->
+      <div class="bg-white/10 backdrop-blur rounded-2xl p-6" id="todo-card">
+        <h2 class="text-sm uppercase tracking-wider text-slate-400 mb-3">待办</h2>
+        <div class="flex gap-2 mb-4">
+          <input id="todo-input" type="text" placeholder="添加新待办..."
+            class="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm outline-none focus:border-white/30 transition">
+          <button id="todo-add" class="bg-white/10 hover:bg-white/20 rounded-lg px-4 py-2 text-sm transition">+</button>
+        </div>
+        <ul id="todo-list" class="space-y-2 max-h-64 overflow-y-auto"></ul>
+        <div class="text-xs text-slate-500 mt-3 text-center" id="todo-count">共 0 项</div>
+      </div>
+      <!-- 引言卡片 — 横跨两列 -->
+      <div class="bg-white/10 backdrop-blur rounded-2xl p-6 md:col-span-2" id="quote-card">
+        <p class="text-lg md:text-xl text-slate-300 italic leading-relaxed text-center transition-opacity duration-500" id="quote-text"></p>
+        <p class="text-xs text-slate-500 text-center mt-2" id="quote-author"></p>
+      </div>
+    </div>
+  </div>
+  <script>
+    // === 时钟模块 ===
+    function updateClock() {
+      var now = new Date();
+      var time = now.toLocaleTimeString('zh-CN', { hour12: false });
+      document.getElementById('clock').textContent = time;
+      var opts = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+      document.getElementById('date').textContent = now.toLocaleDateString('zh-CN', opts);
+      var hour = now.getHours();
+      var body = document.getElementById('body');
+      if (hour >= 18 || hour < 6) {
+        body.classList.remove('from-slate-900', 'to-slate-800');
+        body.classList.add('from-indigo-950', 'to-slate-950');
+      } else {
+        body.classList.remove('from-indigo-950', 'to-slate-950');
+        body.classList.add('from-slate-900', 'to-slate-800');
+      }
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+
+    // === 天气模块 ===
+    var WMO_CODES = {
+      0: '☀️', 1: '🌤️', 2: '⛅', 3: '☁️',
+      45: '🌫️', 48: '🌫️',
+      51: '🌦️', 53: '🌦️', 55: '🌧️',
+      61: '🌧️', 63: '🌧️', 65: '🌧️',
+      71: '❄️', 73: '❄️', 75: '❄️',
+      80: '🌦️', 81: '🌧️', 82: '⛈️',
+      95: '⛈️', 96: '⛈️', 99: '⛈️'
+    };
+
+    function fetchWeather(lat, lon) {
+      var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lon + '&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto';
+      fetch(url)
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          var c = data.current;
+          document.getElementById('weather-icon').textContent = WMO_CODES[c.weather_code] || '🌈';
+          document.getElementById('weather-temp').textContent = c.temperature_2m + '°C';
+          document.getElementById('weather-humidity').textContent = '湿度 ' + c.relative_humidity_2m + '%';
+          document.getElementById('weather-wind').textContent = '风速 ' + c.wind_speed_10m + 'm/s';
+          document.getElementById('weather-location').textContent = '上海';
+          localStorage.setItem('weather_cache', JSON.stringify({
+            temp: c.temperature_2m, humidity: c.relative_humidity_2m,
+            wind: c.wind_speed_10m, code: c.weather_code, time: Date.now()
+          }));
+        })
+        .catch(function() {
+          document.getElementById('weather-error').textContent = '⚠ 无法获取天气数据';
+          document.getElementById('weather-error').classList.remove('hidden');
+        });
+    }
+
+    function loadWeather() {
+      var cached = localStorage.getItem('weather_cache');
+      if (cached) {
+        var c = JSON.parse(cached);
+        document.getElementById('weather-icon').textContent = WMO_CODES[c.code] || '🌈';
+        document.getElementById('weather-temp').textContent = c.temp + '°C';
+        document.getElementById('weather-humidity').textContent = '湿度 ' + c.humidity + '%';
+        document.getElementById('weather-wind').textContent = '风速 ' + c.wind + 'm/s';
+        if (Date.now() - c.time > 30 * 60 * 1000) {
+          document.getElementById('weather-error').textContent = '⚠ 数据可能已过期';
+          document.getElementById('weather-error').classList.remove('hidden');
+        }
+      }
+      if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          function(pos) { fetchWeather(pos.coords.latitude, pos.coords.longitude); },
+          function() { fetchWeather(31.23, 121.47); }
+        );
+      } else {
+        fetchWeather(31.23, 121.47);
+      }
+    }
+    loadWeather();
+    setInterval(loadWeather, 30 * 60 * 1000);
+
+
+    // === 待办模块 ===
+    function loadTodos() {
+      var raw = localStorage.getItem('dashboard_todos');
+      return raw ? JSON.parse(raw) : [];
+    }
+    function saveTodos(todos) {
+      localStorage.setItem('dashboard_todos', JSON.stringify(todos));
+    }
+    function renderTodos() {
+      var todos = loadTodos();
+      var list = document.getElementById('todo-list');
+      list.innerHTML = '';
+      var done = 0;
+      todos.forEach(function(t, i) {
+        var li = document.createElement('li');
+        li.className = 'flex items-center gap-2 group';
+        var cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.checked = t.done;
+        cb.className = 'accent-emerald-500 cursor-pointer';
+        cb.addEventListener('change', function() {
+          todos[i].done = cb.checked;
+          saveTodos(todos);
+          renderTodos();
+        });
+        var span = document.createElement('span');
+        span.textContent = t.text;
+        span.className = 'flex-1 text-sm ' + (t.done ? 'line-through text-slate-500' : '');
+        var del = document.createElement('button');
+        del.textContent = '×';
+        del.className = 'text-slate-600 hover:text-red-400 opacity-0 group-hover:opacity-100 transition text-xs';
+        del.addEventListener('click', function() {
+          todos.splice(i, 1);
+          saveTodos(todos);
+          renderTodos();
+        });
+        li.appendChild(cb);
+        li.appendChild(span);
+        li.appendChild(del);
+        list.appendChild(li);
+        if (t.done) done++;
+      });
+      document.getElementById('todo-count').textContent = '已完成 ' + done + ' / 共 ' + todos.length;
+      if (todos.length === 0) {
+        list.innerHTML = '<li class="text-slate-600 text-sm text-center py-4">还没有待办，添加一个吧 ✨</li>';
+        document.getElementById('todo-count').textContent = '共 0 项';
+      }
+    }
+    document.getElementById('todo-add').addEventListener('click', function() {
+      var input = document.getElementById('todo-input');
+      var text = input.value.trim();
+      if (!text) return;
+      var todos = loadTodos();
+      todos.push({ text: text, done: false });
+      saveTodos(todos);
+      input.value = '';
+      renderTodos();
+    });
+    document.getElementById('todo-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') document.getElementById('todo-add').click();
+    });
+    renderTodos();
+
+    // === 引言模块 ===
+    var QUOTES = [
+      { text: '完成比完美更重要。', author: 'Sheryl Sandberg' },
+      { text: '简单是终极的复杂。', author: '达芬奇' },
+      { text: '行动是治愈恐惧的良药。', author: '威廉·詹姆斯' },
+      { text: '不积跬步，无以至千里。', author: '荀子' },
+      { text: '代码是写给人看的，顺带能在机器上运行。', author: 'Harold Abelson' },
+      { text: '少即是多。', author: '密斯·凡德罗' },
+      { text: '最好的代码是没有代码。', author: 'Jeff Atwood' },
+      { text: '专注是把一件事做到极致。', author: '乔布斯' },
+      { text: '不要重复自己。', author: 'Andy Hunt' },
+      { text: '清晰的代码不需要注释。', author: 'Robert C. Martin' },
+      { text: '先让它可以运行，再让它正确，最后让它快。', author: 'Kent Beck' },
+      { text: '调试是写代码的两倍难。', author: 'Brian Kernighan' },
+      { text: '程序必须首先为人类编写。', author: 'Donald Knuth' },
+      { text: '今天是余生第一天。', author: '佚名' },
+      { text: '种一棵树最好的时间是十年前，其次是现在。', author: '非洲谚语' },
+      { text: '工欲善其事，必先利其器。', author: '孔子' },
+      { text: '千里之行，始于足下。', author: '老子' },
+      { text: '知之为知之，不知为不知，是知也。', author: '孔子' },
+      { text: 'Stay hungry, stay foolish.', author: 'Steve Jobs' },
+      { text: 'The only way to do great work is to love what you do.', author: 'Steve Jobs' }
+    ];
+
+    function pickQuote() {
+      var last = localStorage.getItem('last_quote_index');
+      var idx;
+      do { idx = Math.floor(Math.random() * QUOTES.length); }
+      while (QUOTES.length > 1 && idx === parseInt(last));
+      localStorage.setItem('last_quote_index', idx);
+      return QUOTES[idx];
+    }
+
+    var quote = pickQuote();
+    document.getElementById('quote-text').textContent = '"' + quote.text + '"';
+    document.getElementById('quote-author').textContent = '— ' + quote.author;
+  </script>
+</body>
+</html>

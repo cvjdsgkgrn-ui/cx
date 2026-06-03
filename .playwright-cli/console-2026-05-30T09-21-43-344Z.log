@@ -1,0 +1,19 @@
+[     404ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://www.douyin.com/search/codex%20%E6%8A%80%E8%83%BD:0
+[    1648ms] [LOG] init or use must be first call, cmd: config @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    1648ms] [LOG] init or use must be first call, cmd: start @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    1648ms] [LOG] init or use must be first call, cmd: config @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    1649ms] [LOG] init or use must be first call, cmd: start @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    1649ms] [LOG] init or use must be first call, cmd: config @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    1649ms] [LOG] init or use must be first call, cmd: start @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    1649ms] [LOG] init or use must be first call, cmd: config @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    1649ms] [LOG] init or use must be first call, cmd: start @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    1892ms] [LOG] init or use must be first call, cmd: start @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    2249ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-search.douyinstatic.com/obj/douyin-pc-search/ies/douyin/search/async/9499.d7714ebc.js:1
+[    4284ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ :2
+[    4284ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ :2
+[    4286ms] [LOG] bytedance://disable_swipe @ :2
+[    7547ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-search.douyinstatic.com/obj/douyin-pc-search/ies/douyin/search/async/1422.dd9762bc.js:1
+[    7597ms] [ERROR] Not allowed to launch 'bitbrowser://cc/' because a user gesture is required. @ https://www.douyin.com/search/codex%20%E6%8A%80%E8%83%BD:0
+[   12390ms] [WARNING] eventName is null， please check @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[   14156ms] [ERROR] Access to XMLHttpRequest at 'https://imapi.douyin.com/v1/stranger/get_conversation_list' from origin 'https://www.douyin.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://www.douyin.com/search/codex%20%E6%8A%80%E8%83%BD:0
+[   14157ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://imapi.douyin.com/v1/stranger/get_conversation_list:0

@@ -1,0 +1,35 @@
+[     849ms] Uncaught TypeError: Cannot read properties of undefined (reading 'register')
+    at <anonymous> (https://s1.hdslb.com/bfs/seed/jinkela/short/bmg/register/cmpt.js:5:320)
+    at <anonymous> (https://s1.hdslb.com/bfs/seed/jinkela/short/bmg/register/cmpt.js:5:197)
+    at <anonymous> (https://s1.hdslb.com/bfs/seed/jinkela/short/bmg/register/cmpt.js:5:225)
+[    1039ms] [INFO] %c%s line-height: 30px; color: #FF6699 bili-fe-fp: 1.1.4 @ https://s1.hdslb.com/bfs/seed/jinkela/short/user-fingerprint/bili-user-fingerprint.min.js:0
+[    1480ms] [INFO] %c bili-fe-mirror %c v2.1.0  padding: 2px 6px; border-radius: 3px 0 0 3px; color: #fff; background: #FF6699; font-weight: bold; padding: 2px 6px; border-radius: 0 3px 3px 0; color: #fff; background: #FF9999; font-weight: bold; @ https://s1.hdslb.com/bfs/seed/jinkela/short/b-mirror/biliMirror.umd.mini.js:1
+[    1480ms] [LOG] 白屏检测是否正常 {status: ok, loop: 0, data: Object} @ https://www.bilibili.com/video/BV1TZ421U7f5/:4
+[    2361ms] [LOG] %c
+                     //
+         \\         //
+          \\       //
+    ##DDDDDDDDDDDDDDDDDDDDDD##
+    ## DDDDDDDDDDDDDDDDDDDD ##   ________   ___   ___        ___   ________   ___   ___        ___
+    ## hh                hh ##   |\   __  \ |\  \ |\  \      |\  \ |\   __  \ |\  \ |\  \      |\  \
+    ## hh    //    \\    hh ##   \ \  \|\ /_\ \  \\ \  \     \ \  \\ \  \|\ /_\ \  \\ \  \     \ \  \
+    ## hh   //      \\   hh ##    \ \   __  \\ \  \\ \  \     \ \  \\ \   __  \\ \  \\ \  \     \ \  \
+    ## hh                hh ##     \ \  \|\  \\ \  \\ \  \____ \ \  \\ \  \|\  \\ \  \\ \  \____ \ \  \
+    ## hh      wwww      hh ##      \ \_______\\ \__\\ \_______\\ \__\\ \_______\\ \__\\ \_______\\ \__\
+    ## hh                hh ##       \|_______| \|__| \|_______| \|__| \|_______| \|__| \|_______| \|__|
+    ## MMMMMMMMMMMMMMMMMMMM ##
+    ##MMMMMMMMMMMMMMMMMMMMMM##                                          Release undefined@no release yet
+         \/            \/                                       Powered by @bilibili/jinkela-core@2.8.14 color:#00a1d6 @ https://s1.hdslb.com/bfs/static/jinkela/video/video.d712de4c301b98a8697119d91d0ad8cb475a3658.js:0
+[    2723ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ https://www.bilibili.com/video/BV1TZ421U7f5/:0
+[   16634ms] [WARNING] Deprecated API for given entry type. @ https://s1.hdslb.com/bfs/seed/jinkela/short/b-mirror/biliMirror.umd.mini.js:1
+[   74752ms] [WARNING] bili comments load error undefined @ https://s1.hdslb.com/bfs/seed/jinkela/commentpc/bili-comments.b264229dca.js:92
+[   74808ms] undefined
+[   74840ms] [WARNING] [Mirror]: Promise拒绝错误解析失败: undefined @ https://s1.hdslb.com/bfs/seed/jinkela/short/b-mirror/biliMirror.umd.mini.js:1
+[   80019ms] [WARNING] bili comments load error undefined @ https://s1.hdslb.com/bfs/seed/jinkela/commentpc/bili-comments.b264229dca.js:92
+[   80061ms] Uncaught (in promise) undefined
+    at n (https://s1.hdslb.com/bfs/seed/jinkela/commentpc/bili-comments.b264229dca.js:5:536)
+    at l (https://s1.hdslb.com/bfs/seed/jinkela/commentpc/bili-comments.b264229dca.js:5:739)
+[   98844ms] [WARNING] bili comments load error undefined @ https://s1.hdslb.com/bfs/seed/jinkela/commentpc/bili-comments.b264229dca.js:92
+[   98933ms] Uncaught (in promise) undefined
+    at n (https://s1.hdslb.com/bfs/seed/jinkela/commentpc/bili-comments.b264229dca.js:5:536)
+    at l (https://s1.hdslb.com/bfs/seed/jinkela/commentpc/bili-comments.b264229dca.js:5:739)

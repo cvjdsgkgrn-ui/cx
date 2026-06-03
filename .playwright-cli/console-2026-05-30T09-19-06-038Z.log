@@ -1,0 +1,330 @@
+[     682ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://www.douyin.com/jingxuan:0
+[     698ms] [LOG] init slardar @ https://www.douyin.com/jingxuan:21
+[     698ms] [LOG] init slardar success @ https://www.douyin.com/jingxuan:101
+[    1456ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:37
+[    1462ms] [ERROR] Framing 'https://lf-rc1.yhgfb-cn-static.com/' violates the following report-only Content Security Policy directive: "frame-src 'self' *.douyin.com:* *.bytedance.net:* *.bytegecko.com:* *.yhgtb-cn-static.com:* *.bytedance.com:* *.toutiao.com:* *.toutiaopage.com:* *.jinritemai.com:* *.chengzijianzhan.com:* *.chengzijianzhan.cc:* *.chengzijianzhana.com:* *.chengzijianzhanb.com:* *.chengzijianzhan.net:* aip.chengzijianzhan.cn:* bitbrowser: blob:". The violation has been logged, but no further action has been taken.
+ @ https://lf-cdn-tos.bytescm.com/:0
+[    1690ms] [WARNING] [SDK] 1780132747727        0 already inited @ https://lf3-short.ibytedapm.com/slardar/fe/sdk-web/browser.cn.js?bid=douyin_web&globalName=Slardar:0
+[    1698ms] [ERROR] Framing 'https://lf-rc1.yhgfb-cn-static.com/' violates the following report-only Content Security Policy directive: "frame-src 'self' *.douyin.com:* *.bytedance.net:* *.bytegecko.com:* *.yhgtb-cn-static.com:* *.bytedance.com:* *.toutiao.com:* *.toutiaopage.com:* *.jinritemai.com:* *.chengzijianzhan.com:* *.chengzijianzhan.cc:* *.chengzijianzhana.com:* *.chengzijianzhanb.com:* *.chengzijianzhan.net:* aip.chengzijianzhan.cn:* bitbrowser: blob:". The violation has been logged, but no further action has been taken.
+ @ https://lf-cdn-tos.bytescm.com/:0
+[    2459ms] [LOG] init or use must be first call, cmd: config @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    2469ms] [LOG] init or use must be first call, cmd: start @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    2521ms] [LOG] init or use must be first call, cmd: video_cover_show @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    2523ms] [LOG] init or use must be first call, cmd: video_cover_show @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    2524ms] [LOG] init or use must be first call, cmd: video_cover_show @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    2528ms] [LOG] init or use must be first call, cmd: video_cover_show @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    2529ms] [LOG] init or use must be first call, cmd: video_cover_show @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    2530ms] [LOG] init or use must be first call, cmd: video_cover_show @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[    4656ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ https://www.douyin.com/jingxuan:0
+[    7256ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/async/5498.ee242fbb.js:1
+[    7407ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/async/81708.2d357fed.js:1
+[    7473ms] [ERROR] Not allowed to launch 'bitbrowser://cc/' because a user gesture is required. @ https://www.douyin.com/jingxuan:0
+[   12306ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/62176.c9c9b3f7.js:1
+[   12307ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/62176.c9c9b3f7.js:1
+[   12312ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/62176.c9c9b3f7.js:1
+[   15169ms] [LOG] globalProps {verifyFinishCallback: , browserInfo: Object, isNewVerifyUI: true, uiManual: Object, generalParams: Object} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   15260ms] [LOG] [useCustomComponent] undefined @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   15260ms] [LOG] <<<originData: {verifyFinishCallback: , browserInfo: Object, isNewVerifyUI: true, uiManual: Object, generalParams: Object} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   17232ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   17283ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   17333ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   17396ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   17450ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   17815ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   17870ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   17925ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   18107ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   18163ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   18216ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   18280ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   18335ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   18672ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   18742ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   18798ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   18853ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   18916ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   19256ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   19311ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   19568ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   19630ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   19874ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   20116ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   20179ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   20235ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   20291ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   20346ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   20402ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   20457ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   20514ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   20654ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   20664ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   20709ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   20710ms] [LOG] timer {timer: null, seconds: 60} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   20721ms] [LOG] <<<click sendCode false @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   20722ms] [LOG] timer {timer: null, seconds: 60} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   20929ms] [LOG] timer {timer: null, seconds: 60} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   20930ms] [LOG] <<<beginCountDown @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   20931ms] [LOG] timer {timer: 1072, seconds: 59} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   20931ms] [LOG] timer {timer: 1072, seconds: 59} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   21019ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   21075ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   21931ms] [LOG] timer {timer: 1072, seconds: 58} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   22931ms] [LOG] timer {timer: 1072, seconds: 57} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   23603ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   23662ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   23784ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   23931ms] [LOG] timer {timer: 1072, seconds: 56} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   24936ms] [LOG] timer {timer: 1072, seconds: 55} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   25936ms] [LOG] timer {timer: 1072, seconds: 54} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   26931ms] [LOG] timer {timer: 1072, seconds: 53} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   27931ms] [LOG] timer {timer: 1072, seconds: 52} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   28931ms] [LOG] timer {timer: 1072, seconds: 51} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   29869ms] [LOG] timer {timer: 1072, seconds: 51} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   29931ms] [LOG] timer {timer: 1072, seconds: 50} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   30283ms] [LOG] timer {timer: 1072, seconds: 50} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   30909ms] [LOG] timer {timer: 1072, seconds: 50} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   30931ms] [LOG] timer {timer: 1072, seconds: 49} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   31931ms] [LOG] timer {timer: 1072, seconds: 48} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   32932ms] [LOG] timer {timer: 1072, seconds: 47} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   33313ms] [LOG] timer {timer: 1072, seconds: 47} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   33904ms] [LOG] timer {timer: 1072, seconds: 47} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   33931ms] [LOG] timer {timer: 1072, seconds: 46} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   34092ms] [LOG] timer {timer: 1072, seconds: 46} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   34534ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   34672ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   34728ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   34825ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   34881ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   34931ms] [LOG] timer {timer: 1072, seconds: 45} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   35040ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   35124ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   35187ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   35242ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   35369ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   35457ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   35458ms] [LOG] timer {timer: 1072, seconds: 45} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   35511ms] [LOG] init Q @ https://lf-ucenter-web.yhgfb-cn-static.com/obj/passport-fe/ucenter_fe/@byted/x-uc-passport-second-verification-web/dist/932.7cd3e3de.chunk.js:0
+[   35735ms] [LOG] timer {timer: 1072, seconds: 45} @ https://auth.zijieapi.com/ucenter_web/app/second_verification_web/dist/index.umd.production.js?std_verify_flow_id=a4d4ecb8-a3cf-4618-8de4-7d799256b5ed.login&std_verify_scene=account_login&std_verify_template=ato_web&std_verify_token=a5950bad-5c08-11f1-9e78-946dae6541e2_hl&std_verify_type=MFA&std_verify_way=&verify_ways=mobile_sms_verify%2Cface_verify%2Cpwd_verify%2Cmobile_up_sms_verify?aid=6383&verify_reason=ato_web&verify_scene=qr_connect:1
+[   36269ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   36325ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   36381ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   36440ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   36490ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   36545ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   36600ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   36657ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   36779ms] [WARNING] %c[xgplayer] color: #525252; background-color: yellow;  warn>>icons.[object Object] in config of plugin named [texttrack] is invalid @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/20426.c9ab0294.js:1
+[   36781ms] [WARNING] %c[xgplayer] color: #525252; background-color: yellow;  warn>>icons.[object Object] in config of plugin named [texttrack] is invalid @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/20426.c9ab0294.js:1
+[   36866ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at Z (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:85698)
+[   36884ms] Uncaught Error: MessageManager: targetWindow is not set
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:84636)
+    at value (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:83214)
+    at j (https://lf-cdn-tos.bytescm.com/obj/rc-verifycenter/rmc-nocaptcha/1.0.0.22/setup.js:1:86085)
+[   36903ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://www.douyin.com/jingxuan:0
+[   36922ms] [LOG] init slardar @ https://www.douyin.com/jingxuan:21
+[   36922ms] [LOG] init slardar success @ https://www.douyin.com/jingxuan:101
+[   37685ms] [WARNING] [SDK] 1780132783722        0 already inited @ https://lf3-short.ibytedapm.com/slardar/fe/sdk-web/browser.cn.js?bid=douyin_web&globalName=Slardar:0
+[   37981ms] [LOG] Service worker registration success @ https://www.douyin.com/jingxuan:1506
+[   38844ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/async/5498.ee242fbb.js:1
+[   41242ms] [INFO] Images loaded lazily and replaced with placeholders. Load events are deferred. See https://go.microsoft.com/fwlink/?linkid=2048113 @ https://www.douyin.com/jingxuan:0
+[   41378ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/async/81708.2d357fed.js:1
+[   41424ms] [ERROR] Failed to launch 'bitbrowser://cc/' because the scheme does not have a registered handler. @ https://www.douyin.com/jingxuan:0
+[   43545ms] [WARNING] eventName is null， please check @ https://lf-static.applogcdn.com/obj/applog-sdk-static/log-sdk/collect/5/collect.dy.js:0
+[   48417ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/8708.7c8663ca.js:1
+[   48417ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/8708.7c8663ca.js:1
+[   48421ms] [ERROR] The Content Security Policy directive 'upgrade-insecure-requests' is ignored when delivered in a report-only policy. @ https://lf-douyin-pc-web.douyinstatic.com/obj/douyin-pc-web/ies/douyin_web/8708.7c8663ca.js:1
+[   61498ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/647.eaa4b533.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   61498ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/8832.9de3f7a5.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   61499ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/387.d9c702ea.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   61499ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/lib-polyfill.bbf56a3e.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   61499ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/lib-axios.76b0a83d.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   61499ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/css/async/__federation_expose_default_export.bb118ee9.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   61499ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/__federation_expose_default_export.39739f89.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   61499ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/6387.85b28eb8.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   61499ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/2997.17c53018.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   71334ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/647.eaa4b533.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   71335ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/8832.9de3f7a5.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   71335ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/387.d9c702ea.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   71335ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/lib-polyfill.bbf56a3e.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   71335ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/lib-axios.76b0a83d.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   71335ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/css/async/__federation_expose_default_export.bb118ee9.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   71335ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/__federation_expose_default_export.39739f89.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   71335ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/6387.85b28eb8.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
+[   71335ms] [WARNING] The resource https://lf3-social.iesdouyin.com/obj/douyin-social-cdn/pcim/static/js/async/2997.17c53018.js was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ https://www.douyin.com/jingxuan:0
