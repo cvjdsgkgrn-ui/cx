@@ -76,7 +76,37 @@ garden-sandbox 使用 DeepSeek V4 Pro API，调用时遵循以下最佳实践：
 - 优化方向包括但不限于：补充遗漏的约束、精简冗余规则、调整执行顺序使之更高效、针对项目具体特性增加专项指引。
 - 提出建议时简要说明理由，等待用户确认后再执行修改。
 
+
+## CodeGraph 代码智能
+本项目已安装 [CodeGraph](https://github.com/colbymchenry/codegraph)（tree-sitter 知识图谱，81 节点/102 边）。
+- 索引位于 `.codegraph/`，文件监视器自动保持同步。
+- 对于结构性问题（定义查找、调用关系、影响分析），优先使用 `codegraph` CLI：
+  - `codegraph query <符号名>` — 查找定义
+  - `codegraph callers <符号>` — 谁调用了它
+  - `codegraph callees <符号>` — 它调用了谁
+  - `codegraph impact <文件>` — 修改影响范围
+  - `codegraph context <任务描述>` — 获取相关代码上下文
+- 仅在怀疑索引过期时才运行 `codegraph sync`。
+- MCP 工具 `codegraph_*` 需重启 Codex 后才能使用，在此之前通过 shell 直接调用 CLI。
+
+
+## 插件 Skill（项目级）
+
+### shuorenhua（说人话）
+- **触发**：所有中文文本输出（LLM 对话生成、系统提示词、README、注释等），自动执行"去 AI 味"检查。
+- **力度**：architectural（可删并重排），Tier 1+2 必须处理，Tier 3 酌情。
+- **场景**：`chat` 模式（园林匠人对话），`docs` 模式（设计文档），`public-writing` 模式（展演使用的文字）。
+- **skill 文件**：`.codex-plugins/shuorenhua/SKILL.md`
+- **references**：`.codex-plugins/shuorenhua/references/`
+
+### taste-skill（full-output-enforcement）
+- **触发**：任何生成完整代码/文件的请求。
+- **规则**：禁止 `// ...`、`// TODO`、骨架代码、占位符模式；必须输出完整可运行代码。
+- **skill 文件**：`.codex-plugins/taste-skill/SKILL.md`
+
 ## 代码风格
 - 遵循当前项目的现有代码风格和约定。
 - 保持修改最小化，只改与任务相关的内容。
 - 优先修改 `SKILL.md` 所引用的脚本和模板，而不是重写大段代码。
+
+
