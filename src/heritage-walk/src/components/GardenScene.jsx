@@ -122,8 +122,7 @@ function Desk({ position, rotation = 0 }) {
           <cylinderGeometry args={[0.05, 0.06, 0.44, 6]} />
           <meshStandardMaterial color="#5a3020" roughness={0.6} />
         </mesh>
-      ))})}();
-
+      ))}
     </group>
   )
 }

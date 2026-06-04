@@ -2,8 +2,8 @@ import { useRef, useEffect, useState, useMemo } from "react"
 import { useNavigate } from "react-router-dom"
 import { Canvas } from "@react-three/fiber"
 import { Sky, OrbitControls } from "@react-three/drei"
-import { EffectComposer, Bloom, Vignette, ToneMapping } from "@react-three/postprocessing"
 import GardenScene from "../components/GardenScene"
+import SafeCanvas from "../components/SafeCanvas"
 import { setSceneData, getTileData } from "../utils/pathfinding"
 
 const GRID = 30
@@ -291,19 +291,16 @@ export default function Editor() {
         <div style={{ position: "absolute", top: 6, left: 8, zIndex: 5, color: "#888", fontSize: 10, background: "rgba(0,0,0,0.6)", padding: "3px 8px", borderRadius: 4 }}>
           3D 实时预览
         </div>
-        <Canvas shadows camera={{ position: [0, 22, 16], fov: 50 }} style={{ position: "absolute", inset: 0 }}
-          gl={{ preserveDrawingBuffer: false, alpha: false, antialias: true }}>
-          <Sky sunPosition={[100, 20, 100]} />
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[20, 25, 10]} intensity={1.3} castShadow shadow-mapSize={[512, 512]} />
-          <GardenScene weather="sunny" tileData={previewTiles} />
-          <OrbitControls enablePan enableZoom enableRotate maxPolarAngle={Math.PI / 2.3} minDistance={6} maxDistance={45} />
-          <EffectComposer multisampling={0}>
-            <Bloom luminanceThreshold={0.4} luminanceSmoothing={0.9} intensity={0.3} />
-            <Vignette offset={0.3} darkness={0.5} />
-            <ToneMapping />
-          </EffectComposer>
-        </Canvas>
+        <SafeCanvas>
+          <Canvas shadows camera={{ position: [0, 22, 16], fov: 50 }} style={{ position: "absolute", inset: 0 }}
+            gl={{ preserveDrawingBuffer: false, alpha: false, antialias: true }}>
+            <Sky sunPosition={[100, 20, 100]} />
+            <ambientLight intensity={0.5} />
+            <directionalLight position={[20, 25, 10]} intensity={1.3} castShadow shadow-mapSize={[512, 512]} />
+            <GardenScene weather="sunny" tileData={previewTiles} />
+            <OrbitControls enablePan enableZoom enableRotate maxPolarAngle={Math.PI / 2.3} minDistance={6} maxDistance={45} />
+          </Canvas>
+        </SafeCanvas>
       </div>
 
       {/* ── Save Dialog ── */}

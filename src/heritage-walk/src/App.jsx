@@ -7,7 +7,15 @@ const Editor = lazy(() => import("./pages/Editor.jsx"))
 
 class ErrorBoundary extends Component {
   constructor(props) { super(props); this.state = { error: null } }
-  static getDerivedStateFromError(error) { return { error } }
+  static getDerivedStateFromError(error) {
+    // Suppress known React 19 + R3F harmless errors
+    const msg = error?.message || ""
+    if (msg.includes("removeChild") || (msg.includes("remove") && msg.includes("not a child")))
+      return null
+    if (msg.includes("addEventListener") && msg.includes("null"))
+      return null
+    return { error }
+  }
   render() {
     if (this.state.error) {
       return (

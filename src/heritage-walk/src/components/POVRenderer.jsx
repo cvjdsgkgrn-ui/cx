@@ -2,6 +2,7 @@ import { useRef, useMemo } from "react"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { Sky } from "@react-three/drei"
 import GardenScene from "./GardenScene"
+import SafeCanvas from "./SafeCanvas"
 import { getTileData } from "../utils/pathfinding"
 import { createCharacterModel } from "./CharacterSystem"
 
@@ -69,18 +70,20 @@ export default function POVRenderer({ character, characters }) {
 
   return (
     <div style={{ width: "100%", height: "100%", background: "#000" }}>
-      <Canvas
-        shadows
-        style={{ position: "absolute", inset: 0 }}
-        gl={{ preserveDrawingBuffer: false, alpha: false, antialias: true }}
-      >
-        <FollowCamera character={character} />
-        <Sky sunPosition={[100, 20, 100]} />
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[20, 25, 10]} intensity={1.3} castShadow shadow-mapSize={[512, 512]} />
-        <GardenScene weather="sunny" tileData={tileData} />
-        <OtherCharacters characters={characters} excludeId={character.id} />
-      </Canvas>
+      <SafeCanvas>
+        <Canvas
+          shadows
+          style={{ position: "absolute", inset: 0 }}
+          gl={{ preserveDrawingBuffer: false, alpha: false, antialias: true }}
+        >
+          <FollowCamera character={character} />
+          <Sky sunPosition={[100, 20, 100]} />
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[20, 25, 10]} intensity={1.3} castShadow shadow-mapSize={[512, 512]} />
+          <GardenScene weather="sunny" tileData={tileData} />
+          <OtherCharacters characters={characters} excludeId={character.id} />
+        </Canvas>
+      </SafeCanvas>
     </div>
   )
 }

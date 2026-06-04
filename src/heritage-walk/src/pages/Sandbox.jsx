@@ -9,6 +9,7 @@ import { generateFeeling, generateDialogue } from "../utils/ai"
 import { findPath, pushApart, setSceneData, getTileData } from "../utils/pathfinding"
 import POVRenderer from "../components/POVRenderer"
 import AddCharacterDialog from "../components/AddCharacterDialog"
+import SafeCanvas from "../components/SafeCanvas"
 import { PRESET_CHARACTERS, PRESET_IDS, SCENE_SIZE, POIS, CONVERSE_DIST, CONVERSE_COOLDOWN_MS, KNOWLEDGE_CARDS } from "../store/gameData"
 
 const DEFAULT_API_URL = "https://api.deepseek.com/v1/chat/completions"
@@ -48,25 +49,27 @@ const StableCanvas = memo(function StableCanvas({ gameStateRef }) {
   const weather = state ? state.weatherRef.current : "sunny"
 
   return (
-    <Canvas shadows camera={{ position: [0, 25, 18], fov: 50 }}
-      style={{ position: "absolute", inset: 0 }}
-      gl={{ preserveDrawingBuffer: false, alpha: false, antialias: true }}>
-      <Sky sunPosition={[100, 20, 100]} />
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[20, 25, 10]} intensity={1.3} castShadow shadow-mapSize={[1024, 1024]} />
-      <GardenScene weather={weather} tileData={getTileData()} />
-      {chars.map(c => (
-        <group key={c.id}>
-          <CharacterMesh character={c} isSelected={c.id === selId}
-            onClick={(char) => {
-              if (state) state.selectedIdRef.current = char.id
-              if (selectCallbackRef.current) selectCallbackRef.current(char.id)
-            }} sceneSize={SCENE_SIZE} />
-          <CharacterLabel character={c} />
-          {c.dialogueText && <SpeechBubble3D character={c} />}
-        </group>
-      ))}
-    </Canvas>
+    <SafeCanvas>
+      <Canvas shadows camera={{ position: [0, 25, 18], fov: 50 }}
+        style={{ position: "absolute", inset: 0 }}
+        gl={{ preserveDrawingBuffer: false, alpha: false, antialias: true }}>
+        <Sky sunPosition={[100, 20, 100]} />
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[20, 25, 10]} intensity={1.3} castShadow shadow-mapSize={[1024, 1024]} />
+        <GardenScene weather={weather} tileData={getTileData()} />
+        {chars.map(c => (
+          <group key={c.id}>
+            <CharacterMesh character={c} isSelected={c.id === selId}
+              onClick={(char) => {
+                if (state) state.selectedIdRef.current = char.id
+                if (selectCallbackRef.current) selectCallbackRef.current(char.id)
+              }} sceneSize={SCENE_SIZE} />
+            <CharacterLabel character={c} />
+            {c.dialogueText && <SpeechBubble3D character={c} />}
+          </group>
+        ))}
+      </Canvas>
+    </SafeCanvas>
   )
 })
 
@@ -177,6 +180,7 @@ const StableMinimap = memo(function StableMinimap({ gameStateRef }) {
 export default function Sandbox() {
   const [searchParams] = useSearchParams()
   const mapMode = searchParams.get("map") || "preset"
+  const apiKey = getApiKey()
 
   const charactersRef = useRef(
     PRESET_CHARACTERS.map((p, i) => ({
@@ -266,6 +270,9 @@ export default function Sandbox() {
           addMessage("系统", "已加载自定义场景地图", "system")
         }
       } catch (e) { console.warn("Custom tilemap load failed", e) }
+    } else {
+      // Register default building obstacles for pathfinding
+      setSceneData(SCENE_SIZE, null, getBuildingObstacles())
     }
   }, [])
 

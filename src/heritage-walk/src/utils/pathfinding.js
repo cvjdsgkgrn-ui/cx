@@ -49,7 +49,7 @@ function isBlocked(gx, gz) {
 
 // A* pathfinding
 export function findPath(fromX, fromZ, toX, toZ) {
-  const half = SCENE_SIZE - 1.5
+  const half = sceneSize - 1.5
   toX = Math.max(-half, Math.min(half, toX))
   toZ = Math.max(-half, Math.min(half, toZ))
 
@@ -129,7 +129,7 @@ export function pushApart(characters, minDist = 0.7) {
         const push = (minDist - dist) / 2
         a.position.x += (dx / dist) * push; a.position.z += (dz / dist) * push
         b.position.x -= (dx / dist) * push; b.position.z -= (dz / dist) * push
-        const half = SCENE_SIZE - 1
+        const half = sceneSize - 1
         for (const c of [a, b]) {
           c.position.x = Math.max(-half, Math.min(half, c.position.x))
           c.position.z = Math.max(-half, Math.min(half, c.position.z))
@@ -139,5 +139,4 @@ export function pushApart(characters, minDist = 0.7) {
   }
 }
 
-const SCENE_SIZE = 30
-export { SCENE_SIZE }
+export { sceneSize as SCENE_SIZE }
