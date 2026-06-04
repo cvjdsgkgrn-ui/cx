@@ -1,9 +1,10 @@
 ﻿import { useRef, useMemo } from "react"
-import { Canvas, useFrame, useThree } from "@react-three/fiber"
+import { useFrame, useThree } from "@react-three/fiber"
 import { Sky, Text } from "@react-three/drei"
 import GardenScene from "./GardenScene"
 import { getTileData } from "../utils/pathfinding"
 import { createCharacterModel, SpeechBubble3D } from "./CharacterSystem"
+import SafeCanvas from "./SafeCanvas"
 
 function FollowCamera({ character }) {
   const { camera } = useThree()
@@ -69,7 +70,7 @@ export default function POVRenderer({ character, characters }) {
 
   return (
     <div style={{ width: "100%", height: "100%", background: "#000" }}>
-      <Canvas
+      <SafeCanvas
         shadows
         style={{ position: "absolute", inset: 0 }}
         gl={{ preserveDrawingBuffer: false, alpha: false, antialias: true }}
@@ -84,7 +85,7 @@ export default function POVRenderer({ character, characters }) {
         {characters.filter(c => c.dialogueText || c.isSpeaking).map(c => (
           <SpeechBubble3D key={c.id} character={c} />
         ))}
-      </Canvas>
+      </SafeCanvas>
     </div>
   )
 }

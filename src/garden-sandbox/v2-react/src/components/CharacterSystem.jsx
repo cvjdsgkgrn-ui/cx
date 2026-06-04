@@ -70,7 +70,7 @@ export function CharacterMesh({ character, isSelected, onClick, sceneSize }) {
       const dist = Math.sqrt(dx * dx + dz * dz)
 
       if (dist > 0.15) {
-        const speed = 0.35
+        const speed = 0.7
         const step = speed * dt
         group.position.x += (dx / dist) * step
         group.position.z += (dz / dist) * step

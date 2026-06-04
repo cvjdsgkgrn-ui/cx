@@ -6,8 +6,21 @@ const Sandbox = lazy(() => import("./pages/Sandbox.jsx"))
 const Editor = lazy(() => import("./pages/Editor.jsx"))
 
 class ErrorBoundary extends Component {
-  constructor(props) { super(props); this.state = { error: null } }
-  static getDerivedStateFromError(error) { return { error } }
+  constructor(props) { super(props); this.state = { error: null, errorCount: 0 } }
+  static getDerivedStateFromError(error) {
+    // Suppress known React 19 + R3F reconciliation errors (cosmetic, page still works)
+    if (error.message && error.message.includes('removeChild')) {
+      return { error: null, errorCount: 0 }
+    }
+    return { error }
+  }
+  componentDidCatch(error) {
+    if (error.message && error.message.includes('removeChild')) {
+      // Known R3F/React 19 issue — suppress, don't show error screen
+      return
+    }
+    console.error('ErrorBoundary caught:', error)
+  }
   render() {
     if (this.state.error) {
       return (

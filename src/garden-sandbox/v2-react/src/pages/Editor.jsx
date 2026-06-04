@@ -1,10 +1,10 @@
-import { useRef, useEffect, useState, useMemo } from "react"
+import { useRef, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Canvas } from "@react-three/fiber"
 import { Sky, OrbitControls } from "@react-three/drei"
-// postprocessing disabled
 import GardenScene from "../components/GardenScene"
+import SafeCanvas from "../components/SafeCanvas"
 import { setSceneData, getTileData } from "../utils/pathfinding"
+import { generateRandomTiles } from "../store/gameData"
 
 const GRID = 30
 const BRUSH_COLORS = { 1: "#777", 2: "#c44", 3: "#48c", 4: "#e2b04a", 5: "#c8a", 6: "#2d8a2d", 7: "#888", 8: "#87CEEB" }
@@ -195,46 +195,19 @@ export default function Editor() {
   }
 
   const randomScene = () => {
-    const types = [1,1,1,2,3,4,5]
-    const newTiles = {}
-    // Random pond
-    const px = Math.floor(Math.random() * 30 - 15)
-    const pz = Math.floor(Math.random() * 30 - 15)
-    for (let dx = -5; dx <= 5; dx++)
-      for (let dz = -5; dz <= 5; dz++)
-        if (dx*dx + dz*dz < 20) newTiles[(px+dx)+","+(pz+dz)] = 3
-    // Random trees
+    const newTiles = generateRandomTiles()
+    // Add trees
     for (let i = 0; i < 25; i++) {
       const x = Math.floor(Math.random() * 50 - 25)
       const z = Math.floor(Math.random() * 50 - 25)
-      if (!newTiles[x+","+z]) newTiles[x+","+z] = 6
+      if (!newTiles[x + "," + z]) newTiles[x + "," + z] = 6
     }
-    // Random rocks
+    // Add rocks
     for (let i = 0; i < 15; i++) {
       const x = Math.floor(Math.random() * 50 - 25)
       const z = Math.floor(Math.random() * 50 - 25)
-      if (!newTiles[x+","+z]) newTiles[x+","+z] = 7
+      if (!newTiles[x + "," + z]) newTiles[x + "," + z] = 7
     }
-    // Random paths
-    for (let i = 0; i < 40; i++) {
-      const x = Math.floor(Math.random() * 50 - 25)
-      const z = Math.floor(Math.random() * 50 - 25)
-      if (!newTiles[x+","+z]) newTiles[x+","+z] = 1
-    }
-    // Random pavilion (5x5)
-    const pavX = Math.floor(Math.random() * 20 - 10)
-    const pavZ = Math.floor(Math.random() * 20 - 10)
-    for (let dx = -2; dx <= 2; dx++)
-      for (let dz = -2; dz <= 2; dz++)
-        if (!newTiles[(pavX+dx)+","+(pavZ+dz)] || newTiles[(pavX+dx)+","+(pavZ+dz)] === 1)
-          newTiles[(pavX+dx)+","+(pavZ+dz)] = 4
-    // Random moon gate (3x3)
-    const mgX = Math.floor(Math.random() * 20 - 10)
-    const mgZ = Math.floor(Math.random() * 20 - 10)
-    for (let dx = -1; dx <= 1; dx++)
-      for (let dz = -1; dz <= 1; dz++)
-        if (!newTiles[(mgX+dx)+","+(mgZ+dz)] || newTiles[(mgX+dx)+","+(mgZ+dz)] === 1)
-          newTiles[(mgX+dx)+","+(mgZ+dz)] = 5
     setTiles(newTiles)
     setInfo("随机生成场景")
   }
@@ -303,19 +276,15 @@ export default function Editor() {
         <div style={{ position: "absolute", top: 6, left: 8, zIndex: 5, color: "#888", fontSize: 10, background: "rgba(0,0,0,0.6)", padding: "3px 8px", borderRadius: 4 }}>
           3D 实时预览
         </div>
-        <Canvas shadows camera={{ position: [0, 22, 16], fov: 50 }} style={{ position: "absolute", inset: 0 }}
+        <SafeCanvas shadows camera={{ position: [0, 22, 16], fov: 50 }} style={{ position: "absolute", inset: 0 }}
           gl={{ preserveDrawingBuffer: false, alpha: false, antialias: true }}>
           <Sky sunPosition={[100, 20, 100]} />
           <ambientLight intensity={0.5} />
           <directionalLight position={[20, 25, 10]} intensity={1.3} castShadow shadow-mapSize={[512, 512]} />
           <GardenScene weather="sunny" tileData={previewTiles} />
           <OrbitControls enablePan enableZoom enableRotate maxPolarAngle={Math.PI / 2.3} minDistance={6} maxDistance={45} />
-          <EffectComposer multisampling={0}>
-            <Bloom luminanceThreshold={0.4} luminanceSmoothing={0.9} intensity={0.3} />
-            <Vignette offset={0.3} darkness={0.5} />
-            <ToneMapping />
-          </EffectComposer>
-        </Canvas>
+          {/* Postprocessing disabled — @react-three/postprocessing not installed */}
+        </SafeCanvas>
       </div>
 
       {/* ── Save Dialog ── */}

@@ -19,7 +19,10 @@ export async function callLLM(messages, apiKey, apiUrl) {
 
   if (!response.ok) {
     const err = await response.text()
-    throw new Error(`API error ${response.status}: ${err}`)
+    if (response.status === 401 || response.status === 403) {
+      throw new Error("API Key 无效或未配置，请在设置中填入有效的 DeepSeek API Key")
+    }
+    throw new Error(`API 错误 (${response.status}): ${err.substring(0, 100)}`)
   }
 
   const data = await response.json()

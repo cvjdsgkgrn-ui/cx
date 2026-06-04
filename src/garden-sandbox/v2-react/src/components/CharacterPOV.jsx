@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback } from "react"
-import { Canvas, useFrame } from "@react-three/fiber"
+import { useFrame } from "@react-three/fiber"
+import SafeCanvas from "./SafeCanvas"
 import { PerspectiveCamera, OrbitControls } from "@react-three/drei"
 import GardenScene from "./GardenScene"
 import { CharacterMesh, CharacterLabel, SpeechBubble3D } from "./CharacterSystem"
@@ -9,7 +10,7 @@ import { SCENE_SIZE } from "../store/gameData"
 export default function CharacterPOV({ character, characters, weather, onClose }) {
   return (
     <div style={{ width: "100%", height: "100%", position: "relative", background: "#000" }}>
-      <Canvas shadows>
+      <SafeCanvas shadows>
         <PerspectiveCamera
           makeDefault
           position={[
@@ -32,7 +33,7 @@ export default function CharacterPOV({ character, characters, weather, onClose }
           </group>
         ))}
         <POVTracker character={character} />
-      </Canvas>
+      </SafeCanvas>
     </div>
   )
 }

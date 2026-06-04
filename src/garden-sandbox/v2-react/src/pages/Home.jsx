@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import { generateRandomTiles } from "../store/gameData"
 
 const styles = {
   body: {
@@ -19,33 +20,6 @@ const styles = {
   h2: { fontSize: 18, margin: "0 0 6px 0", transition: "color .3s" },
   p: { fontSize: 11, color: "#777", lineHeight: 1.5, margin: 0 },
   footer: { position: "fixed", bottom: 16, color: "#444", fontSize: 11 }
-}
-
-function generateRandomTiles() {
-  const tiles = {}
-  const px = Math.floor(Math.random() * 30 - 15)
-  const pz = Math.floor(Math.random() * 30 - 15)
-  for (let dx = -5; dx <= 5; dx++)
-    for (let dz = -5; dz <= 5; dz++)
-      if (dx*dx + dz*dz < 20) tiles[(px+dx)+","+(pz+dz)] = 3
-  for (let i = 0; i < 40; i++) {
-    const x = Math.floor(Math.random() * 50 - 25)
-    const z = Math.floor(Math.random() * 50 - 25)
-    if (!tiles[x+","+z]) tiles[x+","+z] = 1
-  }
-  const pavX = Math.floor(Math.random() * 20 - 10)
-  const pavZ = Math.floor(Math.random() * 20 - 10)
-  for (let dx = -2; dx <= 2; dx++)
-    for (let dz = -2; dz <= 2; dz++)
-      if (!tiles[(pavX+dx)+","+(pavZ+dz)] || tiles[(pavX+dx)+","+(pavZ+dz)] === 1)
-        tiles[(pavX+dx)+","+(pavZ+dz)] = 4
-  const mgX = Math.floor(Math.random() * 20 - 10)
-  const mgZ = Math.floor(Math.random() * 20 - 10)
-  for (let dx = -1; dx <= 1; dx++)
-    for (let dz = -1; dz <= 1; dz++)
-      if (!tiles[(mgX+dx)+","+(mgZ+dz)] || tiles[(mgX+dx)+","+(mgZ+dz)] === 1)
-        tiles[(mgX+dx)+","+(mgZ+dz)] = 5
-  return tiles
 }
 
 export default function Home() {

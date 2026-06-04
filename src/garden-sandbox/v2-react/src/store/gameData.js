@@ -32,6 +32,38 @@ export const WEATHER_PRESETS = {
   night: { sky: "#1a1a3e", light: "#8888cc", intensity: 0.4, ambient: 0.2 }
 }
 
+// Generate a random tilemap for quick-start
+export function generateRandomTiles() {
+  const tiles = {}
+  // Random pond
+  const px = Math.floor(Math.random() * 30 - 15)
+  const pz = Math.floor(Math.random() * 30 - 15)
+  for (let dx = -5; dx <= 5; dx++)
+    for (let dz = -5; dz <= 5; dz++)
+      if (dx * dx + dz * dz < 20) tiles[(px + dx) + "," + (pz + dz)] = 3
+  // Random paths
+  for (let i = 0; i < 40; i++) {
+    const x = Math.floor(Math.random() * 50 - 25)
+    const z = Math.floor(Math.random() * 50 - 25)
+    if (!tiles[x + "," + z]) tiles[x + "," + z] = 1
+  }
+  // Random pavilion (5x5)
+  const pavX = Math.floor(Math.random() * 20 - 10)
+  const pavZ = Math.floor(Math.random() * 20 - 10)
+  for (let dx = -2; dx <= 2; dx++)
+    for (let dz = -2; dz <= 2; dz++)
+      if (!tiles[(pavX + dx) + "," + (pavZ + dz)] || tiles[(pavX + dx) + "," + (pavZ + dz)] === 1)
+        tiles[(pavX + dx) + "," + (pavZ + dz)] = 4
+  // Random moon gate (3x3)
+  const mgX = Math.floor(Math.random() * 20 - 10)
+  const mgZ = Math.floor(Math.random() * 20 - 10)
+  for (let dx = -1; dx <= 1; dx++)
+    for (let dz = -1; dz <= 1; dz++)
+      if (!tiles[(mgX + dx) + "," + (mgZ + dz)] || tiles[(mgX + dx) + "," + (mgZ + dz)] === 1)
+        tiles[(mgX + dx) + "," + (mgZ + dz)] = 5
+  return tiles
+}
+
 // Knowledge cards — educational content about Suzhou gardens
 export const KNOWLEDGE_CARDS = [
   { title: "香山帮营造技艺", text: "香山帮是中国传统建筑营造的重要流派，起源于苏州香山地区，以精湛的木作、瓦作、石作技艺闻名，被列入国家级非物质文化遗产。" },

@@ -1,6 +1,53 @@
 // Simple A* pathfinding on a grid
+import { SCENE_SIZE } from "../store/gameData"
+
 const GRID_SIZE = 60
-const GRID_RES = 1
+
+// ── Binary Heap Priority Queue ──
+class BinaryHeap {
+  constructor(scoreFn) {
+    this.heap = []
+    this.scoreFn = scoreFn
+  }
+  push(node) {
+    this.heap.push(node)
+    this._siftUp(this.heap.length - 1)
+  }
+  pop() {
+    if (this.heap.length === 0) return null
+    const top = this.heap[0]
+    const last = this.heap.pop()
+    if (this.heap.length > 0) {
+      this.heap[0] = last
+      this._siftDown(0)
+    }
+    return top
+  }
+  get size() { return this.heap.length }
+  _siftUp(idx) {
+    while (idx > 0) {
+      const parent = (idx - 1) >> 1
+      if (this.scoreFn(this.heap[idx]) < this.scoreFn(this.heap[parent])) {
+        [this.heap[idx], this.heap[parent]] = [this.heap[parent], this.heap[idx]]
+        idx = parent
+      } else break
+    }
+  }
+  _siftDown(idx) {
+    const len = this.heap.length
+    while (true) {
+      let smallest = idx
+      const left = (idx << 1) + 1
+      const right = (idx << 1) + 2
+      if (left < len && this.scoreFn(this.heap[left]) < this.scoreFn(this.heap[smallest])) smallest = left
+      if (right < len && this.scoreFn(this.heap[right]) < this.scoreFn(this.heap[smallest])) smallest = right
+      if (smallest !== idx) {
+        [this.heap[idx], this.heap[smallest]] = [this.heap[smallest], this.heap[idx]]
+        idx = smallest
+      } else break
+    }
+  }
+}
 
 function worldToGrid(wx, wz) {
   return { x: Math.floor(wx + GRID_SIZE / 2), z: Math.floor(wz + GRID_SIZE / 2) }
@@ -43,7 +90,9 @@ function isBlocked(gx, gz) {
   return !!blockedCells[key]
 }
 
-// A* pathfinding
+function heuristic(a, b) { return Math.abs(a.x - b.x) + Math.abs(a.z - b.z) }
+
+// A* pathfinding — uses binary heap for O(log n) minimum extraction
 export function findPath(fromX, fromZ, toX, toZ) {
   const half = SCENE_SIZE - 1.5
   toX = Math.max(-half, Math.min(half, toX))
@@ -67,18 +116,19 @@ export function findPath(fromX, fromZ, toX, toZ) {
     return findPath(fromX, fromZ, gridToWorld(best.x, best.z).x, gridToWorld(best.x, best.z).z)
   }
 
-  const openSet = new Set()
-  const cameFrom = {}, gScore = {}, fScore = {}
+  const gScore = {}, fScore = {}, cameFrom = {}
   const sk = start.x + "," + start.z
-  openSet.add(sk); gScore[sk] = 0; fScore[sk] = heuristic(start, end)
+  gScore[sk] = 0
+  fScore[sk] = heuristic(start, end)
+
+  // Use binary heap instead of Set — O(log n) pop vs O(n) scan
+  const openHeap = new BinaryHeap(k => fScore[k] || Infinity)
+  openHeap.push(sk)
 
   let iterations = 0
-  while (openSet.size > 0 && iterations < 800) {
+  while (openHeap.size > 0 && iterations < 800) {
     iterations++
-    let current = null, lowest = Infinity
-    for (const k of openSet) {
-      if ((fScore[k] || Infinity) < lowest) { lowest = fScore[k]; current = k }
-    }
+    const current = openHeap.pop()
     const [cx, cz] = current.split(",").map(Number)
 
     if (cx === end.x && cz === end.z) {
@@ -96,23 +146,22 @@ export function findPath(fromX, fromZ, toX, toZ) {
       return s
     }
 
-    openSet.delete(current)
-    for (const [dx, dz] of [[1,0],[-1,0],[0,1],[0,-1]]) {
+    for (const [dx, dz] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
       const nx = cx + dx, nz = cz + dz
       if (isBlocked(nx, nz)) continue
       const nk = nx + "," + nz
       const tentative = (gScore[current] || Infinity) + 1
       if (tentative < (gScore[nk] || Infinity)) {
-        cameFrom[nk] = current; gScore[nk] = tentative
+        cameFrom[nk] = current
+        gScore[nk] = tentative
         fScore[nk] = tentative + heuristic({ x: nx, z: nz }, end)
-        openSet.add(nk)
+        openHeap.push(nk)
       }
     }
   }
+
   return [{ x: fromX, z: fromZ }, { x: toX, z: toZ }]
 }
-
-function heuristic(a, b) { return Math.abs(a.x - b.x) + Math.abs(a.z - b.z) }
 
 export function pushApart(characters, minDist = 0.7) {
   for (let i = 0; i < characters.length; i++) {
@@ -135,5 +184,4 @@ export function pushApart(characters, minDist = 0.7) {
   }
 }
 
-const SCENE_SIZE = 30
 export { SCENE_SIZE }
