@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI Film Studio</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- 顶部工具栏 -->
+    <div id="toolbar">
+        <span class="logo">🎬 AI Film Studio</span>
+        <div class="toolbar-btns">
+            <button onclick="addNode('Input_Character')">+ 角色输入</button>
+            <button onclick="addNode('Input_Env')">+ 环境输入</button>
+            <button onclick="addNode('Input_Script')">+ 剧本输入</button>
+            <span class="sep">|</span>
+            <button onclick="addNode('Output_Storyboard')">+ 分镜生成</button>
+            <button onclick="addNode('Output_Pic_ShotPrompt')">+ 图片描述</button>
+            <button onclick="addNode('Output_Video_ShotPrompt')">+ 视频描述</button>
+            <button onclick="addNode('Output_KeyPic')">+ 关键帧图片</button>
+            <button onclick="addNode('Output_Video')">+ 镜头视频</button>
+            <span class="sep">|</span>
+            <button onclick="openSettings()">⚙ 设置</button>
+            <button onclick="openPresets()">🎛 预设</button>
+            <button onclick="saveProject()">💾 保存</button>
+            <button onclick="clearCanvas()">🗑 清空</button>
+        </div>
+    </div>
+
+    <!-- 主画布区域 -->
+    <div id="canvas-wrap">
+        <svg id="svg-layer"></svg>
+        <div id="canvas"></div>
+    </div>
+
+    <!-- 节点详情弹窗 -->
+    <div id="modal-overlay" class="hidden" onclick="closeModal(event)">
+        <div id="modal" onclick="event.stopPropagation()">
+            <div id="modal-header">
+                <span id="modal-title">节点详情</span>
+                <button onclick="closeModal()">✕</button>
+            </div>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- 设置弹窗 -->
+    <div id="settings-overlay" class="hidden" onclick="closeSettings(event)">
+        <div id="settings-modal" onclick="event.stopPropagation()">
+            <div id="settings-header">
+                <span>⚙ 全局设置</span>
+                <button onclick="closeSettings()">✕</button>
+            </div>
+            <div id="settings-body">
+                <label>LLM API 地址</label>
+                <input id="s-llm-url" placeholder="https://api.openai.com/v1" />
+                <label>LLM API Key</label>
+                <input id="s-llm-key" type="password" placeholder="sk-..." />
+                <label>LLM 模型名</label>
+                <input id="s-llm-model" placeholder="gpt-4o" />
+                <label>ComfyUI 地址</label>
+                <input id="s-comfy-url" placeholder="http://127.0.0.1:8188" />
+                <button class="btn-primary" onclick="saveSettings()">保存设置</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 预设弹窗 -->
+    <div id="presets-overlay" class="hidden" onclick="closePresets(event)">
+        <div id="presets-modal" onclick="event.stopPropagation()" style="min-width:480px;max-width:600px">
+            <div id="settings-header">
+                <span>🎛 全局预设</span>
+                <button onclick="closePresets()">✕</button>
+            </div>
+            <div id="presets-body" style="padding:16px;display:flex;flex-direction:column;gap:12px">
+                <div style="font-weight:bold;color:#7ec8e3;margin-top:4px">🖼 图片生成预设</div>
+                <div style="border:1px solid #1a4a8a;border-radius:6px;padding:10px">
+                    <div style="margin-bottom:6px;color:#aaa">火山引擎</div>
+                    <label>API Key</label>
+                    <input id="p-img-vol-key" type="password" placeholder="ARK_API_KEY" />
+                    <label style="margin-top:6px">默认模型（Endpoint ID）</label>
+                    <input id="p-img-vol-model" placeholder="ep-xxxxxxxx" />
+                </div>
+                <div style="border:1px solid #1a4a8a;border-radius:6px;padding:10px">
+                    <div style="margin-bottom:6px;color:#aaa">Google AI Studio</div>
+                    <label>API Key</label>
+                    <input id="p-img-goog-key" type="password" placeholder="YOUR_API_KEY" />
+                    <label style="margin-top:6px">默认模型</label>
+                    <input id="p-img-goog-model" placeholder="imagen-3.0-generate-002" />
+                    <label style="margin-top:6px">默认 aspect_ratio（留空不发送）</label>
+                    <input id="p-img-goog-ratio" placeholder="16:9" />
+                    <label style="margin-top:6px">默认 negative_prompt（留空不发送）</label>
+                    <input id="p-img-goog-neg" placeholder="模糊, 噪点, 变形" />
+                </div>
+                <div style="font-weight:bold;color:#7ec8e3;margin-top:4px">🎞 视频生成预设</div>
+                <div style="border:1px solid #1a4a8a;border-radius:6px;padding:10px">
+                    <div style="margin-bottom:6px;color:#aaa">火山引擎</div>
+                    <label>API Key</label>
+                    <input id="p-vid-vol-key" type="password" placeholder="ARK_API_KEY" />
+                    <label style="margin-top:6px">默认模型（Endpoint ID）</label>
+                    <input id="p-vid-vol-model" placeholder="ep-xxxxxxxx" />
+                </div>
+                <div style="border:1px solid #1a4a8a;border-radius:6px;padding:10px">
+                    <div style="margin-bottom:6px;color:#aaa">Google AI Studio</div>
+                    <label>API Key</label>
+                    <input id="p-vid-goog-key" type="password" placeholder="YOUR_API_KEY" />
+                    <label style="margin-top:6px">默认模型</label>
+                    <input id="p-vid-goog-model" placeholder="veo-3.1-generate-preview" />
+                    <label style="margin-top:6px">默认 aspect_ratio（留空不发送）</label>
+                    <input id="p-vid-goog-ratio" placeholder="16:9" />
+                    <label style="margin-top:6px">默认 durationSeconds（留空不发送）</label>
+                    <input id="p-vid-goog-dur" type="number" placeholder="8" />
+                </div>
+                <button class="btn-primary" onclick="savePresets()">💾 保存预设</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 错误日志弹窗 -->
+    <div id="log-overlay" class="hidden" onclick="closeLog(event)">
+        <div id="log-modal" onclick="event.stopPropagation()">
+            <div id="log-header">
+                <span>🔴 错误日志</span>
+                <button onclick="closeLog()">✕</button>
+            </div>
+            <pre id="log-body"></pre>
+        </div>
+    </div>
+
+    <!-- 输出预览弹窗 -->
+    <div id="preview-overlay" class="hidden" onclick="closePreview(event)">
+        <div id="preview-modal" onclick="event.stopPropagation()">
+            <div id="preview-header">
+                <span>👁 输出预览</span>
+                <button onclick="document.getElementById('preview-overlay').classList.add('hidden')">✕</button>
+            </div>
+            <div id="preview-body"></div>
+        </div>
+    </div>
+
+    <script src="/static/nodes.js"></script>
+    <script src="/static/editor.js"></script>
+</body>
+
+</html>

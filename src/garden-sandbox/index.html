@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>苏州园林 AI 沙箱 v3.0</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#1a1a2e;font-family:Microsoft YaHei,PingFang SC,sans-serif;overflow:hidden;color:#ccc}
+#app{display:grid;grid-template-columns:30fr 70fr;height:100vh;gap:4px;padding:4px}
+.left{display:flex;flex-direction:column;gap:3px;min-width:0}
+.right{display:flex;flex-direction:column;gap:3px;min-width:0}
+.panel{background:#16213e;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.08)}
+#view3d{flex:1;position:relative;min-height:0}
+#minimap{flex:1;min-height:0}
+#minimap canvas{width:100%;height:100%;display:block;cursor:crosshair}
+#knowledge{background:rgba(15,52,96,0.7);border-radius:6px;padding:4px 8px;font-size:11px;color:#aaa;border-left:2px solid #e2b04a;cursor:pointer;flex-shrink:0}
+.topbar{display:flex;gap:10px;align-items:center;padding:5px 10px;background:rgba(0,0,0,0.25);border-radius:8px;flex-shrink:0}
+.wbtn{padding:3px 7px;border-radius:4px;border:1px solid transparent;background:transparent;font-size:14px;cursor:pointer}
+.wbtn.on{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.1)}
+.settings{background:rgba(15,20,35,0.95);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px;flex-shrink:0}
+.settings input{width:100%;padding:6px 8px;border-radius:4px;border:1px solid #444;background:#0a0f1e;color:#ccc;font-size:11px;margin-bottom:6px}
+.char-list{display:flex;gap:4px;padding:4px 8px;background:rgba(0,0,0,0.2);border-radius:8px;flex-shrink:0;flex-wrap:wrap;align-items:center}
+.cbtn{padding:4px 10px;border-radius:5px;border:none;cursor:pointer;font-size:11px;display:flex;align-items:center;gap:5px}
+.cbtn .cdot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.msg-log{flex:1;background:#0f3460;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;min-height:0}
+.msg-log .scroll{flex:1;overflow-y:auto;padding:6px 8px;font-size:11px;line-height:1.5}
+.msg{margin-bottom:4px;padding:5px 7px;background:rgba(255,255,255,0.03);border-radius:4px}
+.msg.f{border-left:3px solid #e2b04a}
+.msg.d{border-left:3px solid #4ecdc4}
+.msg.s{border-left:3px solid #555}
+.pov-panel{flex-shrink:0;height:35%;position:relative;overflow:hidden;min-height:100px}
+.pov-panel canvas{width:100%;height:100%}
+.overlay{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.tbox{background:#1a3a5c;border-radius:14px;padding:28px 32px;max-width:420px;border:1px solid rgba(255,255,255,0.12);text-align:center;cursor:default}
+.dialog-overlay{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center}
+.dbox{background:#16213e;border-radius:12px;padding:24px;border:1px solid rgba(255,255,255,0.1);max-width:420px;width:90%}
+</style>
+</head>
+<body>
+<div id="app">
+<div class="left">
+  <div class="panel" id="view3d"></div>
+  <div class="panel" id="minimap"><canvas id="mmc"></canvas></div>
+  <div id="knowledge" onclick="GK.toggle()"><b id="ktitle"></b> <span onclick="event.stopPropagation();GK.next()">&#x1F504;</span><br><span id="ktext"></span></div>
+</div>
+<div class="right">
+  <div class="topbar">
+    <div style="display:flex;gap:3px" id="wbar"></div>
+    <button onclick="UI.addChar()" style="padding:4px 10px;border-radius:5px;border:1.5px solid rgba(78,205,196,0.7);background:rgba(78,205,196,0.08);color:#4ecdc4;cursor:pointer;font-size:11px">+ 新角色</button>
+    <div style="flex:1"></div>
+    <button onclick="UI.toggleSettings()" style="width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);background:rgba(0,0,0,0.5);color:#ccc;font-size:14px;cursor:pointer">&#x2699;</button>
+  </div>
+  <div class="settings" id="sp" style="display:none">
+    <div style="color:#aaa;font-size:10px">API Key (DeepSeek)</div>
+    <input type="password" id="apikey" placeholder="sk-...">
+    <div style="color:#aaa;font-size:10px">API URL</div>
+    <input id="apiurl" value="https://api.deepseek.com/v1/chat/completions">
+    <button onclick="UI.saveSettings()" style="width:100%;margin-top:8px;padding:5px;border-radius:4px;border:none;background:#2a6b5e;color:#fff;font-size:11px;cursor:pointer">保存</button>
+  </div>
+  <div class="char-list" id="clist"></div>
+  <div class="msg-log"><div class="scroll" id="mscroll"><div style="color:#555;text-align:center;margin-top:20px">等待 AI 角色开始观察与对话...</div></div></div>
+  <div class="pov-panel" id="ppanel"><div style="display:flex;align-items:center;justify-content:center;height:100%;color:#555;font-size:12px">选择一个角色查看视角</div></div>
+</div>
+</div>
+<div class="overlay" id="tut" style="display:none"><div class="tbox"><div style="font-size:40px" id="temoji"></div><h3 style="color:#fff;margin:8px 0" id="ttitle"></h3><p style="color:#aaa;font-size:13px" id="tdesc"></p><div style="display:flex;gap:10px;justify-content:center;margin-top:12px"><button onclick="tutPrev()" id="tprev" style="display:none;padding:7px 18px;border-radius:6px;border:1px solid rgba(255,255,255,0.15);background:transparent;color:#ccc;cursor:pointer">上一步</button><button onclick="tutNext()" id="tnext" style="padding:7px 22px;border-radius:6px;border:none;background:#4ecdc4;color:#111;font-weight:bold;cursor:pointer">下一步</button></div><div style="display:flex;gap:6px;justify-content:center;margin-top:14px" id="tdots"></div><div onclick="skipTut()" style="margin-top:12px;color:#555;font-size:11px;cursor:pointer">跳过</div></div></div>
+<div class="dialog-overlay" id="addDlg" style="display:none"><div class="dbox"><h3 style="color:#fff;margin:0 0 12px">创建新角色</h3><input id="cname" placeholder="角色名" style="width:100%;padding:8px;border-radius:4px;border:1px solid #444;background:#0a0f1e;color:#ccc;margin-bottom:8px"><input id="crole" placeholder="身份（如：画师、渔翁）" style="width:100%;padding:8px;border-radius:4px;border:1px solid #444;background:#0a0f1e;color:#ccc;margin-bottom:8px"><div style="display:flex;gap:8px"><button onclick="UI.closeAddChar()" style="flex:1;padding:8px;border-radius:4px;border:1px solid #444;background:transparent;color:#ccc;cursor:pointer">取消</button><button onclick="UI.doAddChar()" style="flex:1;padding:8px;border-radius:4px;border:none;background:#4ecdc4;color:#111;font-weight:bold;cursor:pointer">创建</button></div></div></div>
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+</script>
+<script type="module">
+// ====================== CONFIG & STATE ======================
+const SC = 30, CD = 5, CC = 30000;
+const PRESET = [
+  {id:"wa",name:"老周",role:"瓦匠",age:45,color:"#e2b04a",gender:"male",persona:"经验丰富的老瓦匠，香山帮传人，对每一片瓦的位置都精益求精。说话慢条斯理，喜欢用打比方的方式讲道理。"},
+  {id:"mu",name:"小林",role:"木匠",age:28,color:"#4ecdc4",gender:"male",persona:"年轻的木匠学徒，手艺精湛但偶尔毛躁。热爱苏州园林的榫卯结构，随身带着小本子记录灵感。"},
+  {id:"you",name:"芸娘",role:"游客",age:22,color:"#ff6b9d",gender:"female",persona:"建筑系学生，第一次来苏州园林，对一切充满好奇。喜欢拍照、画速写，常问一些天马行空的问题。"}
+];
+const PIDS = new Set(["wa","mu","you"]);
+const POIS = [{x:-10,z:-8},{x:8,z:-5},{x:5,z:5},{x:-6,z:8},{x:0,z:0},{x:-12,z:2},{x:12,z:8}];
+const CARDS = [
+  {t:"香山帮营造技艺",x:"香山帮是中国传统建筑营造的重要流派，起源于苏州香山地区，以精湛的木作、瓦作、石作技艺闻名，被列入国家级非物质文化遗产。"},
+  {t:"苏州园林借景手法",x:"借景是苏州园林的核心设计手法之一——将园外远景「借」入园内视野，使有限空间产生无限延伸之感。"},
+  {t:"榫卯结构",x:"中国传统木结构建筑中，构件之间不使用钉子，而是通过榫头与卯眼的咬合实现连接，具有良好的抗震性能和可拆卸性。"},
+  {t:"月洞门",x:"月洞门是苏州园林中常见的圆形门洞形式，象征「圆满」与「通达」，不仅连通空间，更是一幅天然的「框景」画框。"},
+  {t:"飞檐翘角",x:"飞檐是中国传统建筑屋顶的独特造型，檐角向上翘起，既有利于排水采光，又在视觉上形成了轻盈灵动的美感。"}
+];
+const LM = ["飞檐翘角的亭台","曲径通幽的长廊","碧波荡漾的池塘","精雕细琢的月洞门","层叠错落的假山"];
+function pk(a){return a[Math.floor(Math.random()*a.length)]}
+function rng(n){return Math.random()*n}
+function rng2(a,b){return a+Math.random()*(b-a)}
+
+let chars = PRESET.map(p=>({...p,
+  pos:{x:pk(POIS).x+rng2(-2,2),z:pk(POIS).z+rng2(-2,2)},
+  rot:rng(Math.PI*2),target:null,path:[],resting:false,restT:5+rng(10),
+  conversing:false,speaking:false,dtext:null,observeT:20+rng(20),lastConv:{}
+}));
+let selId = chars[0].id, weather = "sunny", apiKey = localStorage.getItem("dk")||"", apiUrl = "https://api.deepseek.com/v1/chat/completions";
+let msgs = [], kcard = pk(CARDS), kexp = false;
+let tutorialStep = localStorage.getItem("gtut")? -1 : 0;
+
+// ====================== THREE.JS SETUP ======================
+const view3d = document.getElementById("view3d");
+const scene = new THREE.Scene();
+scene.background = new THREE.Color("#1a1a2e");
+scene.fog = new THREE.Fog("#1a1a2e", 30, 80);
+const camera = new THREE.PerspectiveCamera(50, 2, 0.5, 100);
+camera.position.set(0, 25, 18);
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+view3d.appendChild(renderer.domElement);
+
+const labelRenderer = new CSS2DRenderer();
+labelRenderer.domElement.style.position = "absolute";
+labelRenderer.domElement.style.top = "0";
+labelRenderer.domElement.style.pointerEvents = "none";
+view3d.appendChild(labelRenderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.maxPolarAngle = Math.PI/2.3;
+controls.minDistance = 8;
+controls.maxDistance = 50;
+
+// ====================== LIGHTS ======================
+const ambient = new THREE.AmbientLight("#fff8e1", 0.5);
+scene.add(ambient);
+const sun = new THREE.DirectionalLight("#ffffff", 1.3);
+sun.position.set(20, 25, 10);
+sun.castShadow = true;
+sun.shadow.mapSize.set(1024, 1024);
+sun.shadow.camera.near = 0.5;
+sun.shadow.camera.far = 100;
+sun.shadow.camera.left = -40;
+sun.shadow.camera.right = 40;
+sun.shadow.camera.top = 40;
+sun.shadow.camera.bottom = -40;
+scene.add(sun);
+
+// ====================== GROUND ======================
+const groundGeo = new THREE.PlaneGeometry(SC*2, SC*2);
+const groundMat = new THREE.MeshStandardMaterial({color:"#3a5a3a", roughness:0.9});
+const ground = new THREE.Mesh(groundGeo, groundMat);
+ground.rotation.x = -Math.PI/2;
+ground.receiveShadow = true;
+scene.add(ground);
+
+// Grid
+const grid = new THREE.GridHelper(SC*2, 20, "#4a7a4a", "#2a5a2a");
+scene.add(grid);
+
+// ====================== GARDEN BUILDINGS ======================
+function makeRoofMat(){
+  const c = document.createElement("canvas"); c.width=c.height=128;
+  const ctx=c.getContext("2d"); ctx.fillStyle="#3a3430"; ctx.fillRect(0,0,128,128);
+  for(let y=0;y<128;y+=11){const off=(Math.floor(y/11)%2)*9;
+    for(let x=-16+off;x<144;x+=18){ctx.fillStyle=`rgb(${45+Math.floor(y%11/11*10)},${40+Math.floor(y%11/11*10)},${35+Math.floor(y%11/11*10)})`;
+      ctx.beginPath(); ctx.arc(x,y+6,9,0,Math.PI); ctx.fill()}}
+  const t=new THREE.CanvasTexture(c); t.wrapS=t.wrapT=THREE.RepeatWrapping; t.colorSpace=THREE.SRGBColorSpace; return new THREE.MeshStandardMaterial({map:t,roughness:0.7});
+}
+function makeWoodMat(){
+  const c=document.createElement("canvas"); c.width=c.height=128;
+  const ctx=c.getContext("2d"); ctx.fillStyle="#7a4a2a"; ctx.fillRect(0,0,128,128);
+  for(let i=0;i<30;i++){const y=i/30*128; ctx.strokeStyle=`rgba(0,0,0,${0.03+rng(0.05)})`; ctx.lineWidth=1+rng(2); ctx.beginPath(); ctx.moveTo(0,y);
+    for(let x=0;x<128;x+=6)ctx.lineTo(x,y+Math.sin(x*0.03+i)*2.5); ctx.stroke()}
+  const t=new THREE.CanvasTexture(c); t.wrapS=t.wrapT=THREE.RepeatWrapping; t.colorSpace=THREE.SRGBColorSpace; return new THREE.MeshStandardMaterial({map:t,roughness:0.6});
+}
+const roofMat = makeRoofMat(), woodMat = makeWoodMat();
+const stoneMat = new THREE.MeshStandardMaterial({color:"#8a8a80", roughness:0.8});
+const whiteWallMat = new THREE.MeshStandardMaterial({color:"#f5f0e8", roughness:0.7});
+const waterMat = new THREE.MeshStandardMaterial({color:"#3a6a8a", roughness:0.3, metalness:0.5});
+
+// Pavilion at center
+function addPavilion(x,z){
+  const g = new THREE.Group();
+  // base
+  const base = new THREE.Mesh(new THREE.CylinderGeometry(2.5,2.8,0.3,16), stoneMat); base.position.set(x,0.15,z); base.receiveShadow=true; g.add(base);
+  // pillars
+  for(let i=0;i<4;i++){
+    const angle=i*Math.PI/2+Math.PI/4;
+    const px=x+Math.cos(angle)*1.8, pz=z+Math.sin(angle)*1.8;
+    const pillar=new THREE.Mesh(new THREE.CylinderGeometry(0.15,0.15,3,8), woodMat);
+    pillar.position.set(px,1.7,pz); pillar.castShadow=true; g.add(pillar);
+  }
+  // roof cone
+  const roof=new THREE.Mesh(new THREE.ConeGeometry(3.2,1.5,8), roofMat);
+  roof.position.set(x,3.5,z); roof.castShadow=true; g.add(roof);
+  // tip
+  const tip=new THREE.Mesh(new THREE.SphereGeometry(0.2,8,8), new THREE.MeshStandardMaterial({color:"#e2b04a"}));
+  tip.position.set(x,4.3,z); g.add(tip);
+  scene.add(g);
+}
+addPavilion(0,0);
+
+// Moon gate
+function addMoonGate(x,z,ry=0){
+  const g = new THREE.Group();
+  const wall = new THREE.Mesh(new THREE.BoxGeometry(4,2.5,0.4), whiteWallMat);
+  wall.position.set(x,1.25,z); wall.castShadow=true; wall.receiveShadow=true; g.add(wall);
+  // cutout ring
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(1.2,0.08,8,16), new THREE.MeshStandardMaterial({color:"#6a5a4a"}));
+  ring.position.set(x,1.4,z); ring.rotation.y=ry; g.add(ring);
+  g.rotation.y=ry; scene.add(g);
+}
+addMoonGate(5,5,0);
+
+// Bridge
+function addBridge(x,z){
+  const g = new THREE.Group();
+  const arch = new THREE.Mesh(new THREE.CylinderGeometry(1.5,1.5,0.3,8,1,false,0,Math.PI), stoneMat);
+  arch.position.set(x,0.3,z); arch.rotation.z=Math.PI; arch.receiveShadow=true; g.add(arch);
+  const rail1 = new THREE.Mesh(new THREE.TorusGeometry(1.5,0.06,6,8,Math.PI), new THREE.MeshStandardMaterial({color:"#6a5a4a"}));
+  rail1.position.set(x,0.5,z); g.add(rail1);
+  scene.add(g);
+}
+addBridge(-6,8);
+
+// Rock garden
+function addRocks(x,z,count=5){
+  for(let i=0;i<count;i++){
+    const s=0.3+rng(0.8);
+    const rock=new THREE.Mesh(new THREE.IcosahedronGeometry(s,0), new THREE.MeshStandardMaterial({color:`rgb(${120+rng(40)},${110+rng(30)},${100+rng(30)})`,roughness:0.9}));
+    rock.position.set(x+rng2(-3,3),s*0.3,z+rng2(-3,3)); rock.castShadow=true; rock.receiveShadow=true;
+    scene.add(rock);
+  }
+}
+addRocks(-10,0,7);
+
+// Bamboo grove
+function addBamboo(x,z,count=8){
+  for(let i=0;i<count;i++){
+    const bx=x+rng2(-2,2), bz=z+rng2(-2,2), h=3+rng(2);
+    const stalk=new THREE.Mesh(new THREE.CylinderGeometry(0.06,0.08,h,6), new THREE.MeshStandardMaterial({color:"#4a7a3a",roughness:0.7}));
+    stalk.position.set(bx,h/2,bz); stalk.castShadow=true; scene.add(stalk);
+    // leaves cluster
+    const leaves=new THREE.Mesh(new THREE.ConeGeometry(0.3,0.8,6), new THREE.MeshStandardMaterial({color:"#5a8a3a",roughness:0.8}));
+    leaves.position.set(bx,h+0.2,bz); scene.add(leaves);
+  }
+}
+addBamboo(12,8,10);
+
+// Pond
+function addPond(x,z,r=3){
+  const pond = new THREE.Mesh(new THREE.CircleGeometry(r,16), waterMat);
+  pond.rotation.x=-Math.PI/2; pond.position.set(x,0.02,z); pond.receiveShadow=true; scene.add(pond);
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(r,0.15,8,24), stoneMat);
+  ring.rotation.x=-Math.PI/2; ring.position.set(x,0.05,z); ring.receiveShadow=true; scene.add(ring);
+}
+addPond(-10,-6,3.5);
+
+// Corridor
+function addCorridor(sx,sz,ex,ez){
+  const dx=ex-sx, dz=ez-sz, len=Math.sqrt(dx*dx+dz*dz), mx=(sx+ex)/2, mz=(sz+ez)/2, angle=Math.atan2(dx,dz);
+  const g=new THREE.Group();
+  const floor=new THREE.Mesh(new THREE.BoxGeometry(1.5,0.1,len), stoneMat);
+  floor.position.set(mx,0.05,mz); floor.rotation.y=angle; floor.receiveShadow=true; g.add(floor);
+  for(let i=-len/2+1;i<len/2;i+=2){
+    const px=mx+Math.sin(angle)*i, pz=mz+Math.cos(angle)*i;
+    const p=new THREE.Mesh(new THREE.CylinderGeometry(0.1,0.1,2.2,6), woodMat);
+    p.position.set(px-0.6*Math.cos(angle),1.1,pz+0.6*Math.sin(angle)); p.castShadow=true; g.add(p);
+    const p2=p.clone(); p2.position.set(px+0.6*Math.cos(angle),1.1,pz-0.6*Math.sin(angle)); g.add(p2);
+  }
+  const roof=new THREE.Mesh(new THREE.BoxGeometry(2,0.2,len), roofMat);
+  roof.position.set(mx,2.3,mz); roof.rotation.y=angle; roof.castShadow=true; g.add(roof);
+  scene.add(g);
+}
+addCorridor(8,-5,8,5);
+
+// ====================== CHARACTER MESHES ======================
+const charMeshes = new Map();
+function createCharModel(color, isMale, age){
+  const g = new THREE.Group();
+  const s = Math.min(1.15, Math.max(0.55, age<14?0.6:age<25?0.85:age<60?1:0.9));
+  // hat
+  const hat = new THREE.Mesh(new THREE.CylinderGeometry(0.38*s,0.38*s,0.03*s,8), new THREE.MeshStandardMaterial({color:isMale?"#3a5a7c":"#c47a8a",roughness:0.55}));
+  hat.position.y=1.3*s; g.add(hat);
+  const hatCone=new THREE.Mesh(new THREE.ConeGeometry(0.22*s,0.12*s,6), new THREE.MeshStandardMaterial({color:isMale?"#3a5a7c":"#c47a8a",roughness:0.55}));
+  hatCone.position.y=1.38*s; g.add(hatCone);
+  // head
+  const head=new THREE.Mesh(new THREE.SphereGeometry(0.28*s,12,12), new THREE.MeshStandardMaterial({color:"#d4b896",roughness:0.55}));
+  head.position.y=1*s; head.castShadow=true; g.add(head);
+  // body
+  const body=new THREE.Mesh(new THREE.CylinderGeometry(0.22*s,0.26*s,0.55*s,8), new THREE.MeshStandardMaterial({color,roughness:0.6}));
+  body.position.y=0.55*s; body.castShadow=true; g.add(body);
+  // base
+  const base=new THREE.Mesh(new THREE.CylinderGeometry(0.22*s,0.24*s,0.08*s,8), new THREE.MeshStandardMaterial({color:"#8a7a6a",roughness:0.7}));
+  base.position.y=0.2*s; g.add(base);
+  return g;
+}
+
+chars.forEach(c=>{
+  const model = createCharModel(c.color, c.gender==="male", c.age||30);
+  model.position.set(c.pos.x, 0, c.pos.z);
+  model.castShadow = true;
+  c._model = model;
+  scene.add(model);
+  charMeshes.set(c.id, model);
+});
+
+// Labels
+function makeLabel(text, color){
+  const div = document.createElement("div");
+  div.textContent = text;
+  div.style.cssText = `color:#fff;font-size:10px;background:rgba(0,0,0,0.7);padding:1px 5px;border-radius:3px;white-space:nowrap;border-left:2px solid ${color}`;
+  const lbl = new CSS2DObject(div);
+  lbl.position.set(0,1.6,0);
+  return lbl;
+}
+const labels = new Map();
+chars.forEach(c=>{
+  const lbl = makeLabel(c.name, c.color);
+  c._model.add(lbl);
+  labels.set(c.id, lbl);
+});
+
+// ====================== RESIZE ======================
+function resize(){
+  const rect = view3d.getBoundingClientRect();
+  renderer.setSize(rect.width, rect.height);
+  labelRenderer.setSize(rect.width, rect.height);
+  camera.aspect = rect.width / Math.max(rect.height, 1);
+  camera.updateProjectionMatrix();
+}
+window.addEventListener("resize", resize);
+
+// ====================== SIMPLE PATHFINDING ======================
+function findPath(sx, sz, ex, ez){
+  const points = [];
+  const steps = Math.max(2, Math.ceil(Math.sqrt((ex-sx)**2+(ez-sz)**2)/2));
+  for(let i=0; i<=steps; i++){
+    const t = i/steps;
+    points.push({x:sx+(ex-sx)*t, z:sz+(ez-sz)*t});
+  }
+  return points;
+}
+function pushApart(list, minDist){
+  for(let i=0;i<list.length;i++){
+    for(let j=i+1;j<list.length;j++){
+      const a=list[i], b=list[j];
+      const dx=a.pos.x-b.pos.x, dz=a.pos.z-b.pos.z, d=Math.sqrt(dx*dx+dz*dz);
+      if(d<minDist&&d>0.001){const f=(minDist-d)/d*0.1; a.pos.x+=dx*f; a.pos.z+=dz*f; b.pos.x-=dx*f; b.pos.z-=dz*f;}
+    }
+  }
+}
+
+// ====================== AI ======================
+async function callAI(messages){
+  if(!apiKey) throw new Error("请先设置API Key");
+  const resp = await fetch(apiUrl, {method:"POST", headers:{"Content-Type":"application/json",Authorization:`Bearer ${apiKey}`},
+    body:JSON.stringify({model:"deepseek-v4-pro",messages,temperature:0.8,max_tokens:1024,thinking:{type:"enabled"}})});
+  if(!resp.ok){const e=await resp.text(); throw new Error(`API ${resp.status}: ${e}`)}
+  const data = await resp.json();
+  const txt = ((data.choices[0].message.content)||"").trim();
+  if(!txt) throw new Error("API返回空回复");
+  return txt;
+}
+async function genFeeling(c, landmark){
+  const p = `你是${c.name}，一个${c.role}，${c.persona}\n你现在在苏州园林中，正在看「${landmark}」。\n请用第一人称，写一段你看到这个景色的内心感受（20-40字）。语言要自然、有生活气息，符合你的身份和性格。只说感受。`;
+  return callAI([{role:"user",content:p}]);
+}
+async function genDialogue(a, b){
+  const p = `你是一个对话生成器。下面两个人，都在苏州园林里，他们碰巧相遇了。\n${a.name}：${a.role}，${a.persona}\n${b.name}：${b.role}，${b.persona}\n请生成一段自然简短的对话（每人1-2句，总共3-4句）。格式：\n${a.name}：...\n${b.name}：...\n围绕园林景色、建筑工艺或日常生活展开。`;
+  return callAI([{role:"user",content:p}]);
+}
+
+// ====================== UI HELPERS ======================
+function addMsg(speaker, text, type){
+  const t = new Date().toLocaleTimeString("zh-CN",{hour:"2-digit",minute:"2-digit"});
+  msgs.push({id:Date.now()+Math.random(),speaker,text,type,time:t});
+  if(msgs.length>200) msgs=msgs.slice(-200);
+  renderMsgs();
+}
+function renderMsgs(){
+  const el = document.getElementById("mscroll");
+  if(msgs.length===0){el.innerHTML='<div style="color:#555;text-align:center;margin-top:20px">等待 AI 角色开始观察与对话...</div>'; return;}
+  el.innerHTML = msgs.slice(-100).map(m=>`<div class="msg ${m.type==='feeling'?'f':m.type==='dialogue'?'d':'s'}"><div style="font-weight:bold;margin-bottom:2px;font-size:10px;color:${m.type==='feeling'?'#e2b04a':m.type==='dialogue'?'#4ecdc4':'#aaa'}">${m.speaker} <span style="font-weight:normal;font-size:9px;color:#555">${m.time}</span></div><div style="white-space:pre-wrap;color:#ddd">${m.text}</div></div>`).join("");
+  el.scrollTop = el.scrollHeight;
+}
+function renderChars(){
+  const el = document.getElementById("clist");
+  el.innerHTML = chars.map(c=>{
+    const sel = c.id===selId;
+    return `<button class="cbtn" onclick="selectChar('${c.id}')" style="background:${sel?'rgba(255,255,255,0.15)':'rgba(255,255,255,0.04)'};color:${sel?'#fff':'#aaa'}">
+      <span class="cdot" style="background:${c.color}"></span>${c.name}${!PIDS.has(c.id)&&sel?`<span onclick="event.stopPropagation();delChar('${c.id}')" style="margin-left:2px;color:#e74c3c;font-size:14px">&times;</span>`:""}
+    </button>`;
+  }).join("");
+}
+function selectChar(id){ selId=id; renderChars(); updatePOV(); }
+function delChar(id){ if(PIDS.has(id))return; chars=chars.filter(c=>c.id!==id); if(selId===id) selId=chars[0]?.id||null; renderChars(); updatePOV(); addMsg("系统","角色已离开园林","system"); }
+// updatePOV defined below
+
+// Knowledge
+window.GK = {
+  toggle(){ kexp=!kexp; this.render(); },
+  next(){ kcard=pk(CARDS); this.render(); },
+  render(){
+    document.getElementById("ktitle").textContent = kcard.t;
+    document.getElementById("ktext").textContent = kexp? kcard.x : kcard.x.substring(0,30)+"...";
+  }
+};
+GK.render();
+
+// Settings
+window.UI = {
+  toggleSettings(){ document.getElementById("sp").style.display = document.getElementById("sp").style.display==="none"?"block":"none"; },
+  saveSettings(){
+    apiKey = document.getElementById("apikey").value;
+    apiUrl = document.getElementById("apiurl").value;
+    localStorage.setItem("dk", apiKey);
+    this.toggleSettings();
+    addMsg("系统","API 设置已保存","system");
+  },
+  addChar(){ document.getElementById("addDlg").style.display="flex"; },
+  closeAddChar(){ document.getElementById("addDlg").style.display="none"; },
+  doAddChar(){
+    const name = document.getElementById("cname").value.trim();
+    const role = document.getElementById("crole").value.trim();
+    if(!name||!role) return;
+    const colors = ["#e74c3c","#3498db","#2ecc71","#9b59b6","#f39c12","#1abc9c"];
+    const c = {id:"c"+Date.now(),name,role,age:25+rng(20)|0,color:pk(colors),gender:Math.random()>0.5?"male":"female",persona:`${role}，${name}。`,
+      pos:{x:rng2(-SC+3,SC-3),z:rng2(-SC+3,SC-3)},rot:rng(Math.PI*2),target:null,path:[],resting:true,restT:5+rng(10),
+      conversing:false,speaking:false,dtext:null,observeT:20+rng(20),lastConv:{}};
+    chars.push(c);
+    const model = createCharModel(c.color, c.gender==="male", c.age);
+    model.position.set(c.pos.x,0,c.pos.z); model.castShadow=true;
+    c._model = model; scene.add(model); charMeshes.set(c.id, model);
+    const lbl = makeLabel(c.name, c.color); model.add(lbl); labels.set(c.id, lbl);
+    renderChars(); UI.closeAddChar();
+    document.getElementById("cname").value = document.getElementById("crole").value = "";
+    addMsg("系统",name+" 加入了园林","system");
+  }
+};
+
+// Tutorial
+const tutSteps = [
+  {e:"🏯",t:"欢迎来到苏州园林 AI 沙箱",d:"左侧3D鸟瞰园林，AI角色在园中漫步。右侧是对话记录和角色视角。"},
+  {e:"👆",t:"选择一个角色",d:"点击角色列表中的角色即可选中。选中后在右下角可以看到ta的视角。"},
+  {e:"💬",t:"观察角色对话",d:"角色会在园林中观察景色并彼此交谈。对话会出现在右侧面板中。"},
+  {e:"👁️",t:"查看角色视角",d:"右下角POV窗口显示所选角色的第一人称视角。试试切换不同角色！"},
+  {e:"☀️",t:"切换天气与时间",d:"点击天气按钮切换晴天/多云/黄昏/夜晚，感受不同氛围。"},
+  {e:"🎉",t:"开始探索吧！",d:"你已掌握基本操作！点击任意位置关闭教程，开始探索吧。"}
+];
+function showTut(){
+  if(tutorialStep<0||tutorialStep>=6){ document.getElementById("tut").style.display="none"; return; }
+  document.getElementById("tut").style.display="flex";
+  const s = tutSteps[tutorialStep];
+  document.getElementById("temoji").textContent = s.e;
+  document.getElementById("ttitle").textContent = s.t;
+  document.getElementById("tdesc").textContent = s.d;
+  document.getElementById("tprev").style.display = tutorialStep>0?"inline-block":"none";
+  document.getElementById("tnext").textContent = tutorialStep<5?"下一步":"开始探索";
+  document.getElementById("tdots").innerHTML = [0,1,2,3,4,5].map(i=>`<div style="width:22px;height:4px;border-radius:2px;background:${i===tutorialStep?'#4ecdc4':'rgba(255,255,255,0.15)'}"></div>`).join("");
+}
+window.tutNext = function(){
+  tutorialStep++;
+  if(tutorialStep>=6){ localStorage.setItem("gtut","1"); tutorialStep=-1; document.getElementById("tut").style.display="none"; return; }
+  showTut();
+};
+window.tutPrev = function(){ if(tutorialStep>0){tutorialStep--; showTut();} };
+window.skipTut = function(){ localStorage.setItem("gtut","1"); tutorialStep=-1; document.getElementById("tut").style.display="none"; };
+showTut();
+
+// Weather
+function setWeather(w){
+  weather = w;
+  const configs = {
+    sunny:{amb:"#fff8e1",ambI:0.5,sun:"#ffffff",sunI:1.3,sky:0x87CEEB,gnd:0x3a5a3a},
+    cloudy:{amb:"#c8c8d0",ambI:0.4,sun:"#d8d8e0",sunI:0.9,sky:0xb0b8c0,gnd:0x3a4a3a},
+    dusk:{amb:"#f4a460",ambI:0.35,sun:"#f4c78e",sunI:1.0,sky:0xe8945a,gnd:0x2a3a2a},
+    night:{amb:"#4466aa",ambI:0.18,sun:"#8899cc",sunI:0.3,sky:0x1a1a3e,gnd:0x1a2a1a}
+  };
+  const cfg = configs[w];
+  ambient.color.set(cfg.amb); ambient.intensity = cfg.ambI;
+  sun.color.set(cfg.sun); sun.intensity = cfg.sunI;
+  scene.background = new THREE.Color(cfg.sky);
+  scene.fog = new THREE.Fog(cfg.sky, 30, 80);
+  ground.material.color.set(cfg.gnd);
+  document.querySelectorAll(".wbtn").forEach(b=>b.classList.toggle("on", b.dataset.w===w));
+}
+document.getElementById("wbar").innerHTML = [
+  {w:"sunny",i:"☀️"},{w:"cloudy",i:"☁️"},{w:"dusk",i:"🌅"},{w:"night",i:"🌙"}
+].map(x=>`<button class="wbtn ${weather===x.w?'on':''}" data-w="${x.w}" onclick="setWeather('${x.w}')">${x.i}</button>`).join("");
+setWeather("sunny");
+
+// ====================== GAME LOOP ======================
+setInterval(() => {
+  if(document.hidden) return;
+  const now = Date.now();
+  pushApart(chars, 1.2);
+  let ac = 0;
+  for(const c of chars){
+    if(c.conversing) continue;
+    if(c.resting){
+      c.restT -= 0.5;
+      if(c.restT <= 0){
+        c.resting = false; c.restT = 0;
+        const poi = pk(POIS);
+        const wx = Math.max(-SC+3, Math.min(SC-3, poi.x+rng2(-3,3)));
+        const wz = Math.max(-SC+3, Math.min(SC-3, poi.z+rng2(-3,3)));
+        const path = findPath(c.pos.x, c.pos.z, wx, wz);
+        if(path.length>1){ c.path = path.slice(1); c.target = path[1]; }
+      }
+      continue;
+    }
+    if(c.target||c.path.length>0) continue;
+    if(!c.resting){ c.resting=true; c.restT=6+rng(12); }
+
+    c.observeT -= 0.5;
+    if(c.observeT<=0){
+      c.observeT = 30+rng(40);
+      if(apiKey) genFeeling(c, pk(LM)).then(t=>addMsg(c.name,t,"feeling")).catch(()=>{});
+    }
+
+    for(const o of chars){
+      if(o.id===c.id||o.conversing||c.conversing) continue;
+      const d = Math.sqrt((c.pos.x-o.pos.x)**2+(c.pos.z-o.pos.z)**2);
+      if(d<CD && (now-(c.lastConv[o.id]||0))>CC){
+        c.conversing=o.conversing=true; c.speaking=o.speaking=true;
+        c.target=o.target=null; c.path=o.path=[];
+        c.lastConv[o.id]=o.lastConv[c.id]=now;
+        if(apiKey){
+          genDialogue(c,o).then(t=>{
+            addMsg(c.name+" & "+o.name, t, "dialogue");
+            c.dtext=t.substring(0,60); o.dtext=t.substring(0,60);
+            setTimeout(()=>{c.conversing=c.speaking=false;c.dtext=null;o.conversing=o.speaking=false;o.dtext=null;},6000);
+          }).catch(e=>{c.conversing=o.conversing=c.speaking=o.speaking=false; addMsg("系统","对话出错:"+e.message,"system");});
+        }
+        ac++; if(ac>=2) break;
+      }
+    }
+    if(c.path.length>0&&!c.target&&!c.resting){c.target=c.path[0];c.path=c.path.slice(1);}
+  }
+}, 350);
+
+// ====================== CHARACTER MOVEMENT ======================
+let lastTime = performance.now();
+function animChar(now){
+  const dt = Math.min((now-lastTime)/1000, 0.1);
+  lastTime = now;
+  for(const c of chars){
+    if(!c.target||c.resting||c.conversing) continue;
+    const dx = c.target.x - c.pos.x, dz = c.target.z - c.pos.z;
+    const dist = Math.sqrt(dx*dx+dz*dz);
+    if(dist > 0.15){
+      const speed = 2.5;
+      const step = speed * dt;
+      c.pos.x += (dx/dist)*step;
+      c.pos.z += (dz/dist)*step;
+      c.rot = Math.atan2(dx, dz);
+    } else {
+      c.pos.x = c.target.x; c.pos.z = c.target.z;
+      if(c.path.length>0){c.target=c.path[0];c.path=c.path.slice(1);}
+      else c.target = null;
+    }
+    const m = c._model;
+    if(m){ m.position.x = c.pos.x; m.position.z = c.pos.z; m.rotation.y = c.rot; }
+  }
+}
+
+// ====================== MINIMAP ======================
+const mmCanvas = document.getElementById("mmc");
+const mmCtx = mmCanvas.getContext("2d");
+function drawMinimap(){
+  const rect = mmCanvas.parentElement.getBoundingClientRect();
+  const w = rect.width, h = rect.height;
+  if(w<2||h<2) return;
+  const dpr = window.devicePixelRatio||1;
+  if(mmCanvas.width!==w*dpr||mmCanvas.height!==h*dpr){
+    mmCanvas.width=w*dpr; mmCanvas.height=h*dpr; mmCanvas.style.width=w+"px"; mmCanvas.style.height=h+"px";
+    mmCtx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  mmCtx.clearRect(0,0,w,h);
+  mmCtx.fillStyle="#16213e"; mmCtx.fillRect(0,0,w,h);
+  const scale = Math.min(w,h)/(SC*2.3), ox=w/2, oy=h/2;
+  mmCtx.strokeStyle="rgba(255,255,255,0.06)"; mmCtx.lineWidth=0.5;
+  for(let i=-SC;i<=SC;i+=5){
+    mmCtx.beginPath(); mmCtx.moveTo(ox+i*scale,oy-SC*scale); mmCtx.lineTo(ox+i*scale,oy+SC*scale); mmCtx.stroke();
+    mmCtx.beginPath(); mmCtx.moveTo(ox-SC*scale,oy+i*scale); mmCtx.lineTo(ox+SC*scale,oy+i*scale); mmCtx.stroke();
+  }
+  for(const c of chars){
+    const cx=ox+c.pos.x*scale, cy=oy+c.pos.z*scale, r=c.id===selId?5:3;
+    mmCtx.fillStyle=c.color; mmCtx.beginPath(); mmCtx.arc(cx,cy,r,0,Math.PI*2); mmCtx.fill();
+    if(c.id===selId){mmCtx.strokeStyle="#fff";mmCtx.lineWidth=1.5;mmCtx.beginPath();mmCtx.arc(cx,cy,r+2,0,Math.PI*2);mmCtx.stroke();}
+  }
+}
+mmCanvas.addEventListener("click", e=>{
+  const rect=mmCanvas.getBoundingClientRect(), mx=e.clientX-rect.left, my=e.clientY-rect.top;
+  const w=rect.width, h=rect.height, scale=Math.min(w,h)/(SC*2.3), ox=w/2, oy=h/2;
+  for(const c of chars){
+    if(Math.sqrt((mx-ox-c.pos.x*scale)**2+(my-oy-c.pos.z*scale)**2)<10){selectChar(c.id);return;}
+  }
+});
+mmCanvas.addEventListener("contextmenu", e=>{
+  e.preventDefault(); if(!selId) return;
+  const rect=mmCanvas.getBoundingClientRect(), mx=e.clientX-rect.left, my=e.clientY-rect.top;
+  const w=rect.width, h=rect.height, scale=Math.min(w,h)/(SC*2.3), ox=w/2, oy=h/2;
+  const wx=(mx-ox)/scale, wz=(my-oy)/scale;
+  const c=chars.find(x=>x.id===selId); if(!c) return;
+  const path=findPath(c.pos.x, c.pos.z, Math.max(-SC+2,Math.min(SC-2,wx)), Math.max(-SC+2,Math.min(SC-2,wz)));
+  if(path.length>1){c.target=path[1];c.path=path.slice(2);c.resting=false;c.restT=0;}
+});
+
+// ====================== POV RENDERER ======================
+const povEl = document.getElementById("ppanel");
+let povScene, povCam, povRenderer, povChars = [];
+function initPOV(){
+  povScene = new THREE.Scene();
+  povScene.background = new THREE.Color(0x87CEEB);
+  povCam = new THREE.PerspectiveCamera(60, 2, 0.1, 100);
+  povRenderer = new THREE.WebGLRenderer({antialias:true});
+  povRenderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  povEl.innerHTML = "";
+  povEl.appendChild(povRenderer.domElement);
+  // sky
+  povScene.add(new THREE.AmbientLight("#fff8e1",0.5));
+  const dl = new THREE.DirectionalLight("#ffffff",1.3); dl.position.set(20,25,10); povScene.add(dl);
+  // ground
+  const gnd = new THREE.Mesh(new THREE.PlaneGeometry(SC*2,SC*2), new THREE.MeshStandardMaterial({color:"#3a5a3a",roughness:0.9}));
+  gnd.rotation.x=-Math.PI/2; gnd.receiveShadow=true; povScene.add(gnd);
+}
+function updatePOV(){
+  if(!selId){
+    povEl.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:#555;font-size:12px">选择一个角色查看视角</div>';
+    povRenderer=null; return;
+  }
+  if(!povRenderer) initPOV();
+  const c = chars.find(x=>x.id===selId); if(!c) return;
+  // Update camera
+  const rx=Math.sin(c.rot||0), rz=Math.cos(c.rot||0);
+  povCam.position.set(c.pos.x-rx*2.5, 1.6, c.pos.z-rz*2.5);
+  povCam.lookAt(c.pos.x+rx*5, 1.0, c.pos.z+rz*5);
+  // Update other character models in POV
+  povChars.forEach(m=>povScene.remove(m));
+  povChars = [];
+  for(const o of chars){
+    if(o.id===c.id) continue;
+    const model = createCharModel(o.color, o.gender==="male", o.age||30);
+    model.position.set(o.pos.x, 0, o.pos.z); model.rotation.y = o.rot||0;
+    povScene.add(model); povChars.push(model);
+  }
+  const rect = povEl.getBoundingClientRect();
+  povRenderer.setSize(rect.width, rect.height);
+  povCam.aspect = rect.width/Math.max(rect.height,1);
+  povCam.updateProjectionMatrix();
+  povRenderer.render(povScene, povCam);
+}
+setInterval(updatePOV, 500);
+
+// ====================== RENDER LOOP ======================
+function render(now){
+  requestAnimationFrame(render);
+  resize();
+  animChar(now);
+  controls.update();
+  renderer.render(scene, camera);
+  labelRenderer.render(scene, camera);
+  drawMinimap();
+}
+resize();
+renderChars();
+requestAnimationFrame(render);
+
+// POV label
+const povLabel = document.createElement("div");
+povLabel.style.cssText = "position:absolute;top:6px;left:6px;z-index:5;background:rgba(0,0,0,0.7);color:#fff;padding:2px 8px;border-radius:3px;font-size:10px;font-weight:bold;border-left:2px solid #4ecdc4";
+povEl.appendChild(povLabel);
+setInterval(()=>{
+  const c = chars.find(x=>x.id===selId);
+  povLabel.textContent = c ? `👁 ${c.name} 的视角` : "";
+}, 500);
+
+console.log("[Garden v3.0] Ready");
+</script>
+</body>
+</html>

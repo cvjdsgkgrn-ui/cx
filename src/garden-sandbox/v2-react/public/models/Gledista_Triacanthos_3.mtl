@@ -1,0 +1,59 @@
+# Blender MTL File: 'Gledista_Triacanthos.blend'
+# Material Count: 5
+
+newmtl Material__0
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\Gleditsia triacanthos\\maps_2\\gleditsia triacanthos bark reflect.jpg
+
+newmtl Material__1
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\Gleditsia triacanthos\\maps_2\\gleditsia triacanthos bark2 a1.jpg
+
+newmtl Material__2
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\Gleditsia triacanthos\\maps_2\\gleditsia triacanthos stem.jpg
+
+newmtl Material__3
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\Gleditsia triacanthos\\maps_2\\gleditsia triacanthos leaf color a1.jpg
+map_d C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\Gleditsia triacanthos\\maps_2\\gleditsia triacanthos leaf mask.jpg
+
+newmtl Material__4
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588000 0.588000 0.588000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\Gleditsia triacanthos\\maps_2\\gleditsia triacanthos beans color.jpg
+map_d C:\\Users\\13015\\Dropbox\\___ZoeMcCarthy\\Russia\\Russia Content\\Gleditsia triacanthos\\maps_2\\gleditsia triacanthos beans mask.jpg

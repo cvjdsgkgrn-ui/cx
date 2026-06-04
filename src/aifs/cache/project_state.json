@@ -1,0 +1,55 @@
+{
+  "nodes": {
+    "Input_Character_1774491817603": {
+      "data": {},
+      "error_log": "",
+      "id": "Input_Character_1774491817603",
+      "output": null,
+      "output_images": [],
+      "output_videos": [],
+      "status": "idle",
+      "type": "Input_Character",
+      "x": 9.262123437928153,
+      "y": -87.78490807228764
+    },
+    "Input_Env_1774491875753": {
+      "data": {},
+      "error_log": "",
+      "id": "Input_Env_1774491875753",
+      "output": null,
+      "output_images": [],
+      "output_videos": [],
+      "status": "idle",
+      "type": "Input_Env",
+      "x": 0.8728141878028737,
+      "y": 119.25874242498901
+    },
+    "Output_Storyboard_1774491879055": {
+      "data": {},
+      "error_log": "",
+      "id": "Output_Storyboard_1774491879055",
+      "output": null,
+      "output_images": [],
+      "output_videos": [],
+      "status": "idle",
+      "type": "Output_Storyboard",
+      "x": 550.4577248343346,
+      "y": -11.541697162111404
+    }
+  },
+  "edges": [
+    {
+      "dstPort": "script",
+      "id": "e_1774492076200",
+      "source": "Input_Character_1774491817603",
+      "srcPort": "characters",
+      "target": "Output_Storyboard_1774491879055"
+    }
+  ],
+  "settings": {
+    "comfyui_url": "",
+    "llm_key": "sk-ykwoinvouyxjbwamucyyovfesfeokiwsospjuhywlowyjplw",
+    "llm_model": "Wan-AI/Wan2.2-I2V-A14B",
+    "llm_url": "https://api.siliconflow.cn/v1"
+  }
+}

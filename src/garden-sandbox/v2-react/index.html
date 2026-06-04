@@ -1,0 +1,34 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>苏州园林 AI 沙箱</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+  </head>
+  <body>
+      <script>
+    var _errs = [];
+    window.addEventListener('error', function(e) {
+      _errs.push(e.message + '|' + (e.filename||'') + ':' + (e.lineno||''));
+      document.getElementById('root').innerHTML = '<div style=color:red;padding:20px;font-family:monospace>' + _errs.join('<br>') + '</div>';
+    });
+    console.log = (function(oldLog) {
+      return function() {
+        oldLog.apply(console, arguments);
+        var div = document.getElementById('_log');
+        if (!div) { div = document.createElement('div'); div.id = '_log'; div.style.cssText='position:fixed;bottom:0;left:0;right:0;max-height:200px;overflow:auto;background:rgba(0,0,0,0.9);color:#0f0;font:11px monospace;z-index:9999;padding:8px'; document.body.appendChild(div); }
+        var args = Array.from(arguments).map(a => typeof a === 'object' ? JSON.stringify(a) : String(a));
+        div.innerHTML += args.join(' ') + '<br>';
+        div.scrollTop = div.scrollHeight;
+      }
+    })(console.log);
+  </script>
+  <div id="root"></div>
+    <script type="module" src="/src/main.jsx?v=20260603214102"></script>
+  </body>
+</html>
+
