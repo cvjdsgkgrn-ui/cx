@@ -1,0 +1,31 @@
+# 依赖目录
+node_modules/
+
+# Python 虚拟环境
+.venv/
+__pycache__/
+*.pyc
+
+# 构建产物
+dist/
+
+# 游戏存档备份
+tests/game-saves-backup/
+
+# 临时/归档脚本
+tests/archived-temp-scripts/
+tests/archived-*/
+
+# 截图
+tests/*.png
+tests/*.jpg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
