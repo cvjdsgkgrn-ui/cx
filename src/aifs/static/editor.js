@@ -573,7 +573,20 @@ async function savePresets() {
 // ── 节点数据更新 ──────────────────────────────────────────
 function updateNodeData(id, key, val) {
     if (!nodes[id].data) nodes[id].data = {};
-    nodes[id].data[key] = val;
+    try {
+        // Treat commonly-sensitive keys specially: store raw value only in sessionStorage,
+        // and persist only a masked indicator in node data.
+        const sensitiveRe = /api_key|img_api_key|vid_api_key|apikey|llm_key|client_secret|secret/i;
+        if (sensitiveRe.test(key) && !key.endsWith('_masked')) {
+            try { sessionStorage.setItem(`aifs.${key}.${id}`, val || ''); } catch (e) { /* ignore */ }
+            nodes[id].data[key + '_masked'] = 'stored_in_session';
+        } else {
+            nodes[id].data[key] = val;
+        }
+    } catch (e) {
+        // fallback to simple assignment
+        nodes[id].data[key] = val;
+    }
     persistState();
 }
 

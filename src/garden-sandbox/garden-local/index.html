@@ -94,6 +94,7 @@ body{background:#1a1a2e;font-family:"Microsoft YaHei","PingFang SC",sans-serif;o
 <div id="settings-panel">
   <div class="settings-inner">
     <label>' + esc("API Key") + '"</label>
+    <!-- SECURITY: 不要在客户端或源码中存放长期 API Key。优先使用服务端代理或短期 token。参见 SECURITY.md -->
     <input id="api-key" type="password" placeholder="sk-...">
     <label>' + esc("API URL") + '"</label>
     <input id="api-url" value="https://api.deepseek.com/v1/chat/completions">
