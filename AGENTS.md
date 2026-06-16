@@ -14,7 +14,7 @@
 - 在回复开头简要说明将使用哪个/哪些 skill。
 
 ## 项目技术栈（全局默认）
-- Three.js 项目：统一使用 0.160 版本，CDN 为 `https://unpkg.com/three@0.160.0/`，采用 `<script type="importmap">` + `*.module.js` 模式。
+- Three.js 项目：建议统一使用 0.174.0 版本以匹配子项目依赖；如果需要兼容旧项目，可在子项目中记录例外。CDN 为 `https://unpkg.com/three@0.174.0/`，采用 `<script type="importmap">` + `*.module.js` 模式。
 - 纯静态项目（`src/` 下的单文件 HTML）：零构建工具，直接浏览器打开 HTML 即可。
 - 依赖管理：仅 playwright 一个 npm 依赖，其他全部 CDN。
 

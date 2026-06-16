@@ -252,6 +252,21 @@ const DEFAULT_WORKFLOWS = {
     }
 };
 
+// SECURITY helper: store sensitive keys in sessionStorage and keep only a masked indicator in node data.
+function handleSensitiveInput(nodeId, key, el) {
+    console.warn('SECURITY: Sensitive keys should not be persisted client-side. Stored in sessionStorage only for this session. Prefer a server-side proxy.');
+    try {
+        if (typeof sessionStorage !== 'undefined') {
+            // store raw key only in sessionStorage (cleared on tab close)
+            sessionStorage.setItem('aifs.' + key + '.' + nodeId, (el && el.value) || el || '');
+        }
+    } catch (e) { /* ignore */ }
+    try {
+        // persist only a masked indicator into node data so users know a key exists without storing it
+        updateNodeData(nodeId, key + '_masked', 'stored_in_session');
+    } catch (e) { /* ignore */ }
+}
+
 // ── 弹窗渲染 ───────────────────────────────────────────────
 function renderModalBody(node) {
     const d = node.data || {};
@@ -266,7 +281,8 @@ function renderModalBody(node) {
     </div>
     <div class="form-group">
       <label>API Key:</label>
-      <input type="password" value="${d.api_key || ''}" onchange="updateNodeData('${node.id}', 'api_key', this.value)">
+      <!-- SECURITY: sensitive key saved to sessionStorage only; prefer backend proxy -->
+      <input type="password" value="${d.api_key || ''}" onchange="handleSensitiveInput('${node.id}', 'api_key', this)">
     </div>
     <div class="form-group">
       <label>Model:</label>
